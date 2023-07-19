@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="goback()">back</button>
+    <button onclick="goforward()">forward</button>
+    <button onclick="go()">go</button>
+    <script type="text/javascript">
+    function goback(){
+        window.history.back();
+    } //untuk kembali
+    function goforward(){
+        window.history.forward();
+    } //untuk maju 
+    function go(){
+        window.history.go(3);
+    } //untuk maju / kembali sesuai halaman yg ditentukan
+    </script>
+    
+</body>
+</html>

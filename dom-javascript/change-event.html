@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>pilih buah</p>
+
+    <select name="" id="menu" onchange="pilihmenu()">
+        <option value="apel">apel</option>
+        <option value="anggur">anggur</option>
+        <option value="jeruk">jeruk</option>
+        <option value="melon">melon</option>
+        <option value="nangka">nangka</option>
+        <option value="belimbing">belimbing</option>
+        <option value="salak">salak</option>
+    </select>
+    <p id="pilih"></p>
+    <script type="text/javascript">
+        function pilihmenu(){
+        var a = document.getElementById('menu').value;
+        document.getElementById('pilih').innerHTML = "kamu memilih buah "+ a
+        }
+
+    </script>
+</body>
+</html>

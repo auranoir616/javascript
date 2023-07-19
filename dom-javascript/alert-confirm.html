@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>confirm alert</title>
+</head>
+<body>
+    <button onclick="andayakin()">klik saya</button>
+
+    <p id="hasil"></p>
+    <script type="text/javascript">
+        function andayakin(){
+            var isi;
+            var a = confirm("anda yakin?");
+        if(a == true){
+            isi = "anda sudah yakin";
+        }else{
+            isi = "anda belum yakin";
+        }
+        document.getElementById("hasil").innerHTML = isi;
+        }
+    </script>
+</body>
+</html>

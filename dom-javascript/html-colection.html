@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML collection</title>
+</head>
+<body>
+    <h1 id="h1"></h1>
+    <p>paragraf pertama</p> <!--index ke 0-->
+    <p>paragraf kedua</p>   <!--index ke 1-->
+    <p>paragraf ketiga</p>  <!--index ke 2-->
+   
+    <button onclick="tombol()">jalan</button>
+
+    <script type="text/javascript">
+        function tombol(){
+            var a = document.getElementsByTagName('p');
+            //mendapatkan element <p> dan disimpan di var a
+      
+            for(var i=0;i<a.length;i++)
+            //menampilkan semua tag <P> pada alert dengan loop
+                alert(a.item(i).innerHTML)
+
+            var b = a.item(1).innerHTML;
+            //mengakses tag <p> index ke 1 disimpan di b
+            document.getElementById('h1').innerHTML = b
+            //mengganti isi <h1> dengan isi var b
+
+            
+        }
+    </script>
+    
+</body>
+</html>

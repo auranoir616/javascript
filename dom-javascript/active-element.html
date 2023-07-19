@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item</title>
+</head>
+<body onclick="aktif()"> <!-- onclick ditulis pada body-->
+    <input type="text" value="isi">
+    <button type="button" name="button">klik</button><br><br>
+     <p id="contoh">contoh</p>
+     
+ <script type="text/javascript">
+    function aktif(){
+        var a = document.activeElement.tagName;
+        //mendapatkan elemen yg aktif yg disimpan pada var a
+        document.getElementById('contoh').innerHTML = a;
+        //mengubah elemen p dengan nilai dari var a yaitu elemen yang sedang aktif
+    }
+ </script>
+    
+</body>
+</html>

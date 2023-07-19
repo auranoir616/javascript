@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <h1>FORM </h1>
+    <table cellpadding="3">
+        <tr>
+            <td><p>no </p></td> 
+            <td>:</td>
+            <td><input type="number" min="1" max="50" id="no" name="no" class="no" value=""></td>
+        </tr>
+        
+        <tr>
+            <td><p>nama </p></td>
+            <td>:</td>
+            <td><input type="text" id="nama" name="nama" class="nama"></td>
+        </tr>
+        <tr>
+            <td>umur</td>
+            <td>:</td>
+            <td><input type="number" min='10' max="70" name="umur" id="umur"></td>
+        </tr>
+        
+        <tr>
+            <td><p>gender </p></td>
+            <td>:</td>
+            <td>
+                <input type="checkbox" id="genderMale" class="gendermale"><label for="genderMale">male</label> 
+                <input type="checkbox" id="genderFemale" class="genderfemale"><label for="genderFemale">female</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>pendidikan </td>
+            <td>:</td>
+            <td>
+                <select id="pendidikan" class="pendidikan">
+                    <option value="SD">SD</option>
+                    <option value="SMP">SMP</option>
+                    <option value="SMA">SMA</option>
+                    <option value="KULIAH">KULIAH</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <button name="tombol" id="tombol" onclick="tombol()">input</button>
+    <br><br>
+    <table border="1" id="outputTable">
+        <tr>
+            <th>no</th>
+            <th>nama</th>
+            <th>umur</th>
+            <th>gender</th>
+            <th>pendidikan</th>
+        </tr>
+    </table>
+    <script>
+        function sendDataToGoogleSheet() {
+        // Mengambil nilai dari input
+        var no = document.getElementById("no").value;
+        var nama = document.getElementById("nama").value;
+        var genderMale = document.getElementById("genderMale").checked;
+        var genderFemale = document.getElementById("genderFemale").checked;
+        var gender = genderMale ? "Male" : (genderFemale ? "Female" : "");
+        var pendidikan = document.getElementById("pendidikan").value;
+        
+        // Mengirim data ke Google Spreadsheet
+        gapi.load('client', function() {
+          gapi.client.init({
+            apiKey: 'AIzaSyCWgcmhL1_ezGF8gxTeCQaf3pWFGCA3_2c',
+            clientId: '899915928272-t2bks04t93t4tvtjshk04mvv648d5i0a.apps.googleusercontent.com',
+            discoveryDocs: ['https://docs.google.com/spreadsheets/d/1-Ckc7FoTwf4Ge5QUjnH8Nz9CRWnuur-TsZL0xfdnI84/edit#gid=0'],
+            scope: 'https://www.googleapis.com/auth/spreadsheets'
+          }).then(function() {
+            gapi.client.load('sheets', 'v4', function() {
+              var spreadsheetId = '1-Ckc7FoTwf4Ge5QUjnH8Nz9CRWnuur-TsZL0xfdnI84';
+              var range = 'Sheet1!A:F'; // Ubah sesuai dengan rentang yang Anda inginkan
+              var values = [
+                [no, nama, gender, pendidikan]
+              ];
+              var body = {
+                values: values
+              };
+              gapi.client.sheets.spreadsheets.values.append({
+                spreadsheetId: spreadsheetId,
+                range: range,
+                valueInputOption: 'USER_ENTERED',
+                resource: body
+              }).then(function(response) {
+                console.log('Data terkirim ke Google Spreadsheet');
+              }, function(reason) {
+                console.error('Gagal mengirim data:', reason.result.error.message);
+              });
+            });
+          });
+        });
+      }
+      
+</script>
+    
+            
+    
+</body>
+</html>

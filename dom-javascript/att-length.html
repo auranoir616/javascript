@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item</title>
+</head>
+<body>
+    <button type="button" onclick="tombol()" name="button">klik</button>
+     <p id="contoh">contoh</p>
+    <script type="text/javascript">
+        function tombol(){
+            var a = document.getElementsByTagName('button')[0];
+            var b = a.attributes.length;
+            //mengambil jumlah atribut dari elemen button
+            document.getElementById('contoh').innerHTML = b;
+
+        }
+    </script>
+    
+</body>
+</html>

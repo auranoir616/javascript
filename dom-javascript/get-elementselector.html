@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+        <meta charset="utf-8" />
+        <title>Belajar Javascript - NIOMIC</title>
+ </head>
+ <body>
+        <input type="text" class="depan"/> <br />
+        <input type="text" value="Nama Belakang" class="belakang" /> <br />
+        <input type="text" value="Hobi" class="hobbi"/> <br /><br />
+        <button type="button" name="button" onclick="jalanselector()">Jalan</button>
+        <script type="text/Javascript">
+            function jalanselector() {
+                var hasil1 = document.querySelector('.depan')
+                var hasil2 = hasil1.value;
+                console.log(hasil2)
+                
+            }
+        
+        </script>
+
+ </body>
+</html>

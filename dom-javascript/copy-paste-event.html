@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy paste</title>
+</head>
+<body>
+    <input type="text" id="input1" oncopy="copy()" value="copy text ini">
+<br><br>
+    <p id="kata"></p>
+<br><br>
+    <input type="text" id="input1" onpaste="paste()" value="">
+    <br><br>
+        <p id="kata2"></p>
+    
+        <script type="text/javascript">
+            function copy(){
+                document.getElementById("kata").innerHTML = "text telah di copy"
+            }
+            function paste(){
+                document.getElementById("kata2").innerHTML = "text telah di paste"
+            }
+        </script>
+
+</body>
+</html>

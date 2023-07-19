@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get element</title>
+</head>
+<body>
+    <input type="text" value="wahyu" id="namadepan">
+    <br>
+    <input type="text" value="budi" id="namabelakang">
+    <br>
+    <button type="button" onclick="getValue()">tombol</button>
+    <script type="text/javascript">
+        // function getelement(){
+        //     console.log(document.getElementById("namadepan"))
+        //     console.log(document.getElementById("namabelakang"))
+        //     // menampilkan elemen berdasarkan ID 
+        // }
+
+
+function getValue() {
+  var input = document.getElementById("namadepan");
+  var value = input.value;
+  alert("Hasil input: " + value);
+}
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>open window</title>
+</head>
+<body>
+    <button onclick="newtab()">newtab</button>
+    <button onclick="open1()">buka</button>
+    <button onclick="close1()">tutup</button>
+
+
+    <script type="text/javascript">
+        function newtab(){
+            window.open("https://www.google.com/");
+        }//membuka tab baru 
+
+        var windowopen;
+        function open1() {
+            windowopen = window.open("", "window_baru", "width=600,height=500");
+            windowopen.document.write("<p>berhasil membuka window</p>");
+        }// membuka window baru
+
+        function close1() {
+            windowopen.close();
+        }//menutup window yang telah dibuka
+
+    </script>
+</body>
+</html>

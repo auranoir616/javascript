@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe</title>
+</head>
+<body>
+    <button onclick="iframe1()">frame 1</button>
+    <button onclick="iframe2()">frame 2</button><br><br>
+    <iframe src="" width="500" height="400"></iframe>
+    <iframe src="" width="500" height="400" id="frame1"></iframe>
+
+    <script type="text/javascript">
+        //cara 1
+        function iframe1(){
+            window.frames[0].location = "https://www.google.com/";
+            //iframe index ke 0 /iframe pertama
+        }
+        //cara 2
+        function iframe2(){
+            var myIframe = document.getElementById("frame1");
+            myIframe.src = "https://www.niomic.com/";}
+        
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <p id="host"></p>
+        <button onclick="lihathost()">lihat host</button><br><br>
+
+        <p id="hostname"></p>
+        <button onclick="lihathostname()">lihat hostname</button><br><br>
+        
+        <p id="href"></p>
+        <button onclick="lihathref()">lihat href</button>
+
+    <script type="text/javascript">
+        function lihathost(){
+            var x = location.host;
+            document.getElementById("host").innerHTML = x
+        }
+
+        function lihathostname(){
+            var y = location.hostname;
+            document.getElementById("hostname").innerHTML = y
+        }
+
+        function lihathref(){
+            var z = location.href
+            document.getElementById("href").innerHTML = z
+        }
+    </script>
+    </body>
+</html>

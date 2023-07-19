@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create element</title>
+</head>
+<body>
+    <button onclick="tombol()" >klik</button>
+
+    <script type="text/javascript">
+        function tombol(){
+            var a = document.createElement('button')
+            //membuat element button 
+            a.innerHTML = "tombol";
+            //menambah value tombol pada button
+            document.body.appendChild(a);
+            //menambah element button(var a) ke dalam element body
+        }
+    </script>
+    
+</body>
+</html>

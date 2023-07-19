@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item</title>
+</head>
+<body>
+    <button type="button" onclick="tombol()" name="button">klik</button>
+     <p id="contoh">contoh</p>
+
+     <script type="text/javascript">
+        function tombol(){
+            var a = document.getElementsByTagName('button')[0]; 
+            // menjadikan property elemen button menjadi array
+            var b = a.attributes.item(0).name; 
+            //mengambil nama (name) atribut pertama (0) button yg disimpan di var a
+            document.getElementById('contoh').innerHTML = b;
+            //mengubah nilai cari elemen p ber ID 'contoh' dengan nilai b
+        }
+     </script>
+    
+</body>
+</html>

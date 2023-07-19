@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>geolocation</title>
+</head>
+<body>
+<button onclick="lokasi()"> klik untuk dapatkan lokasi</button>
+
+<p id="koordinat"> </p>
+<script type="text/javascript">
+var x = document.getElementById("koordinat")
+//menyimpan value <p> dalam var x
+
+function lokasi(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(getposisi);
+        //menampilkan titik koordinat jika browser suport
+    }else{
+        x.innerHTML = "geolokasi tidak suport"
+    }
+}
+
+function getposisi(position){
+    x.innerHTML = "latitude : "+ position.coords.latitude + "<br> longitude : "+ position.coords.longitude;
+    //menampilkan posisi titik koordinat yang tampilkan pada <p> var x
+}
+
+</script>
+</body>
+</html>

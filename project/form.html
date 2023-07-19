@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <h1>FORM </h1>
+    <table cellpadding="3">
+        <tr>
+            <td><p>no </p></td> 
+            <td>:</td>
+            <td><input type="number" min="1" max="50" id="no" name="no" class="no" value=""></td>
+        </tr>
+        
+        <tr>
+            <td><p>nama </p></td>
+            <td>:</td>
+            <td><input type="text" id="nama" name="nama" class="nama"></td>
+        </tr>
+        <tr>
+            <td>umur</td>
+            <td>:</td>
+            <td><input type="number" min='10' max="70" name="umur" id="umur"></td>
+        </tr>
+        
+        <tr>
+            <td><p>gender </p></td>
+            <td>:</td>
+            <td>
+                <input type="checkbox" id="genderMale" class="gendermale"><label for="genderMale">male</label> 
+                <input type="checkbox" id="genderFemale" class="genderfemale"><label for="genderFemale">female</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>pendidikan </td>
+            <td>:</td>
+            <td>
+                <select id="pendidikan" class="pendidikan">
+                    <option value="SD">SD</option>
+                    <option value="SMP">SMP</option>
+                    <option value="SMA">SMA</option>
+                    <option value="KULIAH">KULIAH</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <button name="tombol" id="tombol" onclick="tombol()">input</button>
+    <br><br>
+    <table border="1" id="outputTable">
+        <tr>
+            <th>no</th>
+            <th>nama</th>
+            <th>umur</th>
+            <th>gender</th>
+            <th>pendidikan</th>
+        </tr>
+    </table>
+
+    <script>
+        function tombol() {
+            // Mengambil nilai dari input
+            var no = document.getElementById("no").value;
+            var nama = document.getElementById("nama").value;
+            var umur = document.getElementById("umur").value;
+            var genderMale = document.getElementById("genderMale").checked;
+            var genderFemale = document.getElementById("genderFemale").checked;
+            var gender = genderMale ? "Male" : (genderFemale ? "Female" : "");
+            var pendidikan = document.getElementById("pendidikan").value;
+
+            // Membuat elemen <tr> baru
+            var newRow = document.createElement("tr");
+
+            // Membuat elemen <td> baru dan menambahkan nilai ke dalamnya
+            var noCell = document.createElement("td");
+            noCell.textContent = no;
+            newRow.appendChild(noCell);
+
+            var namaCell = document.createElement("td");
+            namaCell.textContent = nama;
+            newRow.appendChild(namaCell);
+
+            var umurcell = document.createElement("td");
+            umurcell.textContent = umur;
+            newRow.appendChild(umurcell)
+
+            var genderCell = document.createElement("td");
+            genderCell.textContent = gender;
+            newRow.appendChild(genderCell);
+
+            var pendidikanCell = document.createElement("td");
+            pendidikanCell.textContent = pendidikan;
+            newRow.appendChild(pendidikanCell);
+
+            // Menambahkan baris ke tabel
+            var table = document.getElementById("outputTable");
+            table.appendChild(newRow);
+
+            // Mengatur ulang nilai input
+            document.getElementById("no").value = "";
+            document.getElementById("nama").value = "";
+            document.getElementById("umur").value = "";
+            document.getElementById("genderMale").checked = false;
+            document.getElementById("genderFemale").checked = false;
+            document.getElementById("pendidikan").value = "";
+            
+        }
+    </script>
+</body>
+</html>

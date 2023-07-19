@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item</title>
+    <style>
+        .contohcss{ 
+            color: red;
+    }
+</style>
+</head>
+<body>
+    <button type="button" onclick="tombol()" name="button">klik</button><br><br>
+     <h1>contoh</h1>
+  
+     <script type="text/javascript">
+        function tombol(){
+            var a = document.getElementsByTagName('h1')[0];
+            //Mengambil elemen h1 pertama dari dokumen 
+            var b = document.createAttribute('class');
+            // membuat attibut baru pada h1 yaitu 'class'
+            b.value = 'contohcss';
+            //menentukan isi atribut baru dari class yaitu contohcss
+            a.attributes.setNamedItem(b);
+            //menambahkan atribut baru ke elemen h1
+        }
+     </script>
+</body>
+</html>

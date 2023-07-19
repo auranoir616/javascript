@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>base uri</title>
+</head>
+<body>
+    <button onclick="tombol()" name="button">jalankan</button><br><br>
+
+    <p id="contoh">contoh...</p>
+    <script type="text/javascript">
+        function tombol(){
+        var a = document.baseURI;
+        document.getElementById("contoh").innerHTML = a;
+        }
+    </script>
+</body>
+</html>

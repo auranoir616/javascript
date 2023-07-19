@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h1>Objek Jam</h1>
+  <p id="waktu"></p>
+
+  <script>
+    // Objek Jam
+var jam = {
+  jam: 0,
+  menit: 0,
+  detik: 0,
+
+  // Metode untuk menampilkan waktu dalam format 12 jam
+  tampilkanWaktu12Jam: function() {
+    var ampm = this.jam < 12 ? 'AM' : 'PM';
+    var jam12 = this.jam % 12 || 12;
+    var waktu12Jam = jam12 + ':' + this.menit + ':' + this.detik + ' ' + ampm;
+    document.getElementById('waktu').innerHTML = waktu12Jam;
+  },
+
+  // Metode untuk menampilkan waktu dalam format 24 jam
+  tampilkanWaktu24Jam: function() {
+    var waktu24Jam = this.jam + ':' + this.menit + ':' + this.detik;
+    document.getElementById('waktu').innerHTML = waktu24Jam;
+  }
+};
+
+// Contoh penggunaan objek jam
+jam.jam = 15;
+jam.menit = 30;
+jam.detik = 45;
+
+// Tampilkan waktu dalam format 12 jam
+jam.tampilkanWaktu12Jam();
+
+// Tampilkan waktu dalam format 24 jam
+jam.tampilkanWaktu24Jam();
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item</title>
+</head>
+<body>
+    <a name="pisang" href="">buah pisang</a><br>
+    <a name="apel" href="">buah apel</a><br>
+    <a name="jeruk" href="">buah jeruk</a><br>
+    <a name="nanas" href="">buah nanas</a><br>
+    <a name="nangka" href="">buah nangka</a><br>
+
+    <p id="contoh">contoh</p>
+
+    <button onclick="tombol()">klik</button>
+
+    <script type="text/javascript">
+        function tombol(){
+        var a = document.anchors.length;
+        //menghitung jumlah anchor elemen melalui atribut name
+        document.getElementById('contoh').innerHTML = a;
+        }
+        </script>
+         
+    
+</body>
+</html>

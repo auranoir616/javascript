@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+        <meta charset="utf-8" />
+        <title>Belajar Javascript - NIOMIC</title>
+ </head>
+ <body>
+        <button type="button" onclick="tombol()" name="button">Jalankan</button>
+        <br />
+        <br />
+        <hr />
+        <b>Base URI</b> Property : <br />
+        <p id="contoh1">contoh</p>
+        <hr />
+        <b>Body</b> Property : <br />
+        <p id="contoh2">contoh</p>
+        <hr />
+        <b>Create</b> Element : <br /><br />
+
+        <script type="text/javascript">
+            function tombol(){
+                var a = document.baseURI
+                document.getElementById('contoh1').innerHTML = a;
+
+                document.getElementById("contoh2").innerHTML = "color = green"
+                document.body.style.backgroundColor = 'green';
+
+                var b = document.createElement('input');
+                document.body.appendChild(b)
+
+
+
+
+            }
+
+        </script>
+ </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hash location</title>
+</head>
+<body>
+    <p id="hash"></p>
+    <button onclick="hash1()">hash 1</button>
+    <button onclick="hash2()">hash 2</button>
+    <script type="text/javascript">
+        function hash1(){
+        location.hash = "lokasi hash 1"
+        var a = "sekarang berada pada " + location.hash;
+        document.getElementById('hash').innerHTML = a
+    }
+    function hash2(){
+        location.hash = "lokasi hash 2"
+        var b = "sekarang berada pada " + location.hash;
+        document.getElementById('hash').innerHTML = b
+    }
+        
+</script>
+
+</body>
+</html>
