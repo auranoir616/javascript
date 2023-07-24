@@ -5,45 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>form tabel</title>
     <style>
-        body{
+        body {
+            background-color: #ccc;
             display: flex;
-            background-color: gainsboro;
             flex-direction: row;
+            align-items: flex-start;
+        
+        }
+
+        .tombolawal{
+            position: absolute;
+            top: 45%;
+            left: 47%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:100px;
+        }
+    
+        #tombol {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        cursor: pointer;
         }
 
         .kontainer1{
-            background-color: antiquewhite;
-            margin: 150px;
-            height: auto;
-            width: auto;
-        }
+        align-self: flex-start;
+        height: 100%;
+        width: auto;
+        margin: 80px 150px auto 150px;
+        padding: 30px;
+}
+        .kontainer2{
+        height: 100%;
+        width: auto;
+        margin: 80px 50px auto 50px;
+        padding: 30px;
+}
+
+        
         #area_form{
             position: relative;
             width: 350px;
             border: none;
             border-radius: 10px;
-            background: white;
             padding: 30px 20px;
             margin: 45px;
         }
+        #table_area{
+            position: relative;
+            width: 500px;
+            border: none;
+            border-radius: 10px;
+            padding: 33px 20px 20px 20px;
+            margin-top: 45px;
+}
         .judul{
-            margin-top: 50px;
-            padding-left: 33%;
-            font-size: larger;
+            padding-left: 25%;
             position: relative;
             align-self: center;
          
         }
-        #tombol {
-            background: #FF7F00;
-            color: white;
-            font-size: 11pt;
-            width: 100%;
-            border: none;
-            border-radius: 10px;
-            padding: 10px 20px;
-        }
-
         .kontainer_tombol{
             display: flex;
             flex-direction: row;
@@ -81,56 +106,32 @@
             margin-bottom: 20px;
             border-radius: 10px;
 }
-        .kontainer2{
-        background-color: rgb(113, 180, 169);
-        border: none;
-        border-radius: 10px;
-        height: 100%;
-        width: auto;
-        margin: 150px;
-        padding: 30px;
-}
 
 #outputTable{
     margin: 10px;
 }
-.table_area{
-            position: relative;
-            width: 500px;
-            border: none;
-            border-radius: 10px;
-            background: white;
-            padding: 30px 60px;
-            margin-top: 10px;
-}
-tr{
-    width: 2em;
-}
+
+
     </style>
 </head>
 <body>
-    <div class="kontainer1">
-    <div class="judul">
-    <h1  ></h1>
+    
+
+    
+    <div class="tombolawal">
+    <button onclick="jalan()" id="tombol">input data</button>
     </div>
 
+    <div class="kontainer1">
     <div id="area_form">
-     
-    <button onclick="jalan()" id="tombol">DAFTAR</button>
-    </div>
+
+    
 </div>
+</div>
+
 <div class="kontainer2">
-    <div class="table_area">
-    <table border="1" id="outputTable" align="center" cellpadding="5">
-        <tr>
-            <th>NAMA</th>
-            <th>TANGGAL LAHIR</th>
-            <th>KOTA</th>
-            <th>gender</th>
-            <th>NO. HP</th>
-            <TH>E-MAIL</TH>
-        </tr>
-    </table>
+    <div id="table_area">
+
 </div>
 
 </div>
@@ -139,10 +140,18 @@ tr{
             var diselement = document.getElementById("tombol");
             diselement.parentElement.removeChild(diselement)
 
-            var isiform = document.createElement('form');
             var div1 = document.getElementById("area_form");
+            div1.style.background='white'
+
+            var judulform = document.createElement("h1")
+            judulform.innerHTML = "FORM DATA"
+            judulform.className="judul"
+            div1.appendChild(judulform)
+
+            var isiform = document.createElement('form');
             div1.appendChild(isiform)
 
+    
             var labelnama = document.createElement("label");
             labelnama.innerHTML= "Nama"
             labelnama.className="label_form"
@@ -233,6 +242,50 @@ tr{
             inputreset.type="reset"
             inputreset.className="tombol_input2"
             tombol_form.appendChild(inputreset)
+             
+            var div_table = document.getElementById("table_area")
+
+            var judultable = document.createElement("h1")
+            judultable.innerHTML = "TABLE DATA"
+            judultable.className="judul"
+            div_table.appendChild(judultable)
+
+            var addtable = document.createElement("table")
+            addtable.border ='1'
+            addtable.cellPadding='5'
+            addtable.id="outputTable"
+            addtable.align="center"
+
+            
+            div_table.appendChild(addtable)
+            div_table.style.background="white"
+
+            var addrowth = document.createElement("tr")
+            addtable.appendChild(addrowth)
+
+            var thnama = document.createElement("th")
+            thnama.innerHTML = "NAMA"
+            addrowth.appendChild(thnama)
+
+            var thdate = document.createElement("th")
+            thdate.innerHTML = "TANGGAL LAHIR"
+            addrowth.appendChild(thdate)
+
+            var thkota = document.createElement("th")
+            thkota.innerHTML = "KOTA"
+            addrowth.appendChild(thkota)
+
+            var thgender = document.createElement("th")
+            thgender.innerHTML = "GENDER"
+            addrowth.appendChild(thgender)
+
+            var thno = document.createElement("th")
+            thno.innerHTML = "No. HP"
+            addrowth.appendChild(thno)
+
+            var thmail = document.createElement("th")
+            thmail.innerHTML = "EMAIL"
+            addrowth.appendChild(thmail)
 
        
         }
@@ -245,6 +298,11 @@ tr{
 
         function tabel_input(){
 
+          
+
+            
+
+            
             var namavalue = document.getElementById('namaval').value
             var datevalue = document.getElementById('dateval').value
             var kotavalue = document.getElementById('kotaval').value

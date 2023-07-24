@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+}
+.kontainer{
+    height: auto;
+    width: auto;
+}
+
+.layar{
+
+    background-color: beige;
+    border: solid;
+    border-radius: 5px;
+    height: 75px;
+    width: auto;
+}
+
+.display{
+
+    font:bold 30px/10px calibri
+}
+
+    

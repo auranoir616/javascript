@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="calculator.css" type="text/css" >
+</head>
+<body>
+    <div class="kontainer">
+
+        <div class="layar">
+            <p id="display1" class="display" align="right"></p>
+        </div>
+
+        <table border="2" cellpadding="20">
+            <tr>
+            <td onclick="calcul(this)" class="td1">C</td>
+            <td onclick="calcul(this)" class="td1"><<</td>
+            <td onclick="calcul(this)" class="td1">%</td>
+            <td onclick="calcul(this)" class="td1">/</td>
+            </tr>
+            <tr>
+            <td onclick="calcul(this)" class="td2">7</td>
+            <td onclick="calcul(this)" class="td2">8</td>
+            <td onclick="calcul(this)" class="td2">9</td>
+            <td onclick="calcul(this)" class="td1">*</td>
+            </tr>
+            <tr>
+            <td onclick="calcul(this)" class="td2">4</td>
+            <td onclick="calcul(this)" class="td2">5</td>
+            <td onclick="calcul(this)" class="td2">6</td>
+            <td onclick="calcul(this)" class="td1">-</td>
+            </tr>
+            <tr>
+            <td onclick="calcul(this)" class="td2">1</td>
+            <td onclick="calcul(this)" class="td2">2</td>
+            <td onclick="calcul(this)" class="td3">3</td>
+            <td onclick="calcul(this)" class="td1">+</td>
+            </tr>
+            <tr>
+            <td colspan="2" onclick="calcul(this)" class="td2">0</td>
+            <td onclick="calcul(this)" class="td1">.</td>
+            <td onclick="calcul(this)" class="td1">=</td>
+            </tr>
+            
+        </table>
+
+    </div>
+
+<script type="text/javascript" src="calculator.js"></script>
+</body>
+</html>
