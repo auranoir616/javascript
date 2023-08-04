@@ -8,7 +8,7 @@ body{
 }
 
 .judul{
-    margin-left: 180px;
+    margin-left: 190px;
 }
 
 .kontainersemua{
@@ -16,9 +16,26 @@ body{
     align-self: center;
 }
 .kontainer-input{
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.kontainer-input-utama{
+    background-color: beige;
+    padding: 30px;
+    height:250px;
+    width: 540px;
+    border-radius: 10px;
+}
+
+.kontainer-tombol1{
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+.kontainer-tombol2{
+    display: flexbox;
 }
 
 #kontainer-table{

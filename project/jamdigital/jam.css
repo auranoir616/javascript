@@ -1,0 +1,64 @@
+@font-face{
+    font-family: "digital";
+    src: url("digital-7.ttf")
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+}
+.container{
+    border-radius: 15%;
+    background-image: radial-gradient(circle at 100% 100%, black, rgb(218, 218, 218));
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: "digital";
+    font-size: 75px;
+    width: 500px;
+    height: 400px;
+}
+.container1{
+    width: auto;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+}
+.container2{
+    width: auto;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+}
+.Container-jam{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+}
+.Container-menit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+}
+.Container-detik{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+}
