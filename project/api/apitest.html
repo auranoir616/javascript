@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div id="weatherData"></div>
+
+   <script>
+  const DataContainer = document.getElementById('weatherData');
+
+// Mengambil data dari API
+fetch('https://booking.kai.id/api/stations2/')
+  .then(response => response.json())
+  .then(data => {
+    //menampilakan pada html dengan looping foreach 
+    let htmlContent = '<h2>Daftar Stasiun</h2>';
+
+                data.forEach(station => {
+                    htmlContent += `<li>Kode: ${station.code}, Nama: ${station.name}, Kota: ${station.city}</li>`;
+                });
+                DataContainer.innerHTML = htmlContent;
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+    DataContainer.innerHTML = 'Terjadi kesalahan saat mengambil data.';
+  });
+   </script> 
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="datacontainer"> </div>
+
+    <script>
+        const dataAPI = document.getElementById("datacontainer")
+
+        fetch('https://cuaca-gempa-rest-api.vercel.app/')
+        .then(response => response.json())
+        .then(data =>{
+            let isikonten = "<h1>info gempa</h1>";
+            data.forEach(gempa => {
+                let isikonten = "<h1>Info Gempa</h1>";
+            isikonten += `<p>Maintainer: ${data.maintainer}</p>`;
+            isikonten += `<p>Source: <a href="${data.source}" target="_blank">${data.source}</a></p>`;
+            isikonten += "<h2>Weather Endpoint</h2>";
+            isikonten += `<p>Province Example: <a href="${data.endpoint.weather.province.example}" target="_blank">${data.endpoint.weather.province.example}</a></p>`;
+            isikonten += `<p>City Example: <a href="${data.endpoint.weather.city.example}" target="_blank">${data.endpoint.weather.city.example}</a></p>`;
+            dataAPI.innerHTML = isikonten;
+            });
+           
+        })
+        .catch(error => {
+    console.error('Error fetching data:', error);
+    datacontainer.innerHTML = 'Terjadi kesalahan saat mengambil data.';
+  });
+    </script>
+</body>
+</html>
