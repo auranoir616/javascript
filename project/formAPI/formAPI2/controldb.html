@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tampildata"></div>
+
+
+    <script>
+        //metode untuk menampilkan data pada HTML
+        const displaydb = document.getElementById("tampildata")
+        fetch("http://localhost:3002/regis")
+        .then(response => response.json())
+        .then(data =>{
+
+            var content = '<h1></h1>'
+            
+                data.forEach(datadb => {
+                content +=`
+                <p>nama : ${datadb.nama_user}</p>
+                <p>email : ${datadb.email_user}</p>
+                <p>nomer : ${datadb.nohape_user}</p>
+                <p>gender : ${datadb.gender_user}</p>
+                <p>tanggal : ${datadb.tanggal_user}</p>
+                <p>alamat : ${datadb.alamat_user}</p>
+                <p>ID : ${datadb.id}</p>
+                <button onclick="deletedata('${datadb.id}')">hapus</button>
+                `// malakukan delete pada data berdasarkan ID data yang dipilih
+            });
+            displaydb.innerHTML = content
+        })
+        .catch(error => {
+    console.error('Error fetching data:', error);
+    DataContainer.innerHTML = 'Terjadi kesalahan saat mengambil data.';
+});
+//metode delete data
+function deletedata(id){
+    fetch(`http://localhost:3002/regis/${id}`,{method: 'DELETE'})
+    .then(response => response.json())
+    .then(data =>{
+       var respondelete = "data berhasil dihapus"
+       window.confirm(respondelete)
+    })
+    .catch(error => {
+                console.error('Error deleting data:', error);
+            });
+}
+    </script>
+</body>
+</html>

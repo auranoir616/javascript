@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="style.css" type="text/css" >
+</head>
+<body>
+    <div class="container">
+        <div class="judul"><h1>Registration</h1></div>
+        <table class="table">
+<tr>
+    <td><label>nama</label> </td>
+    <td>:</td>
+    <td><input type="text" value="" id="nama" class="input" /></td>
+</tr>
+           
+<tr>
+    <td><label>email</label></td>
+    <td>:</td>
+    <td><input type="email" value="" id="email" class="input" /></td>
+</tr>
+<tr>
+    <td><label>NO. HP</label></td>
+    <td>:</td>
+    <td><input type="number" value="" id="nohape" class="input" /></td>
+</tr>
+<tr>
+    <td><label>gender</label></td>
+    <td>:</td>
+    <td>
+        <select id="gender" class="inputselect">
+            <option value=""></option>
+            <option value="laki-laki">laki-laki</option>
+            <option value="perempuan">perempuan</option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <td><label>tanggal lahir</label></td>
+    <td>:</td>
+    <td><input type="date" value="" id="tanggal" class="inputtgl" /></td>
+</tr>
+<tr>
+    <td><label>alamat</label></td>
+    <td>:</td>
+    <td> <textarea id="alamat" cols="33" rows="5" class="area"></textarea></td>
+</tr>
+<tr>
+    <td colspan="3">
+        <button onclick="confirmandregis()" class="tombol">register</button>
+    </td>
+</tr>
+    </table>
+    <p id="text"></p>
+
+    </div>
+    <script>
+
+//akses POST ke database
+async function register(datauser){
+    try {
+    const response = await fetch(' http://localhost:3002/regis',{
+        method: "POST",
+        //menunjukkan tipe konten yang akan dikirimkan ke server
+        headers:{"Content-Type": "application/json"},
+        //mengubah data dari userData menjadi string
+        body:JSON.stringify(datauser)
+    })
+    //menampilkan respon ketika berhasil post
+    const responseData = "registrasi berhasil"
+    document.getElementById("text").innerHTML = responseData
+    
+}catch(error){
+    console.error("error",error)
+}
+}
+//function untuk reset form
+function cleardata(){
+    document.getElementById("nama").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("nohape").value = "";
+    document.getElementById("gender").value = "";
+    document.getElementById("tanggal").value = "";
+    document.getElementById("alamat").value = "";
+}
+
+//function untuk post ke database setelah confirm dan memanggil fungsi cleardata
+function confirmandregis(){
+    var nama = document.getElementById("nama").value
+    var email = document.getElementById("email").value
+    var nohape = document.getElementById("nohape").value
+    var gender = document.getElementById("gender").value
+    var tanggal = document.getElementById("tanggal").value
+    var alamat = document.getElementById("alamat").value
+ 
+
+const datauser ={
+    id : new Date().getTime(),
+    nama_user : nama,
+    email_user: email,
+    nohape_user: nohape,
+    gender_user: gender,
+    tanggal_user: tanggal,
+    alamat_user: alamat
+}
+const konfirmasi = window.confirm("apakah data sudah benar?")
+if(konfirmasi){
+    register(datauser);
+    cleardata()
+
+}
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    position: relative;
+    top:25vh;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(253, 253, 253);
+}
+.input{
+    width: 250px;
+    height: 25px;
+    border: solid grey 2px;
+    border-radius: 5px;
+}
+.inputselect{
+    width: 258px;
+    height: 28px;
+    border: solid grey 2px;
+    border-radius: 5px;
+}
+.inputtgl{
+    width: 254px;
+    height: 28px;
+    border: solid grey 2px;
+    border-radius: 5px;
+}
+.area{
+    border-radius: 5px;
+    border: solid grey 2px;
+}
+.tombol{
+    width: 100%;
+    height: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.judul{
+    text-align: center;
+}
+label{
+    font-size: 20px;
+    text-transform: capitalize;
+}

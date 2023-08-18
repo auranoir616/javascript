@@ -1,0 +1,14 @@
+{
+  "login": [
+    {
+      "username": "asdasd",
+      "password": "asdasd",
+      "id": 1
+    },
+    {
+      "username": "sdwgaf",
+      "password": "wgafsa",
+      "id": 2
+    }
+  ]
+}

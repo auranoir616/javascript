@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form login</title>
+</head>
+<body>
+    <div>
+        <input type="text" value="" name="username" id="user" />
+        <input type="password" value="" name="password" id="password" />
+        <button name="" onclick="login()">Login</button>
+    </div>
+
+    <script>
+        async function login(){
+            //mengambil data value dari element input
+        var username = document.getElementById('user').value
+        var password = document.getElementById('password').value
+        //menyimpan data value pada object
+        var userData={
+            username: username,
+            password: password
+        }
+        try {
+
+            const response = await fetch("http://localhost:3003/login",{
+                method: "POST",
+                //menunjukkan tipe konten yang akan dikirimkan ke server
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                //mengubah data dari userData menjadi string
+                body:JSON.stringify(userData)
+            })
+            const responseData = await response.json();
+            console.log(responseData)
+        }catch(error){
+            console.error("error",error)
+        }
+    }
+
+
+    </script>
+</body>
+</html>

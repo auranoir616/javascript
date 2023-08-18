@@ -15,12 +15,13 @@
 fetch('https://booking.kai.id/api/stations2/')
   .then(response => response.json())
   .then(data => {
-    //menampilakan pada html dengan looping foreach 
+    //mendapatan data dari database dengan looping foreach 
     let htmlContent = '<h2>Daftar Stasiun</h2>';
 
                 data.forEach(station => {
                     htmlContent += `<li>Kode: ${station.code}, Nama: ${station.name}, Kota: ${station.city}</li>`;
                 });
+                //menampilkan data pada html
                 DataContainer.innerHTML = htmlContent;
   })
   .catch(error => {
