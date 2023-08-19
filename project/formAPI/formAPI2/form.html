@@ -87,6 +87,7 @@ function cleardata(){
 }
 
 //function untuk post ke database setelah confirm dan memanggil fungsi cleardata
+//mendapatkan nilai dari elemen input
 function confirmandregis(){
     var nama = document.getElementById("nama").value
     var email = document.getElementById("email").value
@@ -95,7 +96,7 @@ function confirmandregis(){
     var tanggal = document.getElementById("tanggal").value
     var alamat = document.getElementById("alamat").value
  
-
+// input nilai property dari database dengan value elemen input html 
 const datauser ={
     id : new Date().getTime(),
     nama_user : nama,

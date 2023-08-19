@@ -1,3 +1,13 @@
 {
-  "regis": []
+  "regis": [
+    {
+      "id": 1692427629865,
+      "nama_user": "wawan",
+      "email_user": "wawan@dgaskd.com",
+      "nohape_user": "0846865465",
+      "gender_user": "perempuan",
+      "tanggal_user": "2000-08-05",
+      "alamat_user": "malang"
+    }
+  ]
 }

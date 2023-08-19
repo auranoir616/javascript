@@ -5,10 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body>  
+    <div>
+    <div>
+        <div id="editModal" style="display: none;">
+            <h2>Edit Data</h2>
+        <input type="text" id="editnama" /> <br/>
+        <input type="text" id="editemail" /> <br>
+        <input type="text" id="editnomer" /> <br>
+        <input type="text" id="editgender"/> <br>
+        <input type="text" id="edittanggal" /> <br>
+        <input type="text" id="editalamat" /> <br>
+        <button onclick="saveaditedData()">save data</button>
+        <button onclick="closeeditModal()">cancel</button>
+        </div>
+    </div>
+      
+
     <div id="tampildata"></div>
 
-
+    <div> </div>
+</div>
     <script>
         //metode untuk menampilkan data pada HTML
         const displaydb = document.getElementById("tampildata")
@@ -28,6 +45,8 @@
                 <p>alamat : ${datadb.alamat_user}</p>
                 <p>ID : ${datadb.id}</p>
                 <button onclick="deletedata('${datadb.id}')">hapus</button>
+                <button onclick="editData('${datadb.id}')">edit</button>
+
                 `// malakukan delete pada data berdasarkan ID data yang dipilih
             });
             displaydb.innerHTML = content
@@ -36,18 +55,70 @@
     console.error('Error fetching data:', error);
     DataContainer.innerHTML = 'Terjadi kesalahan saat mengambil data.';
 });
-//metode delete data
+//metode delete data 
 function deletedata(id){
+    let confirm = window.confirm("apakah anda ingin menghapus data ini?")
+    if (confirm){
     fetch(`http://localhost:3002/regis/${id}`,{method: 'DELETE'})
     .then(response => response.json())
     .then(data =>{
        var respondelete = "data berhasil dihapus"
-       window.confirm(respondelete)
+     console.log(respondelete)
     })
     .catch(error => {
                 console.error('Error deleting data:', error);
             });
 }
+}
+//metode edit data
+let editedID = "" //variabel untuk menyimpan ID yang akan diubah
+    function editData(id){
+        editedID = id; //simpan ID data yang akan diubah
+        const editModal = document.getElementById("editModal")
+        editModal.style.display = 'block'
+
+
+        //ambil data dari API dan ditambahkan ke elemen intput
+        fetch(`http://localhost:3002/regis/${id}`)
+        .then(response => response.json())
+        .then(data =>{
+            document.getElementById("editnama").value = data.nama_user;
+            document.getElementById("editemail").value = data.email_user;
+            document.getElementById("editnomer").value = data.nohape_user;
+            document.getElementById("editgender").value = data.gender_user;
+            document.getElementById("edittanggal").value = data.tanggal_user;
+            document.getElementById("editalamat").value = data.alamat_user;
+        })
+        .catch(error=>{
+            console.log("error edit data :", error )
+        })
+    }
+    function saveaditedData(){
+        //menyimpan data baru sesuai value dari elemen input
+        const editedData = {
+            nama_user: document.getElementById("editnama").value,
+            email_user:  document.getElementById("editemail").value,
+            nohape_user:  document.getElementById("editnomer").value,
+            gender_user:  document.getElementById("editgender").value,
+            tanggal_user:  document.getElementById("edittanggal").value,
+            alamat_user:  document.getElementById("editalamat").value
+        }
+        //mengirim data yang telah diedit ke database
+        fetch(`http://localhost:3002/regis/${editedID}`,{
+            method: 'PUT',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify(editedData)
+        })
+        .then(response => response.json)
+        .then(data =>{
+            closeeditModal()
+        })
+    }
+    function closeeditModal(){
+        const editModal = document.getElementById("editModal")
+        editModal.style.display = "none"
+        editedID = "" 
+    }
     </script>
 </body>
 </html>
