@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ubah bg</title>
+    <style>
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.range{
+    background-color: antiquewhite;
+    width: 500px;
+    height: 200px;
+}
+.nilai{
+    background-color: aqua;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+}
+table{
+    padding: 5px;
+    width: 240px;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    
+
+
+}
+h2{
+    text-align: right;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+            <table>
+                <tr>
+                <td>
+                   <h2> R :</h2>
+                </td>
+                    <td width="20%">
+                    <h2 id="nilaiR"></h2>
+                    </td>
+                    <td> 
+                        <input type="range" min="0" max="255" id="rangeR" value=""/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>G : </h2>
+                    </td>
+                        <td>
+                        <h2 id="nilaiG"></h2>
+                        </td>
+                        <td>
+                            <input type="range" min="0" max="255" id="rangeG" value=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2>B : </h2>
+                        </td>
+                            <td>
+                            <h2 id="nilaiB"></h2>
+                            </td>
+                            <td>
+                                <input type="range" min="0" max="255" id="rangeB" value=""/>
+
+                            </td>
+                        </tr>
+        </table>
+      
+    </div>
+  
+<script>
+    //menampilkan nilai input range ke dalam elemen
+    let valueR = document.getElementById('rangeR')
+    let disR = document.getElementById('nilaiR')
+    rangeR.addEventListener("input", ()=>{
+        let valueR = rangeR.value
+        disR.innerHTML = `${valueR}`
+        gantiBG()
+    })
+    let valueG = document.getElementById('rangeG')
+    let disG = document.getElementById('nilaiG')
+    rangeG.addEventListener("input", ()=>{
+        let valueG = rangeG.value
+        disG.innerHTML = `${valueG}`
+        gantiBG()
+    })
+    let valueB = document.getElementById('rangeB').value
+    let disB = document.getElementById('nilaiB')
+    rangeB.addEventListener("input", ()=>{
+        let valueB = rangeB.value
+        disB.innerHTML = `${valueB}`
+        gantiBG()
+    })
+   //fungsi untuk menggantu bg sesuai nilai input range
+    function gantiBG(){
+    let nilaiR = rangeR.value
+    let nilaiG = rangeG.value
+    let nilaiB = rangeB.value
+   document.body.style.backgroundColor = `rgb(${nilaiR},${nilaiG},${nilaiB})`
+    }
+   </script>
+</body>
+</html>
