@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dropdown</title>
+</head>
+<body>
+    <h1 id="nama"> </h1>
+    <select name="" id="dropdown">
+    </select>
+<!-- <p id="dropdown"> </p> -->
+
+    <script>
+        const dropdowndata = document.getElementById('dropdown')
+        const selectdata = document.getElementById('nama')
+
+        fetch('https://booking.kai.id/api/stations2')
+        .then(response => response.json())
+        .then(data => {
+            //mengurutkan data sescara ascending
+         data.sort((a, b) => a.name.localeCompare(b.name));
+            let isidropdown;
+            data.forEach(dataAPI => {
+                isidropdown += `<option>${dataAPI.name}</option>`
+            });
+            dropdowndata.innerHTML = isidropdown
+            //menampilkan data yang dipilih ke elemen h1
+            dropdowndata.addEventListener('change', ()=>{
+                const selecteddata = dropdowndata.value;
+                selectdata.textContent = `${selecteddata}`
+            })
+        })
+        .catch(error=>{
+            console.error("error:", error)
+        })
+</script>
+</body>
+</html>

@@ -6,8 +6,6 @@
     <title>Document</title>
 </head>
 <body>  
-    <div>
-    <div>
         <div id="editModal" style="display: none;">
             <h2>Edit Data</h2>
         <input type="text" id="editnama" /> <br/>
@@ -19,13 +17,10 @@
         <button onclick="saveaditedData()">save data</button>
         <button onclick="closeeditModal()">cancel</button>
         </div>
-    </div>
-      
+    <div id="tampildata"> </div>
+    
 
-    <div id="tampildata"></div>
 
-    <div> </div>
-</div>
     <script>
         //metode untuk menampilkan data pada HTML
         const displaydb = document.getElementById("tampildata")
@@ -53,7 +48,6 @@
         })
         .catch(error => {
     console.error('Error fetching data:', error);
-    DataContainer.innerHTML = 'Terjadi kesalahan saat mengambil data.';
 });
 //metode delete data 
 function deletedata(id){
@@ -109,7 +103,7 @@ let editedID = "" //variabel untuk menyimpan ID yang akan diubah
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(editedData)
         })
-        .then(response => response.json)
+        .then(response => response.json())
         .then(data =>{
             closeeditModal()
         })
@@ -119,6 +113,7 @@ let editedID = "" //variabel untuk menyimpan ID yang akan diubah
         editModal.style.display = "none"
         editedID = "" 
     }
+
     </script>
 </body>
 </html>
