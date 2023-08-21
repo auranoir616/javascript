@@ -1,0 +1,53 @@
+{
+  "regis": [
+    {
+      "id": 1692597297802,
+      "nama_user": "wawan",
+      "email_user": "wawan@gmail.com",
+      "user_user": "wawan123",
+      "pass_user": "wawan123"
+    },
+    {
+      "id": 1692602081691,
+      "nama_user": "ana",
+      "email_user": "ana@gmail.con",
+      "user_user": "ana1234",
+      "pass_user": "ana1234"
+    },
+    {
+      "id": 1692602602215,
+      "nama_user": "nani",
+      "email_user": "nani@fas.com",
+      "user_user": "nani12",
+      "pass_user": "nani12"
+    },
+    {
+      "id": 1692607031061,
+      "nama_user": "asasd",
+      "email_user": "asdasd",
+      "user_user": "asdasd",
+      "pass_user": "asdas"
+    },
+    {
+      "id": 1692607067582,
+      "nama_user": "1",
+      "email_user": "1",
+      "user_user": "1",
+      "pass_user": "1"
+    },
+    {
+      "id": 1692607525252,
+      "nama_user": "asdasd",
+      "email_user": "asdasd",
+      "user_user": "asdas",
+      "pass_user": "asd"
+    },
+    {
+      "id": 1692607565787,
+      "nama_user": "asdas",
+      "email_user": "asdas",
+      "user_user": "asd",
+      "pass_user": "asdas"
+    }
+  ]
+}

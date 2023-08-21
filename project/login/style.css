@@ -1,0 +1,73 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cont-register{
+    width: 400px;
+    height: 400px;
+    background-color: rgb(234, 243, 240);
+    display: block;
+    
+}
+.cont-register2{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+input{
+    height: 25px;
+    border-radius: 5px;
+    margin: 5px;
+}
+.tombolregis{
+    background-color: rgb(90, 211, 101);
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.tombollogin{
+    display: flex;
+    flex-direction: row;
+    margin-top: 65px;
+
+}
+.tombollogin2{
+    margin-left: 10px;
+    margin-top: 15px;
+    width: 30%;
+    height: 50%;
+    border: none;
+    background-color:aqua;
+    border-radius: 5px;
+}
+.tombollogin2:hover{
+    background-color: rgb(107, 215, 248);
+}
+.tombolregis:hover{
+    background-color:aquamarine
+}
+#cont-login{
+    display: none;
+    background-color: aliceblue;
+    padding: 20px;
+}
+.inputlogin3{
+    background-color: rgb(26, 161, 240);
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+a{
+    text-align: center;
+    margin-top: 5px;
+}

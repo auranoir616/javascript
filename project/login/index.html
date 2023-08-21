@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Berhasil Login</h1>
+    <a href="login.html">kembali</a>
+    <div id="tampildata"></div>
+
+<script>
+    const tampildata = document.getElementById('tampildata')
+    fetch('http://localhost:3002/regis')
+    .then(response => response.json())
+    .then(data =>{
+
+        let disdata =" <h3>data : </h3>"
+       data.forEach(datadb => {
+        disdata += `<p>nama : ${datadb.nama_user}</p>
+                    <p>email : ${datadb.email_user}</p>
+                    <p>username : ${datadb.user_user}</p>
+                    <p>password : ${datadb.pass_user}</p>
+                    <button onclick="deletedata('${datadb.id}')">delete</button>`
+        });
+        tampildata.innerHTML = disdata
+    })
+
+    function deletedata(id){
+        fetch(`http://localhost:3002/regis/${id}`,{method: 'DELETE'})
+        .then(response => response.json())
+        .then(data => {
+            window.confirm("Data Berhasil di Hapus")
+        })
+    }
+
+</script>
+  
+</body>
+</html>

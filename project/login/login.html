@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div id="cont-register">
+        <div class="cont-register2">
+        <label>Nama :</label>
+        <input type="text" value="" id="nama">
+        <label>Email :</label>
+        <input type="email" value="" id="email">
+        <label>Username :</label>
+        <input type="text" value="" id="username" oninput="valid()">
+        <label>Password :</label>
+        <input type="password" value="" id="password">
+        <button onclick="postdata()" value="" class="tombolregis" id="tombolregis1">Register</button>
+        <div style="height: 15px;">
+        <p id="textvalidasi"></p>
+         </div>
+        <div class="tombollogin">
+        <p>sudah punya akun?</p>
+        <button onclick="login()" class="tombollogin2">Login</button>
+        </div>
+        </div>  
+    </div>
+
+    <div id="cont-login">
+
+    </div>
+    <script>
+        // buat form login
+function login(){
+    var dissregis = document.getElementById('cont-register')
+    dissregis.style.display = "none"
+
+    var contlogin = document.getElementById('cont-login')
+    contlogin.style.display = "flex"
+    contlogin.style.flexDirection = "column"
+    var login = document.getElementById('cont-login')
+    var inputuser = document.createElement("input")
+    inputuser.type = "text"
+    inputuser.id="userlogin"
+    inputuser.className = "inputlogin"
+    inputuser.placeholder = "Username"
+    login.appendChild(inputuser)
+
+    var login = document.getElementById('cont-login')
+    var inputpass = document.createElement("input")
+    inputpass.type = "password"
+    inputpass.id= "passlogin"
+    inputpass.className = "inputlogin"
+    inputpass.placeholder ="Password"
+    login.appendChild(inputpass)
+
+    var login = document.getElementById('cont-login')
+    var buttonlogin = document.createElement("button")
+    buttonlogin.textContent = "LOGIN"
+    buttonlogin.className = "inputlogin3"
+    buttonlogin.onclick = validlogin
+    login.appendChild(buttonlogin)
+
+    var login = document.getElementById('cont-login')
+    var kembali = document.createElement("a")
+    kembali.textContent = "kembali ke register"
+    kembali.href = "login.html"
+    login.appendChild(kembali)
+
+    
+
+}
+function cleardatalogin(){
+    document.getElementById('userlogin').value =""
+    document.getElementById('passlogin').value =""
+}
+//metode untuk login
+function validlogin(){
+var validuser = document.getElementById('userlogin').value
+ var validpass = document.getElementById('passlogin').value
+fetch('http://localhost:3002/regis')
+.then(response => response.json())
+.then(data =>{
+    console.log(data)
+    //memcocokkan user dan password yang diinput dengan database menggunakan array.some
+    const loguser = data.some(data => data.user_user === validuser)
+    console.log(loguser)
+    const logpass = data.some(data => data.pass_user === validpass)
+    if(loguser && logpass === true){
+        window.location.href ="index.html"
+
+}else{
+   window.confirm("gagal login")
+   cleardatalogin()
+
+}
+ 
+})
+.catch(error => {
+      console.error('Terjadi kesalahan:', error);
+})
+}
+
+//metode POST
+function register(datauser){
+ fetch('http://localhost:3002/regis',{
+    method: 'POST',
+    headers:{"Content-Type": "application/json"},
+    body: JSON.stringify(datauser)
+ })
+
+}
+function cleardata(){
+document.getElementById('nama').value =""
+document.getElementById('email').value =""
+document.getElementById('username').value =""
+document.getElementById('password').value =""
+ }
+
+function postdata(){
+    var namakosong = document.getElementById('nama').value
+    var emailkosong = document.getElementById('email').value
+    var userkosong = document.getElementById('username').value
+    var passkosong = document.getElementById('password').value
+
+    if(namakosong === "" ||emailkosong===""||userkosong === ""||passkosong === "" ){
+        const text = document.getElementById('textvalidasi')
+        const tombol = document.getElementById('tombolregis1')
+         text.textContent = "masukkan data dengan lengkap."
+         text.style.color = "red"
+         tombol.disabled = true
+        
+    }else{
+ var nama = document.getElementById('nama').value
+ var email = document.getElementById('email').value
+ var user = document.getElementById('username').value
+ var password = document.getElementById('password').value
+
+ const datauser={
+    id: new Date().getTime(),
+    nama_user: nama,
+    email_user: email,
+    user_user: user,
+    pass_user: password
+ }
+ cleardata()
+ register(datauser)
+}
+}
+
+function valid(){
+const validasiregis = document.getElementById('username').value
+fetch('http://localhost:3002/regis')
+.then(response => response.json())
+.then(data => {
+const validasidata = data.some(data => data.user_user === validasiregis)
+//belum
+if(validasidata){
+const text = document.getElementById('textvalidasi')
+const tombol = document.getElementById('tombolregis1')
+ text.textContent = "user tidak boleh sama."
+ text.style.color = "red"
+ tombol.disabled = true
+ 
+console.log(validasidata)
+}else{
+    const text = document.getElementById('textvalidasi')
+    const tombol = document.getElementById('tombolregis1')
+ text.textContent = ""
+ tombol.disabled = false
+
+
+} 
+})
+}
+
+
+
+</script>
+</body>
+</html>
