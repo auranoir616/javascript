@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        #text{
+            height: 500px;
+            width: 600px;
+            overflow: auto;
+            background-color: rgb(237, 240, 243);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p id="text"></p>
+    </div>
+    <input type="file" id="input"/>
+    <button id="submit" onclick="submit()">submit</button>
+    <div>
+        <p id="text2"></p>
+    </div>
+ 
+    <script>
+
+document.getElementById("input").addEventListener("change",(e)=>{
+    const file = e.target.files[0]
+    const reader = new FileReader();
+
+    reader.onload = (e)=>{
+        document.getElementById('text').textContent = e.target.result
+    }
+    reader.readAsText(file)
+})
+function submit(){
+    const text2 = document.getElementById("text2")
+    const text = document.getElementById("text").textContent
+    text2.innerHTML = text
+}
+
+    </script>
+</body>
+</html>
