@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+<body id="inputquest">
+    <div id="container">
+    <input type="text" name="" id="quest">
+<br><br>
+    <input type="text" name="" id="answera" placeholder="jawaban A"> <input type="checkbox" id="checkA"><br>
+    <input type="text" name="" id="answerb" placeholder="jawaban B"> <input type="checkbox" id="checkB"><br>
+    <input type="text" name="" id="answerc" placeholder="jawaban C"> <input type="checkbox" id="checkC"><br>
+    <input type="text" name="" id="answerd" placeholder="jawaban D"> <input type="checkbox" id="checkD"><br>
+    <button onclick="postdata()">post</button>
+</div>
+   
+
+<script>
+function submit(dataquiz){
+    fetch('http://localhost:3005/quiz',{
+        method: "POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(dataquiz)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log("POST data berhasil!", result)
+        clearform()
+    })
+    .catch(error=>{
+        console.log(error)
+    })
+}
+
+function clearform(){
+    document.getElementById('quest').value=""
+    document.getElementById('answera').value=""
+    document.getElementById('answerb').value=""
+    document.getElementById('answerc').value=""
+    document.getElementById('answerd').value=""
+    document.getElementById('checkA').checked = false
+    document.getElementById('checkB').checked = false
+    document.getElementById('checkC').checked = false
+    document.getElementById('checkD').checked = false
+
+}
+
+function postdata(){
+    var question = document.getElementById('quest').value
+    var answera = document.getElementById('answera').value
+    var answerb = document.getElementById('answerb').value
+    var answerc = document.getElementById('answerc').value
+    var answerd = document.getElementById('answerd').value
+    var checka = document.getElementById('checkA').checked
+    var checkb = document.getElementById('checkB').checked
+    var checkc = document.getElementById('checkC').checked
+    var checkd = document.getElementById('checkD').checked
+
+
+    const dataquiz = {
+        question: question,
+        answers: [
+            { text: answera, check: checka },
+            { text: answerb, check: checkb },
+            { text: answerc, check: checkc },
+            { text: answerd, check: checkd }
+        ]
+    };
+
+submit(dataquiz)
+
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(227, 228, 230);
+}
+
+#containerquest{
+    height: 100px;
+    text-align: center;
+    padding: 5px;
+}
+#containeransw{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.buttonanswer{
+    background-color: rgb(121, 197, 241);
+    padding: 10px;
+    margin: 7px;
+    border-radius: 5px;
+}
+.buttonanswer:hover{
+    background-color: aquamarine;
+}
+
+#tombollanjut{
+    font-size:20px;
+    background-color: rgb(20, 245, 69);
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+
+}
+#tombollanjut:hover{
+    background-color: rgb(217, 243, 69);
+}
+#tombolkembali{
+    font-size:20px;
+    background-color: rgb(255, 174, 127);
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+}
+#tombolkembali:hover{
+    background-color: rgb(255, 17, 17);
+}
+
+#containeralert{
+    height: 150px;
+    text-align: center;
+    padding: 5px;
+}
+#tombolmulailagi{
+    font-variant:small-caps;
+    font-size:25px;
+    background-color: rgb(255, 2, 2);
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 160px;
+}
+#tombolmulailagi:hover{
+    background-color:greenyellow;
+}
+
+#containerall{
+    background-color: rgb(255, 255, 255);
+    height: 450px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+#score{
+    font-size: 30px;
+    text-align: center;
+
+}
+#tombolmulai{
+    height: 100%;
+    width: auto;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    font-size: 50px;
+
+}
+#tombolmulai:hover{
+ color: rgb(17, 240, 55);
+}

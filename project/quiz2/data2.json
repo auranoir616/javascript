@@ -1,0 +1,334 @@
+{
+  "quiz": [
+    {
+      "question": "Apa yang menjadi sumber energi utama bagi kehidupan di Bumi?",
+      "answers": [
+        {
+          "text": "Matahari",
+          "check": true
+        },
+        {
+          "text": "Bulan",
+          "check": false
+        },
+        {
+          "text": "Bintang-bintang",
+          "check": false
+        },
+        {
+          "text": "Planet Mars",
+          "check": false
+        }
+      ],
+      "id": 1
+    },
+    {
+      "question": "Proses apa yang bertanggung jawab atas perubahan padang rumput menjadi hutan?",
+      "answers": [
+        {
+          "text": "Erosi",
+          "check": false
+        },
+        {
+          "text": "Evolusi",
+          "check": false
+        },
+        {
+          "text": "Sukerasi",
+          "check": false
+        },
+        {
+          "text": "Suksesi",
+          "check": true
+        }
+      ],
+      "id": 2
+    },
+    {
+      "question": "Apa yang disebut sebagai \"paru-paru\" Bumi karena menghasilkan oksigen?",
+      "answers": [
+        {
+          "text": "Gunung berapi",
+          "check": false
+        },
+        {
+          "text": "Lautan",
+          "check": false
+        },
+        {
+          "text": "Hutan hujan",
+          "check": true
+        },
+        {
+          "text": "Gurun",
+          "check": false
+        }
+      ],
+      "id": 3
+    },
+    {
+      "question": "Apa yang menyebabkan musim berubah di Bumi?",
+      "answers": [
+        {
+          "text": "Rotasi Bumi",
+          "check": false
+        },
+        {
+          "text": "Revolusi Bumi",
+          "check": true
+        },
+        {
+          "text": "Rotasi Bulan",
+          "check": false
+        },
+        {
+          "text": "Translasi Bumi",
+          "check": false
+        }
+      ],
+      "id": 4
+    },
+    {
+      "question": "Apa yang disebut sebagai peristiwa ketika bulan berada di antara matahari dan bumi, menyebabkan bayangan bulan jatuh pada bumi?",
+      "answers": [
+        {
+          "text": "Gerhana matahari",
+          "check": true
+        },
+        {
+          "text": "Gerhana bulan",
+          "check": false
+        },
+        {
+          "text": "Fase bulan baru",
+          "check": false
+        },
+        {
+          "text": "Fase bulan purnama",
+          "check": false
+        }
+      ],
+      "id": 5
+    },
+    {
+      "question": "Jenis gunung berapi yang cenderung meletus dengan letusan yang eksplosif disebut apa?",
+      "answers": [
+        {
+          "text": "Strato",
+          "check": true
+        },
+        {
+          "text": "Perisai",
+          "check": false
+        },
+        {
+          "text": "Kerucut",
+          "check": false
+        },
+        {
+          "text": "Lembah",
+          "check": false
+        }
+      ],
+      "id": 6
+    },
+    {
+      "question": "Bagaimana bintang laut makan?",
+      "answers": [
+        {
+          "text": "Mengunyah makanan",
+          "check": false
+        },
+        {
+          "text": "Menghisap makanan",
+          "check": true
+        },
+        {
+          "text": "Memotong makanan",
+          "check": false
+        },
+        {
+          "text": "Menggerogoti makanan",
+          "check": false
+        }
+      ],
+      "id": 7
+    },
+    {
+      "question": "Apa yang disebut sebagai siklus air yang terjadi ketika air menguap dari permukaan bumi dan membentuk awan?",
+      "answers": [
+        {
+          "text": "Evaporasi",
+          "check": true
+        },
+        {
+          "text": "Konveksi",
+          "check": false
+        },
+        {
+          "text": "Transpirasi",
+          "check": false
+        },
+        {
+          "text": "Infiltrasi",
+          "check": false
+        }
+      ],
+      "id": 8
+    },
+    {
+      "question": "Binatang yang hidup di dua alam, darat dan air, disebut apa?",
+      "answers": [
+        {
+          "text": "Amfibi",
+          "check": true
+        },
+        {
+          "text": "Reptil",
+          "check": false
+        },
+        {
+          "text": "Aves",
+          "check": false
+        },
+        {
+          "text": "Mamalia",
+          "check": false
+        }
+      ],
+      "id": 9
+    },
+    {
+      "question": "Zat kimia dalam daun yang memungkinkan fotosintesis disebut apa?",
+      "answers": [
+        {
+          "text": "Klorofil",
+          "check": true
+        },
+        {
+          "text": "Karoten",
+          "check": false
+        },
+        {
+          "text": "Hemoglobin",
+          "check": false
+        },
+        {
+          "text": "Kolagen",
+          "check": false
+        }
+      ],
+      "id": 10
+    },
+    {
+      "question": "Apa yang disebut proses di mana tanaman menggunakan energi matahari untuk mengubah karbon dioksida dan air menjadi glukosa dan oksigen?",
+      "answers": [
+        {
+          "text": "Fotosintesis",
+          "check": true
+        },
+        {
+          "text": "Respirasi",
+          "check": false
+        },
+        {
+          "text": "Fermentasi",
+          "check": false
+        },
+        {
+          "text": "Transpirasi",
+          "check": false
+        }
+      ],
+      "id": 11
+    },
+    {
+      "question": "Bagian tanaman yang bertanggung jawab untuk menyerap air dan nutrisi dari tanah adalah?",
+      "answers": [
+        {
+          "text": "Akar",
+          "check": true
+        },
+        {
+          "text": "Batang",
+          "check": false
+        },
+        {
+          "text": "Daun",
+          "check": false
+        },
+        {
+          "text": "Bunga",
+          "check": false
+        }
+      ],
+      "id": 12
+    },
+    {
+      "question": "Bagian tanaman yang berfungsi untuk melindungi bunga dan buah serta menghasilkan daun tambahan disebut?",
+      "answers": [
+        {
+          "text": "Kambium",
+          "check": false
+        },
+        {
+          "text": "Epidermis",
+          "check": false
+        },
+        {
+          "text": "Meristem",
+          "check": false
+        },
+        {
+          "text": "Kulit kayu",
+          "check": true
+        }
+      ],
+      "id": 13
+    },
+    {
+      "question": "Proses pergerakan air dari akar ke daun melalui pembuluh xilem disebut?",
+      "answers": [
+        {
+          "text": "Transpirasi",
+          "check": true
+        },
+        {
+          "text": "Translokasi",
+          "check": false
+        },
+        {
+          "text": "Imbibisi",
+          "check": false
+        },
+        {
+          "text": "Resorpsi",
+          "check": false
+        }
+      ],
+      "id": 14
+    },
+    {
+      "question": "Tanaman yang melepaskan daunnya pada musim gugur dan tumbuh kembali pada musim semi disebut?",
+      "answers": [
+        {
+          "text": "Perdu",
+          "check": false
+        },
+        {
+          "text": "Semak",
+          "check": false
+        },
+        {
+          "text": "Tumbuhan tahunan",
+          "check": true
+        },
+        {
+          "text": "Tumbuhan musiman",
+          "check": false
+        }
+      ],
+      "id": 15
+    }
+  ]
+}

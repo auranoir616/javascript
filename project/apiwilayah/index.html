@@ -76,7 +76,7 @@
     console.error(error)
 })
 
-//metode untuk menampilkan kecamatan 
+//metode untuk menampilkan kecamatan berdasarkan id kota
 function kecamatan(idkota){ //parameter idkota didapat pada onclick ${datakota.id} yang merupakan ID kota lalu digunakan sebagai ID dalam proses fetch
     fetch(`https://api.binderbyte.com/wilayah/kecamatan?api_key=47864ad6e813ef7e6b387c023e141db00518a2018a134e67a9789fc951debccf&id_kabupaten=${idkota}`)
     .then(response => response.json())
@@ -92,7 +92,7 @@ function kecamatan(idkota){ //parameter idkota didapat pada onclick ${datakota.i
     })
 }
 
-//metode untuk menampilkan desa
+//metode untuk menampilkan desa berdasarkan id kecamatan
 function desa(idkec){
     fetch(`https://api.binderbyte.com/wilayah/kelurahan?api_key=47864ad6e813ef7e6b387c023e141db00518a2018a134e67a9789fc951debccf&id_kecamatan=${idkec}`)
     .then(response => response.json())
