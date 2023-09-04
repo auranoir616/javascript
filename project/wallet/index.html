@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+<body>
+    <div id="container-all">
+
+    <div id="containersaldo">
+        <h2 id="saldo">total saldo : </h2>
+        <button id="inputsaldo">input saldo</button>
+    </div>
+    <div>
+        <button id="inputformbutton">input transaksi</button>
+    </div>
+
+        <div id="container-table">
+        <table border="1" id="table">
+        <tr>
+            <th>ID transaksi</th>
+
+      <th>tanggal transaksi</th>
+      <th>nama transaksi</th>
+      <th>pengeluaran</th>
+      <th>pemasukan</th>
+      <th>Keterangan</th>
+      <th>aksi</th>
+        </tr>
+    </table>
+    </div>  
+
+</div>
+<div id="form-popup" class="popup">
+    <label for="tanggal">tanggal</label>
+    <input type="date" id="inputdate"><br>
+    <label for="tansaksi">transaksi</label>
+    <input type="text" id="inputtransaksi"><br>
+    <label for="pengeluaran">pengeluaran</label>
+    <input type="number" name="" id="inputpengeluaran"><br>
+    <label for="pemasukan">pemasukan</label>
+    <input type="number" name="" id="inputpemasukan"><br>
+    <label for="keterangan">keterangan</label>
+    <input type="text" name="" id="inputketerangan"><br>
+    <label for="aksi">aksi</label>
+    <select name="" id="inputaksi"><br>
+        <option value="selesai">selesai</option>
+        <option value="batal">batal</option>
+        <option value="tertunda">tertunda</option>
+    </select>
+    <button id="cancel" onclick="cancel()">batal</button>
+    <input type="submit" value="kirim" id="submitform" onclick="transaksi()">
+</div>
+<script src="script.js"></script>
+</body>
+</html>

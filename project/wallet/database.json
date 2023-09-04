@@ -1,0 +1,31 @@
+{
+  "transaksi": [
+    {
+      "date": "2000-05-02",
+      "transaksi": "beli beras",
+      "pengeluaran": "200000",
+      "pemasukan": "",
+      "keterangan": "lunas",
+      "aksi": "selesai",
+      "id": 3
+    },
+    {
+      "date": "2001-06-05",
+      "transaksi": "beli minyak",
+      "pengeluaran": "150000",
+      "pemasukan": "",
+      "keterangan": "lunas",
+      "aksi": "selesai",
+      "id": 4
+    },
+    {
+      "id": 1693811177943,
+      "date": "2023-09-05",
+      "transaksi": "beli makan",
+      "pengeluaran": "10000",
+      "pemasukan": "",
+      "keterangan": "p",
+      "aksi": "selesai"
+    }
+  ]
+}
