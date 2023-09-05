@@ -1,30 +1,39 @@
 {
   "transaksi": [
     {
-      "date": "2000-05-02",
-      "transaksi": "beli beras",
-      "pengeluaran": "200000",
-      "pemasukan": "",
-      "keterangan": "lunas",
-      "aksi": "selesai",
-      "id": 3
+      "id": 1693892280498,
+      "date": "2023-05-09",
+      "transaksi": "saldo awal",
+      "pengeluaran": "",
+      "pemasukan": "1000000",
+      "keterangan": "",
+      "aksi": "selesai"
     },
     {
-      "date": "2001-06-05",
-      "transaksi": "beli minyak",
+      "id": 1693892428817,
+      "date": "",
+      "transaksi": "",
+      "pengeluaran": "",
+      "pemasukan": "15000",
+      "keterangan": "",
+      "aksi": "selesai"
+    },
+    {
+      "id": 1693892964583,
+      "date": "",
+      "transaksi": "",
       "pengeluaran": "150000",
       "pemasukan": "",
-      "keterangan": "lunas",
-      "aksi": "selesai",
-      "id": 4
+      "keterangan": "",
+      "aksi": "selesai"
     },
     {
-      "id": 1693811177943,
-      "date": "2023-09-05",
-      "transaksi": "beli makan",
-      "pengeluaran": "10000",
-      "pemasukan": "",
-      "keterangan": "p",
+      "id": 1693892979651,
+      "date": "",
+      "transaksi": "",
+      "pengeluaran": "",
+      "pemasukan": "200000",
+      "keterangan": "",
       "aksi": "selesai"
     }
   ]

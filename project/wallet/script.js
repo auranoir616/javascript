@@ -1,6 +1,7 @@
 const formpopup = document.getElementById('form-popup')
 const inputformbutton = document.getElementById('inputformbutton')
 const table =document.getElementById('table')
+const tbody = document.getElementById('tbody')
 
 
 inputformbutton.addEventListener('click',function(){
@@ -14,7 +15,7 @@ function cancel(){
 
 function submitdata(datatransaksi){
 
-    fetch('http://localhost:3002/transaksi', {
+    fetch('http://localhost:3001/transaksi', {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body:JSON.stringify(datatransaksi)
@@ -46,9 +47,11 @@ function transaksi(){
         aksi: inputaksi
         };
         submitdata(datatransaksi)
+
+        console.log(datatransaksi)
     }
 
-    fetch('http://localhost:3002/transaksi')
+    fetch('http://localhost:3001/transaksi')
     .then(response => response.json())
     .then(data =>{
 
@@ -84,9 +87,37 @@ function transaksi(){
         tdaksi.textContent = datatable.aksi
         addrow.appendChild(tdaksi)
 
-        table.appendChild(addrow)
+        tbody.appendChild(addrow)
         })
     })
 .catch(error=>{
     console.log(error)
 })
+
+function hitungsaldoakhir(){
+    // let saldoawal = parseFloat(document.getElementById('tbody').getElementsByTagName('tr')[0].getElementsByTagName('td')[4].textContent) || 0;
+    let saldoawal = 0; // Nilai awal jika elemen tidak ditemukan
+
+    const tdElement = document.querySelector('#tbody tr:first-child td:nth-child(5)'); // Mengambil elemen td index ke-4 (indeks dimulai dari 1)
+    if (tdElement) {
+      saldoawal = parseFloat(tdElement.textContent) || 0;
+        console.log(saldoawal)
+    }
+    let saldoakhir = saldoawal
+    const tabel = document.getElementById("table")
+    const row = tabel.getElementsByTagName('tbody')[0].getElementsByTagName('tr')
+
+    for (let i = 0; i< row.length; i++){
+        const pemasukan = parseFloat(row[i].getElementsByTagName('td')[4].textContent) || 0
+        const pengeluaran = parseFloat(row[i].getElementsByTagName('td')[3].textContent) || 0
+        saldoakhir += pemasukan - pengeluaran
+
+    }
+    const displaysaldo = document.getElementById('saldo')
+    displaysaldo.textContent = `saldo akhir : ${saldoakhir}`
+
+}
+window.onload = function(){
+    hitungsaldoakhir()
+}
+
