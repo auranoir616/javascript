@@ -1,6 +1,88 @@
-.popup{
-display: none;
-    height: 250px;
-    width: 300px;
-    text-align: justify;
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#table{
+    width: 1208px;
+    text-align: center;
+}
+th{
+    width: 14.5%;
+}
+
+#delete, #edit{
+    display: inline;
+}
+#save, #cancel{
+    display: none;
+}
+
+#inputketerangantbl,
+#inputpemasukantbl,
+#inputpengeluarantbl,
+#inputtransaksitbl,
+#inputtanggaltbl{
+    width: 100%;
+}
+
+#containersaldo{
+    text-align: right;
+}
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 100vh;
+        width: 100vw;
+        text-align: justify;
+        z-index: 99;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5); /* Memberikan latar belakang transparan dengan warna */
+      }
+      
+    .containerpopup{
+        width: 500px;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+    }
+    
+.containerform{
+    /* display: flex;
+    flex-direction: column; */
+    width: 75%;
+
+
+}
+#inputdate,
+#inputketerangan,
+#inputpemasukan,
+#inputpengeluaran,
+#inputtransaksi,
+#inputtanggal{
+    padding: 10px;
+    margin-left: 50px;
+}
+
+.table2{
+    width: 100%;
+}
+#inputdate{
+    width: 173px;
+}
+
+h1{text-align: center;}
+#inputformbutton{
+    margin: 5px;
 }

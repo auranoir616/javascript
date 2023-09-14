@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <title></title>
 </head>
 <body>
@@ -12,22 +13,22 @@
     <div id="containersaldo">
         <h2 id="saldo" ></h2>
     </div>
-    <div>
-        <button id="inputformbutton">input transaksi</button>
+    <div >
+        <button id="inputformbutton" class="ui left teal floated button">input transaksi</button>
     </div>
 
         <div id="container-table">
-        <table border="1" id="table">
+        <table id="table" class="ui green table">
             <thead>
                 <tr>
-                    <th>ID transaksi</th>
-        
+            
+            <th width="">ID transaksi</th>    
               <th>tanggal transaksi</th>
               <th>nama transaksi</th>
               <th>pengeluaran</th>
               <th>pemasukan</th>
               <th>Keterangan</th>
-              <th>aksi</th>
+              <th>edit</th>
                 </tr>
             </thead>
 
@@ -39,24 +40,82 @@
 
 </div>
 <div id="form-popup" class="popup">
-    <label for="tanggal">tanggal</label>
-    <input type="date" id="inputdate"><br>
-    <label for="tansaksi">transaksi</label>
-    <input type="text" id="inputtransaksi"><br>
-    <label for="pengeluaran">pengeluaran</label>
-    <input type="number" name="" id="inputpengeluaran"><br>
-    <label for="pemasukan">pemasukan</label>
-    <input type="number" name="" id="inputpemasukan"><br>
-    <label for="keterangan">keterangan</label>
-    <input type="text" name="" id="inputketerangan"><br>
-    <label for="aksi">aksi</label>
-    <select name="" id="inputaksi"><br>
-        <option value="selesai">selesai</option>
-        <option value="batal">batal</option>
-        <option value="tertunda">tertunda</option>
-    </select>
-    <button id="cancel" onclick="cancel()">batal</button>
-    <input type="submit" value="kirim" id="submitform" onclick="transaksi()">
+    <div class="containerpopup">
+        <div class="containerform">
+            <h1>input transaksi</h1>
+            <hr>
+<table class="table2">
+    <tr>
+        <td><p>Tanggal</p></td>
+        <td>
+        <div class="inline field ui input">
+            <input type="date" id="inputdate">
+            </div>
+    </td>
+</tr>
+ <tr>
+    <td><p>Transaksi</p></td>
+            <td>
+                <div class="inline field ui input">
+                    <input type="text" id="inputtransaksi">
+                    </div>
+            </td>
+    </tr>
+           
+            <tr>
+                <td> <p>Pengeluaran</p></td>
+                <td>
+                <div class="inline field ui input">
+                    <input type="number" name="" id="inputpengeluaran">
+                    </div>
+            </td>
+        </tr>
+          
+            <tr>
+                <td> <p>Pemasukan</p></td>
+                <td>
+                <div class="inline field ui input">
+                    <input type="number" name="" id="inputpemasukan">
+                    </div>
+            </td>
+        </tr>
+           
+            <tr>
+                <td> <p>Keterangan</p></td>
+                <td>
+                <div class="inline field ui input">
+                    <input type="text" name="" id="inputketerangan" class="">
+                </div>
+            </td>
+        </tr>  
+        
+<tr align="center"><td colspan="2">
+
+    <div class="ui buttons">
+        <button id="batal" onclick="cancel()" class="ui negative button">batal</button>
+        <div class="or"></div>
+        <button id="submitform" onclick="transaksi()" class="ui positive button">submit</button>
+    </div>
+</td><td></td>
+</tr>
+    </table>
+
+
+
+
+    <!-- <label for="tanggal">tanggal</label>
+    <input type="date" id="inputdate"><br> -->
+    <!-- <label for="tansaksi">transaksi</label>
+    <input type="text" id="inputtransaksi"><br> -->
+    <!-- <label for="pengeluaran">pengeluaran</label>
+    <input type="number" name="" id="inputpengeluaran"><br> -->
+    <!-- <label for="pemasukan">pemasukan</label>
+    <input type="number" name="" id="inputpemasukan"><br> -->
+    <!-- <label for="keterangan">keterangan</label>
+    <input type="text" name="" id="inputketerangan"><br> -->
+    
+    </div>
+    </div>
 </div>
 <script src="script.js"></script>
 </body>

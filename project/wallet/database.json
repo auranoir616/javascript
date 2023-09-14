@@ -1,40 +1,28 @@
 {
   "transaksi": [
     {
-      "id": 1693892280498,
-      "date": "2023-05-09",
+      "date": "2023-09-07",
       "transaksi": "saldo awal",
       "pengeluaran": "",
-      "pemasukan": "1000000",
+      "pemasukan": "150000",
       "keterangan": "",
-      "aksi": "selesai"
+      "id": 1694070060540
     },
     {
-      "id": 1693892428817,
-      "date": "",
-      "transaksi": "",
-      "pengeluaran": "",
-      "pemasukan": "15000",
-      "keterangan": "",
-      "aksi": "selesai"
-    },
-    {
-      "id": 1693892964583,
-      "date": "",
-      "transaksi": "",
-      "pengeluaran": "150000",
+      "date": "2023-09-07",
+      "transaksi": "uang makan",
+      "pengeluaran": "200000",
       "pemasukan": "",
       "keterangan": "",
-      "aksi": "selesai"
+      "id": 1694070077124
     },
     {
-      "id": 1693892979651,
-      "date": "",
+      "id": 1694070108409,
+      "date": "2023-09-08",
       "transaksi": "",
       "pengeluaran": "",
-      "pemasukan": "200000",
-      "keterangan": "",
-      "aksi": "selesai"
+      "pemasukan": "100000",
+      "keterangan": ""
     }
   ]
 }

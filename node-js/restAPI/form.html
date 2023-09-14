@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Interaksi dengan API</title>
+    <!-- Sertakan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Form Interaksi dengan API</h1>
+
+    <!-- Form Metode GET -->
+    <form id="searchForm" action="/api/contacts" method="get">
+        <label for="search">Cari Kontak:</label>
+        <input type="text" id="search" name="query" />
+        <button type="submit">Cari</button>
+    </form>
+
+    <!-- Form Metode POST -->
+    <form id="addForm" action="/api/contacts" method="post">
+        <!-- Isi sesuai dengan form POST yang telah Anda buat -->
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" />
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender" />
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" />
+            <label for="phone">Telepon:</label>
+            <input type="tel" id="phone" name="phone" />
+            <button type="submit">Tambah Kontak</button>
+          
+    </form>
+
+    <!-- Form Metode PUT -->
+    <form id="updateForm" action="/api/contacts/123" method="put">
+        <!-- Isi sesuai dengan form PUT yang telah Anda buat -->
+        <!-- ... -->
+    </form>
+
+    <!-- Form Metode DELETE -->
+    <form id="deleteForm" action="/api/contacts/123" method="delete">
+        <button type="submit">Hapus Kontak</button>
+    </form>
+
+    <!-- Skrip JavaScript untuk menangani form -->
+    <script>
+        // Fungsi untuk menangani form GET
+        $("#searchForm").submit(function(event) {
+            event.preventDefault();
+            const query = $("#search").val();
+            // Lakukan permintaan GET dengan jQuery AJAX ke endpoint yang sesuai
+            $.get(`/api/contacts?query=${query}`, function(data) {
+                // Tampilkan data hasil pencarian ke pengguna
+                console.log(data);
+                // Lakukan apa yang perlu Anda lakukan dengan data ini
+            });
+        });
+
+        // Fungsi untuk menangani form POST
+        $("#addForm").submit(function(event) {
+            event.preventDefault();
+            const formData = $("#addForm").serialize();
+            // Lakukan permintaan POST dengan jQuery AJAX ke endpoint yang sesuai
+            $.post("/api/contacts", formData, function(data) {
+                // Tampilkan pesan ke pengguna bahwa kontak telah ditambahkan
+                console.log(data);
+                // Lakukan apa yang perlu Anda lakukan dengan data ini
+            });
+        });
+
+        // Fungsi untuk menangani form PUT
+        $("#updateForm").submit(function(event) {
+            event.preventDefault();
+            const formData = $("#updateForm").serialize();
+            // Lakukan permintaan PUT dengan jQuery AJAX ke endpoint yang sesuai
+            $.ajax({
+                url: "/api/contacts/123",
+                type: "PUT",
+                data: formData,
+                success: function(data) {
+                    // Tampilkan pesan ke pengguna bahwa kontak telah diperbarui
+                    console.log(data);
+                    // Lakukan apa yang perlu Anda lakukan dengan data ini
+                }
+            });
+        });
+
+        // Fungsi untuk menangani form DELETE
+        $("#deleteForm").submit(function(event) {
+            event.preventDefault();
+            // Lakukan permintaan DELETE dengan jQuery AJAX ke endpoint yang sesuai
+            $.ajax({
+                url: "/api/contacts/123",
+                type: "DELETE",
+                success: function(data) {
+                    // Tampilkan pesan ke pengguna bahwa kontak telah dihapus
+                    console.log(data);
+                    // Lakukan apa yang perlu Anda lakukan dengan data ini
+                }
+            });
+        });
+    </script>
+</body>
+</html>
