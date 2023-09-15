@@ -128,16 +128,26 @@ exports.update = async function (req, res) {
 //     });
 // };
 //metode delete contact
-exports.delete = function(req,res){
-    Contact.remove({
-        _id : req.params.contact_id},
-        function(err,contact){
-            if(err)
-            res.send(err)
+exports.delete =async function(req,res){
+    try{ 
+         const IDdelete = await Contact.deleteOne({_id : req.params.contact_id})
+       if (IDdelete.deleteCount === 0){
+        return res.status(404).json({
+            status: "error",
+            message: "contact not found"
+        })
+       }
+           
+
         res.json({
             status: "success",
-            message:"delete berhasil"
+            message:"delete berhasil",
         })
-        
+}catch(err){
+    res.status(500).json({
+        status: "success",
+        message:err.message,
     })
+}
+
 }
