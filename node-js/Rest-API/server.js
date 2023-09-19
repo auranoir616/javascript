@@ -9,7 +9,7 @@ const connectDB = require("./server/database/connection")
 connectDB()
 
 const app = express()
-const port = 8080
+const port = 8000
 app.use(morgan("tiny"))
 app.use(bodyParser.urlencoded({
     extended:true

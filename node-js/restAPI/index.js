@@ -37,21 +37,23 @@
 // app.listen(port, ()=>{
 //     console.log(`server berjalan di port ${port}`)
 // })
-
+//import modul yang diperlukan
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const port = 8080;
+const port = 8000;
 const apirouter = require('./apirouters');
 
+// route utama
 app.get("/", (req, res) => {
     res.send(
         "web server berhasil dibuat dengan nodemon"
     );
 });
-
+//Middleware untuk Parsing JSON dan Data URL-Encoded
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+//menggunakan router API
 app.use("/api", apirouter);
 
 // Membuat cek koneksi ke database
@@ -65,7 +67,7 @@ db.on('error', console.error.bind(console, 'Koneksi database gagal:'));
 db.once('open', function () {
     console.log('Koneksi database berhasil');
 });
-
+//Menjalankan Server
 app.listen(port, () => {
     console.log(`server berjalan di port ${port}`);
 });
