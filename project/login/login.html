@@ -125,7 +125,7 @@ function postdata(){
     var userkosong = document.getElementById('username').value
     var passkosong = document.getElementById('password').value
 
-    if(namakosong === "" ||emailkosong===""||userkosong === ""||passkosong === "" ){
+    if(!namakosong ||!emailkosong||!userkosong||!passkosong){
         const text = document.getElementById('textvalidasi')
         const tombol = document.getElementById('tombolregis1')
          text.textContent = "masukkan data dengan lengkap."
@@ -156,6 +156,7 @@ fetch('http://localhost:3002/regis')
 .then(response => response.json())
 .then(data => {
 const validasidata = data.some(data => data.user_user === validasiregis)
+
 //belum
 if(validasidata){
 const text = document.getElementById('textvalidasi')

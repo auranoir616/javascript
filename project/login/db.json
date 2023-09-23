@@ -27,6 +27,20 @@
       "email_user": "1",
       "user_user": "1",
       "pass_user": "1"
+    },
+    {
+      "id": 1695191846420,
+      "nama_user": "budi",
+      "email_user": "budi@mail.com",
+      "user_user": "budi123",
+      "pass_user": "123"
+    },
+    {
+      "id": 1695192019915,
+      "nama_user": "asasd",
+      "email_user": "asddas",
+      "user_user": "asdsa",
+      "pass_user": "asd"
     }
   ]
 }

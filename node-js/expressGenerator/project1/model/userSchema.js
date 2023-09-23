@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema({
     }
 
 })
+//!metode encrypsi password 
 userSchema.pre('save', async function(next){
     if (this.password){
         const salt = await bcrypt.genSalt(10)

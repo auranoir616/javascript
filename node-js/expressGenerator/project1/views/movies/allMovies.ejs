@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
+<%- include ('../_header') %>
+<a href="movies/create" class="btn btn-primary">Add movies</a>
+ <% for(let data of listMovies){ %>
 
-  </body>
-</html>
+  <div class="card" style="margin: 5px;">
+    <div class="card-body">
+      <h5 class="card-title"><%= data.name %></h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">tanggal release : <%= data.released_on %></h6>
+      <a href="/movies/update/<%= data.id %>" class="btn btn-primary">edit</a>
+
+      <a class="btn btn-danger" data-bs-toggle="collapse" href="#data<%= data.id %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+        delete data
+      </a>
+    </div>
+  </div>
+  <div class="collapse" id="data<%= data.id %>">
+    <div class="card card-body">
+        apakah anda yakin ingin menghapus film <%= data.name %> ?
+        <a href="/movies/delete/<%= data.id %>" class="btn btn-danger">delete</a>
+
+    </div>
+  </div>
+
+<% } %>
+
+<!-- href="#data<*%= data.id  %>" adalah link tujuan ke elemen collapse sebagai selector ID
+id="data<*%= data.id %>" adalah id yang ditangkap oleh elemen collpse sebagai pemicu jika tombol dengan atribut seperti itu aktif -->
