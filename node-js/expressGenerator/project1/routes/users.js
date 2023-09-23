@@ -60,7 +60,7 @@ passport.authenticate('local',{
 
 
 //?metode untuk register
-router.get("/register", forwarduser, function (req, res, next) {
+router.get("/register", function (req, res, next) {
   res.render("register", { title: "Halaman register" });
 });
 router.post("/register", function (req, res, next) {
