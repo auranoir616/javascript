@@ -7,9 +7,9 @@ module.exports ={
         res.redirect("/users/login")
     },
     forwarduser : function(req, res, next){
-        if(req.isAuthenticated()){
+        if(!req.isAuthenticated()){
             return next()
         }
-        res.redirect("/users/register")
+        res.redirect("/dashboard")
 }
 }

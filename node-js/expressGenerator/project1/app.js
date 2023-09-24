@@ -20,7 +20,7 @@ require('./config/passport')(passport)
 app.use(session({
   secret: 'secret',
   resave: true,
-  saveUninitialized: false,
+  saveUninitialized: true,
 }))
 app.use(passport.initialize())
 app.use(passport.session())

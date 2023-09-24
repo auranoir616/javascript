@@ -19,12 +19,22 @@ router.post("/login", forwarduser,function (req, res, next) {
   if (!email || !password) {
     error.push({ msg: "lengkapi data anda" });
     console.log("lengkapi data anda");
+    res.render("login", {error});
+
   }
   if (error.length > 0) {
     res.render("login", {error});
   }
   //error handling jika email salah
   else {
+    passport.authenticate('local',{
+      successRedirect: '/dashboard',
+      failureRedirect: '/users/login',
+      failureFlash: true
+    })(req, res, next)
+      };
+    })
+    
 //     User.findOne({ email: email }).then(
 //       async (user) => {
 //       if (user) {
@@ -50,13 +60,6 @@ router.post("/login", forwarduser,function (req, res, next) {
 //       console.log(err.message);
 //       res.render("login", {error})
 //     })
-passport.authenticate('local',{
-  succeRedirect: '/',
-  failureRedirect: '/login',
-  failureFlash: true
-})(req, res, next)
-  };
-})
 
 
 //?metode untuk register
@@ -113,8 +116,13 @@ router.post("/register", function (req, res, next) {
 })
 //!router logout
 router.get("/logOut",function(req, res){
+  req.logOut( function(err){
+    if(err){
+      console.error(err)
+      return next(err)
+    }
+  })
   res.redirect("/")
-  req.logOut()
 })
 
 module.exports = router

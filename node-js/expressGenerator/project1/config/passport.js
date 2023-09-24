@@ -3,12 +3,14 @@ const bcrypt = require('bcrypt')
 const user = require('../model/userSchema');
 const passport = require('passport');
 
+let errors = []
+
 module.exports = function(passport){
     passport.use(new localStrategy({
         usernameField: 'email'
     },
-    function(username, password, done){
-        User.findOne({ email: email }).then(
+    function(email, password, done){
+        user.findOne({ email: email }).then(
             async (user) => {
             if (user) {
               if(await bcrypt.compare(password, user.password)){
@@ -16,17 +18,22 @@ module.exports = function(passport){
                 console.log("cek " + password , " || " ,user.password)
                 return done(null,user)
             }else{
-                return done(null, false,{msg: "password salah"})
+              errors.push({msg: "password salah"})
+              console.log(errors)
+              return done(null, false,)
 
               }
             }
             else{
-                return done(null, false,{msg: "email salah"})
+              errors.push({msg: "email salah"})
+              console.log(errors)
+              return done(null, false,)
+                
             
               }
             }
           ).catch((err)=>{
-            error.push({ msg: "internal server error" });
+            console.log("internal server error" );
           })
         }));
     }
@@ -35,7 +42,11 @@ passport.serializeUser(function(user, done){
     done(null, user.id)
 })
 passport.deserializeUser(function(id, done){
-    user.findById(id, function(err, user){
-        done(err, user)
-    })
-})
+    user.findById(id)
+  .then((user)=>{
+    done(null, user)
+  })
+  .catch((err)=>{
+    done(err, null)
+  })
+  })
