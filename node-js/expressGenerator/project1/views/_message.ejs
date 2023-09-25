@@ -1,16 +1,9 @@
-<% if(typeof error != 'undefined'){ %>
-<% error.forEach(function(error){ %>
+<% if(typeof info != 'undefined'){ %>
+<% info.forEach(function(err){ %>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong><%= error.msg %></strong> 
+        <strong><%= err.msg %></strong> 
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
 <% }); %>
 <% } %>
 
-
-<% if( errors != ''){ %>
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong><%= errors %></strong> 
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-  <% } %>

@@ -34,10 +34,6 @@ router.get("/", cekuser, function (req, res, next) {
       next(err);
     });
 });
-//create movies
-router.get("/create",cekuser, function (req, res, next) {
-  res.render("movies/createMovies", { title: "Halaman Create Movies" });
-});
 
 //!menampilkan data movies dalam form
 router.get("/update/:movieId", cekuser, async function (req, res, next) {
@@ -86,8 +82,10 @@ router.post("/update", cekuser, async function (req, res) {
   }
 });
 
-
-
+//!merender halaman create movie
+router.get("/create",cekuser, function (req, res, next) {
+  res.render("movies/createMovies", { title: "Halaman Create Movies" });
+});
 
 //!action create movie
 router.post("/create",cekuser, function (req, res) {

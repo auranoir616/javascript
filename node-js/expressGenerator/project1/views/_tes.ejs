@@ -1,6 +1,7 @@
-<!-- <p><x%= movieinfo._id%></p>
-<p><x%= movieinfo.name%></p>
-<p><x%= movieinfo.released_on%></p> -->
-
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia quae perferendis dolor quos vitae eius beatae. Impedit, accusamus modi. Mollitia aliquam, ipsum sunt ea cumque non cum est fugiat nisi!</p>
-<P><%= hasil.name %></P>
+<% if( error != ''){ %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong><%= error %></strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+  <% } %>
+  

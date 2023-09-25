@@ -14,16 +14,16 @@ router.get("/login", forwarduser, function (req, res, next) {
 router.post("/login", forwarduser,function (req, res, next) {
   const { email, password } = req.body;
 
-  let error = [];
+  let info = [];
   //error handling jika data login tidak lengkap
   if (!email || !password) {
-    error.push({ msg: "lengkapi data anda" });
+    info.push({ msg: "lengkapi data anda" });
     console.log("lengkapi data anda");
-    res.render("login", {error});
+    res.render("login", {info});
 
   }
-  if (error.length > 0) {
-    res.render("login", {error});
+  if (info.length > 0) {
+    res.render("login", {info});
   }
   //error handling jika email salah
   else {
@@ -71,27 +71,27 @@ router.post("/register", function (req, res, next) {
   console.log(req.body);
 
   //penanganan error
-  let error = [];
+  let info = [];
   //error handling jika data tidak lengkap
   if (!name || !email || !password || !password2) {
-    error.push({ msg: "lengkapi data anda" });
+    info.push({ msg: "lengkapi data anda" });
     console.log("lengkapi data anda");
   }
   //error handling jika kedua password sama
   if (password != password2) {
-    error.push({ msg: "password tidak sama " });
+    info.push({ msg: "password tidak sama " });
     console.log("password tidak sama ");
   }
-  if (error.length > 0) {
-    res.render("register", {error});
+  if (info.length > 0) {
+    res.render("register", {info});
   }
   //error handling jika email sudah terdaftar
   else {
     User.findOne({ email: email }).then((user) => {
       if (user) {
-        error.push({ msg: "email sudah terdaftar" });
+        info.push({ msg: "email sudah terdaftar" });
         console.log("email sudah terdaftar");
-        res.render("register", {error});
+        res.render("register", {info});
       
         //jika tidak ada error maka data akan disimpan
       } else {
