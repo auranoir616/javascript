@@ -1,0 +1,20 @@
+<% for(let data of listStock ){%>
+<table class="table table-sm">
+<tr><th>KODE BARANG</th>
+    <th>NAMA BARANG</th>
+    <th>TOTAL MASUK</th>
+    <th>TANGGAL MASUK</th>
+    <th>NO INVOICE</th>
+    <th>KETERANGAN</th>
+</tr>
+<tr>
+    <td><%data.kode%></td>
+    <td><%data.nama%></td>
+    <td><%data.total_in%></td>
+    <td><%data.date_in%></td>
+    <td><%data.no_invoice%></td>
+    <td><%data.keterangan%></td>
+</tr>
+  </table>
+
+  <%}%>
