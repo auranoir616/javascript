@@ -1,11 +1,11 @@
 var express = require("express")
 var router = express.Router()
-var stockIn = require('../model/in')
+var stockIn = require('../model/inSchema')
 var moment = require("moment")
 const {cekuser} =require('../config/auth')
 
 //!get data in
-router.get('/', cekuser, function(req,res,next){
+router.get('/', function(req,res,next){
     let liststock =[]
     stockIn.find({})
     .then((stockIn)=>{
@@ -31,7 +31,7 @@ router.get('/', cekuser, function(req,res,next){
 })
 
 //!post data in
-router.get('/input',cekuser, function(req,res, next){
+router.get('/input', function(req,res, next){
     res.render("dataStock/inputin",{title: "hamalan input in"})
 })
 router.post("/input",cekuser, function(req,res){
@@ -62,7 +62,7 @@ router.post("/input",cekuser, function(req,res){
 })
 
 //!delete data
-router.get("/delete/:dataId", cekuser, async function(req, res,){
+router.get("/delete/:dataId", async function(req, res,){
     try{
         const data = await stockIn.findByIdAndDelete(res.params.dataId);
         if(data){

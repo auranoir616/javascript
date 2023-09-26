@@ -5,6 +5,7 @@ const usersSchema = new mongoose.Schema({
     nama:{
         type: String,
         required: true
+
     },
     userId: {
         type:String,
@@ -13,7 +14,8 @@ const usersSchema = new mongoose.Schema({
     },
     password:{
         type: String,
-        require: true
+        required: true
+
     },
     date: {
         type: Date,
@@ -30,4 +32,4 @@ usersSchema.pre('save', async function(next){
     next()
 })
 
-module.exports = mongoose.model('user',usersSchema)
+module.exports = mongoose.model('User', usersSchema)

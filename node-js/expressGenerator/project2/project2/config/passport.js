@@ -1,6 +1,6 @@
 const localStrategy = require('passport-local').Strategy
 const bcrypt =require('bcrypt')
-const user = require("../model/users")
+const user = require("../model/usersSchema")
 const passport =require("passport")
 
 module.exports = function (passport){
@@ -29,6 +29,7 @@ module.exports = function (passport){
                 })
                 .catch((err)=>{
                     console.log("internal server error" + err.message)
+                    console.log(user)
                 })
             }
       )
