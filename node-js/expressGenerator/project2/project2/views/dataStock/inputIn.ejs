@@ -1,58 +1,63 @@
-<form action="/in/input" method="POST">
-    <div class="form-group">
-      <label for="name">kode</label>
-      <input
-        type="name"
-        id="name"
-        name="name"
-        class="form-control"
-      />
-    </div>
-    <div class="form-group">
-      <label for="email">nama barang</label>
-      <input
-        type="date"
-        id="date"
-        name="date"
-        class="form-control"
-      />
-    </div>
-    <label for="name">TOTAL IN</label>
+<%- include ('../_header') %>
+
+<a href="/dataStock" class="btn btn-primary">tabel</a>
+
+<form action="/dataStock/input" method="POST">
+  <div class="form-group">
+    <label for="kode">Kode</label>
     <input
-      type="name"
-      id="name"
-      name="name"
+      type="text"
+      id="kode"
+      name="kode"
       class="form-control"
     />
   </div>
-</div>
-<label for="name">tanggal masuk</label>
-<input
-  type="date"
-  id="name"
-  name="name"
-  class="form-control"
-/>
-</div>
-</div>
-<label for="name">no invoice</label>
-<input
-  type="name"
-  id="name"
-  name="name"
-  class="form-control"
-/>
-</div>
-</div>
-<label for="name">eterangan</label>
-<input
-  type="name"
-  id="name"
-  name="name"
-  class="form-control"
-/>
-</div>
-
-    <button type="submit" class="btn btn-primary btn-block">
-      Add Movies
-    </button>
+  <div class="form-group">
+    <label for="nama">Nama Barang</label>
+    <input
+      type="text"
+      id="nama"
+      name="nama"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="total_in">Total Masuk</label>
+    <input
+      type="text"
+      id="total_in"
+      name="total_in"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="date_in">Tanggal Masuk</label>
+    <input
+      type="date"
+      id="date_in"
+      name="date_in"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="no_invoice">No Invoice</label>
+    <input
+      type="text"
+      id="no_invoice"
+      name="no_invoice"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="keterangan">Keterangan</label>
+    <input
+      type="text"
+      id="keterangan"
+      name="keterangan"
+      class="form-control"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">
+    Add Data
+  </button>
+</form>

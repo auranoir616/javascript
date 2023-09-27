@@ -1,70 +1,91 @@
 var express = require("express")
 var router = express.Router()
 var stockIn = require('../model/inSchema')
-var moment = require("moment")
 const {cekuser} =require('../config/auth')
 
 //!get data in
-router.get('/', function(req,res,next){
+router.get('/',cekuser, function(req,res,next){
     let liststock =[]
     stockIn.find({})
     .then((stockIn)=>{
         if(stockIn){
             for(let data of stockIn){
+                const date = new Date(data.date_in);
+                const formattedDate = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
                 liststock.push({
+                    id: data.id,
                     kode: data.kode,
                     nama: data.nama,
                     total_in: data.total_in,
-                    date_in: data.date_in,
+                    date_in: formattedDate,
                     no_invoice: data.no_invoice,
                     keterangan: data.keterangan,
                 })
             }
             console.log(liststock)
             res.render("dataStock/StockIn",{liststock})
+        }else{
+            liststock.push({
+                kode: "",
+                nama: "",
+                total_in: "",
+                date_in: "",
+                no_invoice: "",
+                keterangan: "",
+            })
+            res.render("dataStock/StockIn",{liststock})
+
         }
     })
     .catch((err)=>{
         console.log(err)
         next(err)
+
     })
 })
 
 //!post data in
-router.get('/input', function(req,res, next){
+router.get('/input', cekuser,function(req,res, next){
     res.render("dataStock/inputin",{title: "hamalan input in"})
 })
 router.post("/input",cekuser, function(req,res){
     const{kode, nama, total_in, date_in, no_invoice, keterangan} = req.body
     let info =[]
-    if(!kode|| !nama|| !total_in|| !date_in|| !no_invoice){
+    if(!kode||!nama||!total_in){
         info.push({msg: "lengkapi input data"})
     }
     if (info.length>0){
         res.render("dataStock/inputIn", {info})
+        console.log(info)
+
     }else{
         const newStock = stockIn({
-          kode,
-          nama,
-          total_in,
-          date_in,
-          no_invoice,
-          keterangan,
+          kode: req.body.kode,
+          nama: req.body.nama,
+          total_in: req.body.total_in,
+          date_in: req.body.date_in,
+          no_invoice: req.body.no_invoice,
+          keterangan: req.body.keterangan
         });
-        console.log(newStock)
-        newStock.save()
-        .then((stockIn)=>{
+        newStock
+        .save()
+        .then((stockin)=>{
+            console.log(stockin)
             info.push({msg: "data stock berhasil ditambahkan"})
             res.render("dataStock/inputIn", {info})
         })
-        .catch((err)=>console.log(err))
+        .catch((err) => {
+            console.error(err);
+            const info = [{ msg: "Terjadi kesalahan saat menambahkan data stock" }];
+            res.render("dataStock/inputIn", { info });
+        });
     }
 })
 
 //!delete data
-router.get("/delete/:dataId", async function(req, res,){
+router.get("/delete/:dataId",cekuser, async function(req, res){
     try{
-        const data = await stockIn.findByIdAndDelete(res.params.dataId);
+        const data = await stockIn.findByIdAndDelete(req.params.dataId);
         if(data){
             console.log("delete data berhasil")
         }else{

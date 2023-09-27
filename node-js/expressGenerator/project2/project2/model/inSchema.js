@@ -2,21 +2,17 @@ const mongoose = require('mongoose')
 
 const stockInSchema = new mongoose.Schema({
     kode: {
-        type:String,
-        required: true,
+        type: String,
         trim: true
     },
     nama: {
-        type: String,
-        required: true
+        type: String
     },
     total_in:{
-        type: Number,
-        required: true
+        type: Number
     },
     date_in:{
-        type: Date,
-        required:true
+        type: Date
     },
     no_invoice:{
         type: String,
