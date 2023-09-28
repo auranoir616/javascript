@@ -19,7 +19,8 @@ module.exports = function (passport){
                             console.log(password, '||', user.password)
                             return done(null, user)
                         }else{
-                            return done(null, false, {message: "password salah"})
+                            return done(null, false, {message: "password salah"},console.log(info))
+                            
                         }
                     }
                         else{

@@ -1,28 +1,31 @@
 <%- include ('../_header') %>
-
-<table class="table table-sm" border="2">
-      <tr>
-        <th>KODE BARANG</th>
-        <th>NAMA BARANG</th>
-        <th>TOTAL MASUK</th>
-        <th>TANGGAL MASUK</th>
-        <th>NO INVOICE</th>
-        <th>KETERANGAN</th>
-
-      </tr>
-      <% for (let data of liststock) { %>
-
-      <tr>
-        <td><%= data.kode %></td>
-        <td><%= data.nama %></td>
-        <td><%= data.total_in %></td>
-        <td><%= data.date_in %></td>
-        <td><%= data.no_invoice %></td>
-        <td><%= data.keterangan %></td>
-        <td><a href="/dataStock/delete/<%= data.id %>" class="btn btn-danger">delete</a>
-        </td>
-      </tr>
-      <% } %>
-
-    </table>
-  
+<div style="display: flex; align-items: center; justify-content: center;">
+  <div class="w-100 p-3" >
+    <table class="table table-striped table-hover">
+          <tr>
+            <th>KODE BARANG</th>
+            <th>NAMA BARANG</th>
+            <th>TOTAL MASUK</th>
+            <th>TANGGAL MASUK</th>
+            <th>NO INVOICE</th>
+            <th>KETERANGAN</th>
+            <th>ACTION</th>
+    
+          </tr>
+          <% for (let data of liststock) { %>
+    
+          <tr>
+            <td><%= data.kode %></td>
+            <td><%= data.nama %></td>
+            <td><%= data.total_in %></td>
+            <td><%= data.date_in %></td>
+            <td><%= data.no_invoice %></td>
+            <td><%= data.keterangan %></td>
+            <td><a href="/dataStock/delete/<%= data.id %>" class="btn btn-danger">delete</a>
+            </td>
+          </tr>
+          <% } %>
+    
+        </table>
+      </div>
+</div>
