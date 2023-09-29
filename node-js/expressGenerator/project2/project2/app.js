@@ -6,6 +6,7 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var dataStockRouter = require("./routes/dataStock");
+var dataOutRouter = require("./routes/dataOutput")
 
 //!import module
 const database = require("./config/database");
@@ -53,6 +54,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/dataStock", dataStockRouter);
+app.use("/dataOutput", dataOutRouter);
+
+// app.use("/dataOutput", dataOutRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

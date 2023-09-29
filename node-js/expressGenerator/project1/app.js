@@ -7,25 +7,27 @@ var logger = require("morgan");
 var expressLayouts = require("express-ejs-layouts");
 //import database
 const database = require("./config/database");
-const passport =require('passport')
-const flash = require('connect-flash')
-const session = require('express-session')
+const passport = require("passport");
+const flash = require("connect-flash");
+const session = require("express-session");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var moviesRouter = require("./routes/movies");
 
 var app = express();
 //!penggunaan passport
-require('./config/passport')(passport)
-app.use(session({
-  secret: 'secret',
-  resave: true,
-  saveUninitialized: true,
-}))
-app.use(passport.initialize())
-app.use(passport.session())
+require("./config/passport")(passport);
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 // penggunaan flash
-app.use(flash())
+app.use(flash());
 
 // view engine setup
 app.use(expressLayouts);
@@ -43,11 +45,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // global variable
-//!untuk menyimpan sementara pesan-pesan (flash messages) dalam sesi (session) 
-app.use((req,res, next )=>{
-  res.locals.error = req.flash('error')
-  next()
-})
+//!untuk menyimpan sementara pesan-pesan (flash messages) dalam sesi (session)
+app.use((req, res, next) => {
+  res.locals.error = req.flash("error");
+  next();
+});
 //! menambahan router users
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

@@ -1,0 +1,136 @@
+[
+  {
+    "kode": "ABC12",
+    "nama": "Laptop",
+    "total_in": 10,
+    "date_in": "2023-09-30",
+    "no_invoice": "INV12345",
+    "keterangan": "Barang baru"
+  },
+  {
+    "kode": "XYZ34",
+    "nama": "Smartphone",
+    "total_in": 5,
+    "date_in": "2023-09-29",
+    "no_invoice": "INV67890",
+    "keterangan": "Barang bekas"
+  },
+  {
+    "kode": "PQR56",
+    "nama": "Keyboard",
+    "total_in": 20,
+    "date_in": "2023-09-28",
+    "no_invoice": "INV54321",
+    "keterangan": "Barang baru"
+  },
+  {
+    "kode": "MNO78",
+    "nama": "Mouse",
+    "total_in": 15,
+    "date_in": "2023-09-27",
+    "no_invoice": "INV09876",
+    "keterangan": "Barang bekas"
+  },
+  {
+    "kode": "DEF90",
+    "nama": "Printer",
+    "total_in": 8,
+    "date_in": "2023-09-26",
+    "no_invoice": "INV65432",
+    "keterangan": "Barang baru"
+  },
+  {
+    "kode": "GHI12",
+    "nama": "Monitor",
+    "total_in": 12,
+    "date_in": "2023-09-25",
+    "no_invoice": "INV23456",
+    "keterangan": "Barang bekas"
+  },
+  {
+    "kode": "JKL34",
+    "nama": "Tablet",
+    "total_in": 7,
+    "date_in": "2023-09-24",
+    "no_invoice": "INV78901",
+    "keterangan": "Barang baru"
+  },
+  {
+    "kode": "STU56",
+    "nama": "Headphones",
+    "total_in": 18,
+    "date_in": "2023-09-23",
+    "no_invoice": "INV34567",
+    "keterangan": "Barang bekas"
+  },
+  {
+    "kode": "VWX78",
+    "nama": "Camera",
+    "total_in": 3,
+    "date_in": "2023-09-22",
+    "no_invoice": "INV90123",
+    "keterangan": "Barang baru"
+  },
+  {
+    "kode": "YZA90",
+    "nama": "Speakers",
+    "total_in": 6,
+    "date_in": "2023-09-21",
+    "no_invoice": "INV45678",
+    "keterangan": "Barang bekas"
+  },
+  {
+    "kode": "BCD12",
+    "nama": "Scanner",
+    "total_in": 9,
+    "date_in": "2023-09-20",
+    "no_invoice": "INV01234",
+    "keterangan": "Barang baru"
+  },
+  {
+    "kode": "EFG34",
+    "nama": "External Hard Drive",
+    "total_in": 4,
+    "date_in": "2023-09-19",
+    "no_invoice": "INV56789",
+    "keterangan": "Barang bekas"
+  },
+  {
+    "kode": "HIJ56",
+    "nama": "Projector",
+    "total_in": 11,
+    "date_in": "2023-09-18",
+    "no_invoice": "INV12345",
+    "keterangan": "Barang baru"
+  },
+  {
+    "kode": "KLM78",
+    "nama": "Microphone",
+    "total_in": 14,
+    "date_in": "2023-09-17",
+    "no_invoice": "INV67890",
+    "keterangan": "Barang bekas"
+  },
+  {
+    "kode": "NOP90",
+    "nama": "Graphics Card",
+    "total_in": 2,
+    "date_in": "2023-09-16",
+    "no_invoice": "INV54321",
+    "keterangan": "Barang baru"
+  },
+  {
+    "kode": "QRS12",
+    "nama": "Router",
+    "total_in": 13,
+    "date_in": "2023-09-15",
+    "no_invoice": "INV09876",
+    "keterangan": "Barang bekas"
+  },
+  {
+    "kode": "TUV34",
+    "nama": "Hard Disk Drive",
+    "total_in": 1,
+    "date_in": "2023-09-14",
+    "no_invoice": "INV65432",
+    "keterangan": "Barang baru

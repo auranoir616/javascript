@@ -2,8 +2,8 @@ var express = require("express");
 var router = express.Router();
 var movie = require("../model/movieSchema");
 var moment = require("moment");
-
 const {cekuser} = require('../config/auth')
+
 //!menampilkan semua data movies
 router.get("/", cekuser, function (req, res, next) {
   let listMovies = [];
@@ -35,7 +35,9 @@ router.get("/", cekuser, function (req, res, next) {
     });
 });
 
-//!menampilkan data movies dalam form
+
+
+//!menampilkan data movies dalam form untuk update
 router.get("/update/:movieId", cekuser, async function (req, res, next) {
   try {
     const movieupdate = await movie.findById(req.params.movieId);

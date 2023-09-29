@@ -18,8 +18,8 @@ const stockInSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    keterangan:{
-        type: String
+    harga_satuan:{
+        type: Number
     }
 })
 

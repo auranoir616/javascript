@@ -1,0 +1,50 @@
+<%- include ('../_header') %>
+
+<form action="dataOutput/find" method="get">
+<div class="input-group input-group-lg">
+    <span class="input-group-text" id="inputGroup-sizing-lg ">KODE</span>
+    <input name="kode" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="kode">
+  </div>
+  <div class="input-group input-group-lg">
+    <span class="input-group-text" id="inputGroup-sizing-lg ">jumlah</span>
+    <input name="jumlah" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="jumlah"> 
+  </div>
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="submit" onclick="addData()">Add</button>
+  </div>
+</form>
+  <div calss="">
+  <table class="table table-striped table-hover w-50 p-3" id="resultTable">
+
+   
+      <tr>
+      <th>NAMA BARANG</th>
+      <th>JUMLAH</th>
+      <th>HARGA SATUAN</th>
+    </tr>
+    <% if (typeof namabarang !== 'undefined' && namabarang.length > 0) { %>
+      <% namabarang.forEach(function(data) { %>
+    <tr>
+      <td><%= data.nama %></td>
+      <td>jumlah</td>
+      <td><%= data.harga_satuan %></td>
+    </tr>
+
+    <% }) %>
+    <% } %>
+
+  </table>
+</div>
+
+<script>
+  function addData() {
+    const kodeInput = document.getElementById('kode').value;
+    const jumlahInput = document.getElementById('jumlah').value;
+    const table = document.getElementById('resultTable');
+    const newRow = table.insertRow(1); // Tambahkan baris baru ke akhir tabel.
+    const cell1 = newRow.insertCell(0); // Kolom NAMA BARANG.
+    const cell2 = newRow.insertCell(1); // Kolom JUMLAH.
+    const cell3 = newRow.insertCell(2); // Kolom HARGA SATUAN.
+
+  }
+</script>

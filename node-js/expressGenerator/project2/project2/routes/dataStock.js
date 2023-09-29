@@ -19,10 +19,9 @@ router.get('/',cekuser, function(req,res,next){
                     total_in: data.total_in,
                     date_in: formattedDate,
                     no_invoice: data.no_invoice,
-                    keterangan: data.keterangan,
+                    harga_satuan: data.harga_satuan,
                 })
             }
-            console.log(liststock)
             res.render("dataStock/StockIn",{liststock})
         }else{
             liststock.push({
@@ -31,7 +30,7 @@ router.get('/',cekuser, function(req,res,next){
                 total_in: "",
                 date_in: "",
                 no_invoice: "",
-                keterangan: "",
+                harga_satuan: "",
             })
             res.render("dataStock/StockIn",{liststock})
 
@@ -65,7 +64,7 @@ router.post("/input",cekuser, function(req,res){
           total_in: req.body.total_in,
           date_in: req.body.date_in,
           no_invoice: req.body.no_invoice,
-          keterangan: req.body.keterangan
+          harga_satuan: req.body.harga_satuan
         });
         newStock
         .save()
