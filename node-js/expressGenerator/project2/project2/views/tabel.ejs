@@ -1,0 +1,19 @@
+<table class="table table-striped table-hover w-50 p-3" id="resultTable">
+    <tr>
+    <th>NAMA BARANG</th>
+    <th>JUMLAH</th>
+    <th>HARGA SATUAN</th>
+  </tr>
+  <% if (typeof namabarang !== 'undefined' && namabarang.length > 0) { %>
+    <% namabarang.forEach(function(data) { %>
+  <tr>
+    <td><%= data.nama %></td>
+    <td>jumlah</td>
+    <td><%= data.harga_satuan %></td>
+  </tr>
+
+  <% }) %>
+  <% } %>
+
+</table>
+</div>
