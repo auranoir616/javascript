@@ -1,36 +1,83 @@
 <%- include ('../_header') %>
 
-<form action="dataOutput/find" method="get">
-<div class="input-group input-group-lg">
-    <span class="input-group-text" id="inputGroup-sizing-lg ">KODE</span>
-    <input name="kode" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="kode">
-  </div>
-  <div class="input-group input-group-lg">
-    <span class="input-group-text" id="inputGroup-sizing-lg ">jumlah</span>
-    <input name="jumlah" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="jumlah"> 
-  </div>
-  <div class="d-grid gap-2">
-    <button class="btn btn-primary" type="submit" onclick="addData()">Add</button>
-  </div>
-</form>
+  <form action="dataOutput/find" method="get">
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg ">KODE</span>
+      <input name="kode" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+        id="kode" />
+    </div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg ">jumlah</span>
+      <input name="jumlah" type="number" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-lg" id="jumlah" />
+    </div>
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="submit" onclick="addData()">
+        Add
+      </button>
+    </div>
+  </form>
   <div calss="">
+    <button class="btn btn-warning" type="submit" onclick="reset()">reset</button>
+
     <table class="table table-striped table-hover w-50 p-3" id="resultTable">
       <tr>
-      <th>NAMA BARANG</th>
-      <th>JUMLAH</th>
-      <th>HARGA SATUAN</th>
-    </tr>
-    <% if (typeof namabarang !== 'undefined' && namabarang.length > 0) { %>
-      <% namabarang.forEach(function(data) { %>
-    <tr>
-      <td><%= data.nama %></td>
-      <td>jumlah</td>
-      <td><%= data.harga_satuan %></td>
-    </tr>
-  
-    <% }) %>
-    <% } %>
-  
-  </table>
+        <th>NAMA BARANG</th>
+        <th>JUMLAH</th>
+        <th>HARGA SATUAN</th>
+      </tr>
+      <% if (typeof namabarang !=='undefined' && namabarang.length> 0) { %> <% namabarang.forEach(function(data) { %>
+          <tr>
+            <td>
+              <%= data.nama %>
+            </td>
+            <td></td>
+            <td>
+              <%= data.harga_satuan %>
+            </td>
+          </tr>
+
+          <% }) %>
+            <% } %>
+    </table>
   </div>
-  
+  <script>
+    // Fungsi untuk menambah data jumlah
+    function addData() {
+      const jumlah = document.getElementById("jumlah").value;
+      // Menambahkan data jumlah ke local storage
+      const savedArray = JSON.parse(localStorage.getItem("jumlah")) || [];
+      savedArray.push(jumlah);
+      localStorage.setItem("jumlah", JSON.stringify(savedArray));
+    }
+    //Mengambil data jumlah dari local storage saat halaman dimuat
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedArray = JSON.parse(localStorage.getItem("jumlah")) || [];
+      savedArray.forEach(function (jumlah, index) {
+        // Mengambil elemen <tr> yang sesuai berdasarkan index
+        const rows = document.querySelectorAll("#resultTable tr");
+        const row = rows[index + 1]; // +1 untuk melewati baris header
+        const tdJumlah = row.querySelector("td:nth-child(2)");
+        // Update nilai kolom jumlah dengan nilai dari local storage
+        tdJumlah.textContent = jumlah;
+      });
+    });
+    function reset() {
+      // Menghapus semua data dari localStorage
+      localStorage.clear();
+      // mengakses route reset dengan fetch
+      fetch("dataOutput/reset")
+        .then((response) => {
+          if (response.status === 200) {
+            console.log("berhasil reset");
+          } else {
+            console.error("gagal reset");
+          }
+        })
+        .catch((error) => {
+          console.error("error");
+        });
+      //reload halaman
+      location.reload();
+    }
+  </script>
