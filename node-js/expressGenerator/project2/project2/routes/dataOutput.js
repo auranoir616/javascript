@@ -7,11 +7,13 @@ const { cekuser } = require("../config/auth");
 router.get("/", cekuser, function (req, res, next) {
   res.render("dataStock/dataOut", { namabarang });
 });
-  
+
 let namabarang = [];
 router.get("/find", cekuser, async function (req, res, next) {
+
   try {
     const kodebarang = await req.query.kode;
+    let infoOut  = []
 
     stockIn
       .findOne({
@@ -20,8 +22,11 @@ router.get("/find", cekuser, async function (req, res, next) {
       .then((data) => {
         if (!data) {
           console.log("data tidak ditemukan");
-          console.log(namabarang);
+          infoOut.push({msg: "lengkapi input data"})
+          console.log(infoOut);
           res.redirect("/dataOutput");
+          // res.render("dataStock/dataOut", { infoOut });
+
 
         } else {
           namabarang.push({
@@ -30,7 +35,6 @@ router.get("/find", cekuser, async function (req, res, next) {
           });
           console.log(namabarang);
           res.redirect("/dataOutput");
-          // res.redirect(`/dataOutput?namabarang=${encodeURIComponent(JSON.stringify(namabarang))}`);
         }
       })
       .catch((err) => {
@@ -40,9 +44,6 @@ router.get("/find", cekuser, async function (req, res, next) {
   } catch (err) {
     console.log(err);
   }
-});
-router.get("/hasil", cekuser, function (req, res, next) {
-  res.render("tabel", { title: "halaman output", namabarang: namabarang }); // Pass namabarang sebagai data})
 });
 
 //!menambahkan route reset untuk mereset array
@@ -54,6 +55,7 @@ router.get('/reset', cekuser, function(req, res, next){
 //!menambahkan route untuk post output 
 router.post('/inputOut', cekuser, function(req, res, next){
   const { nama_barang, jumlah, harga_satuan, harga, total } = req.body;
+  let infoOut  = []
 
   const dataItem ={
     items: [],
@@ -69,20 +71,36 @@ router.post('/inputOut', cekuser, function(req, res, next){
     }
     dataItem.items.push(item)
   }
-
+  if(!dataItem.items || dataItem.items.length<1){
+    infoOut.push({msg: "data kosong"})
+  }
+if(infoOut.length > 0){
+   res.render("dataStock/dataOut", { infoOut });
+  console.log(infoOut)
+}
+else{
   const newItemsList = new stockOut(dataItem)
   newItemsList
   .save()
   .then((newItemsList)=>{
     console.log(newItemsList)
-    res.render('dataStock/dataout')
+    infoOut.push({msg: "data berhasil disimpan"})
+    res.render("dataStock/dataOut", { infoOut });
+
+    console.log(dataItem)
+    console.log(infoOut)
+
+
+  
   })
+
+
   .catch((err)=>{
     console.log(err)  
-      // res.json({ error: 'Data berhasil diterima dan diproses di server.' });
 
 
   })
+}
 });
 
 

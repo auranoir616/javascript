@@ -1,4 +1,5 @@
 <%- include ('../_header') %>
+    <%- include ('../_message2') %>
 
   <form action="dataOutput/find" method="get">
     <div class="input-group input-group-lg">
@@ -18,6 +19,7 @@
     </div>
   </form>
   <div calss="">
+
     <button class="btn btn-warning" type="submit" onclick="reset()">reset</button>
 
     <table class="table table-striped table-hover w-50 p-3" id="resultTable">
@@ -47,6 +49,7 @@
 <tr><td colspan="4" align="center"><button class="btn btn-secondary" type="submit" onclick="post()">Confirm</button>
 </td></tr>
     </table>
+
   </div>
   <script>
     // Fungsi untuk menyimpan data jumlah ke local storage
@@ -167,6 +170,8 @@
     .catch(error => {
     // console.error('Error:', error);
     console.log('error')
+
+    reset()
   });
     }
     function reset() {
@@ -186,5 +191,9 @@
         });
       //reload halaman
       location.reload();
+    }
+
+    function confirm(){
+      let reset = confirm("data berhasil disimpan")
     }
   </script>
