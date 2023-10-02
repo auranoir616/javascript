@@ -25,6 +25,7 @@
         <th>NAMA BARANG</th>
         <th>JUMLAH</th>
         <th>HARGA SATUAN</th>
+        <th>HARGA</th>
       </tr>
       <% if (typeof namabarang !=='undefined' && namabarang.length> 0) { %> <% namabarang.forEach(function(data) { %>
           <tr>
@@ -35,14 +36,20 @@
             <td>
               <%= data.harga_satuan %>
             </td>
+            <td></td>
           </tr>
-
           <% }) %>
             <% } %>
+            <tr>  
+            <td>TOTAL HARGA:</td>
+            <td id="total" colspan="3" align="right"></td>
+            </tr>
+<tr><td colspan="4" align="center"><button class="btn btn-secondary" type="submit" onclick="post()">Confirm</button>
+</td></tr>
     </table>
   </div>
   <script>
-    // Fungsi untuk menambah data jumlah
+    // Fungsi untuk menyimpan data jumlah ke local storage
     function addData() {
       const jumlah = document.getElementById("jumlah").value;
       // Menambahkan data jumlah ke local storage
@@ -50,6 +57,7 @@
       savedArray.push(jumlah);
       localStorage.setItem("jumlah", JSON.stringify(savedArray));
     }
+
     //Mengambil data jumlah dari local storage saat halaman dimuat
     document.addEventListener("DOMContentLoaded", function () {
       const savedArray = JSON.parse(localStorage.getItem("jumlah")) || [];
@@ -60,8 +68,107 @@
         const tdJumlah = row.querySelector("td:nth-child(2)");
         // Update nilai kolom jumlah dengan nilai dari local storage
         tdJumlah.textContent = jumlah;
-      });
+
+       //metode untuk menghitung total jumlah
+          let savedArraynumber = savedArray.map((str)=>{return parseInt(str)})
+          const reducejumlah = (acc,curr) => acc + curr
+          let totaljumlah = savedArraynumber.reduce(reducejumlah)
+    
+     //metode untuk mendapatkan nilai harga satuan dari tabel 
+      const jumlahharga = document.querySelectorAll("#resultTable td:nth-child(3)");
+      let arrayjumlahharga = []
+        jumlahharga.forEach((cell)=>{
+        arrayjumlahharga.push(cell.textContent)
+      })
+      //menghilangkan karakter yang tidak perlu
+      let arrayjumlahharganumber = arrayjumlahharga.map((str)=>{
+        const cleanedarray =  str.replace(/\D/g, '');
+        return parseInt(cleanedarray, 10 )
+      })
+     //metode untuk menghitung total harga satuan dengan reducer
+      const reducehargasatuan = (acc,curr) => acc + curr
+      let totalhargasatuan = arrayjumlahharganumber.reduce(reducehargasatuan)
+
+      let arrayhargatotal =[]
+      for(let x =0; x < arrayjumlahharganumber.length;x++){
+      let hargatotal = savedArraynumber[x] * arrayjumlahharganumber[x]
+        arrayhargatotal.push(hargatotal)
+      }
+      //menampilkan harga total ke elemen tabel
+      const tdtotalharga = document.querySelectorAll("#resultTable td:nth-child(4)");
+      tdtotalharga.forEach((Element, index)=>{
+        Element.textContent = arrayhargatotal[index]
+      })
+      //mendapatkan total harga dan menampilkannya ke tabel
+      const reducetotal = (acc,curr)=> acc +curr
+      let totalharga = arrayhargatotal.reduce(reducetotal)
+      const tdtotal = document.getElementById("total")
+      tdtotal.textContent = "Rp. "+totalharga
+
     });
+
+    });
+    //metode untuk mengirim data ke route server
+    function post(){
+      let arraynama = []
+      const coll1 = document.querySelectorAll("#resultTable td:nth-child(1)");
+      for(x=0; x < coll1.length-2;x++){
+      arraynama.push(coll1[x].textContent)
+    }
+    let arraynamacleared = arraynama.map((str)=>{ //array nama barang
+        return str.trim()
+    })
+    console.log(arraynamacleared)
+
+    let arrayjumlah = [] //array jumlah barang
+    const coll2 = document.querySelectorAll("#resultTable td:nth-child(2)");
+      for(x=0; x < coll2.length-1;x++){
+      arrayjumlah.push(parseInt(coll2[x].textContent, 10))
+    }
+    console.log(arrayjumlah)
+
+    let arrayhargasatuan = []
+    const coll3 = document.querySelectorAll("#resultTable td:nth-child(3)");
+    for(x=0; x < coll3.length;x++){
+      arrayhargasatuan.push(coll3[x].textContent)
+    }
+      let arrayhargasatuannumber = arrayhargasatuan.map((str)=>{ //array harga satuan
+        const cleanedarray =  str.replace(/\D/g, '');
+        return parseInt(cleanedarray, 10 )
+      })
+      console.log(arrayhargasatuannumber)
+
+      let arrayharga = [] //array harga
+    const coll4 = document.querySelectorAll("#resultTable td:nth-child(4)");
+      for(x=0; x < coll4.length;x++){
+      arrayharga.push(parseInt(coll4[x].textContent))
+    }
+    console.log(arrayharga)
+
+    let total = document.getElementById('total').textContent
+
+    //data yang akan dikirim ke server
+    const dataToSend = {
+      nama_barang:arraynamacleared,
+      jumlah: arrayjumlah,
+      harga_satuan: arrayhargasatuannumber,
+      harga: arrayharga,
+      total: total,
+    } // akses server dengan fecth
+    fetch('dataOutput/inputOut',{
+      method: 'POST',
+      headers : {"Content-type":"application/json"},
+      body: JSON.stringify(dataToSend)
+    })
+    .then(response => response.json())
+    .then(data=>
+    console.log(data)) 
+
+    .catch(error => {
+    // console.error('Error:', error);
+    console.log('error')
+  });
+    }
     function reset() {
       // Menghapus semua data dari localStorage
       localStorage.clear();

@@ -2,24 +2,28 @@ const mongoose = require('mongoose')
 
 const itemSchema = new mongoose.Schema({
     
-    nama: {
-    type: String,
-    required: true,
+    nama_barang: {
+        type: String,
+        required: true,
     },
     jumlah:{
         type: Number,
         required: true,
     },
     harga_satuan:{
-    type: Number,
-    required: true,
-},
+        type: Number,
+        required: true,
+    },
+    harga:{
+        type: Number,
+        required: true,
+    },
 })
 const listSchema = new mongoose.Schema({
     items: [itemSchema],
 
     total_belanja:{
-        type: Number,
+        type: String,
     },
     tanggal: {
         type: Date,

@@ -51,4 +51,39 @@ router.get('/reset', cekuser, function(req, res, next){
     res.redirect('/dataOutput')
 })
 
+//!menambahkan route untuk post output 
+router.post('/inputOut', cekuser, function(req, res, next){
+  const { nama_barang, jumlah, harga_satuan, harga, total } = req.body;
+
+  const dataItem ={
+    items: [],
+    total_belanja: total
+  }
+
+  for(let x=0; x <nama_barang.length; x++){
+    const item = {
+      nama_barang: nama_barang[x],
+      jumlah: jumlah[x],
+      harga_satuan: harga_satuan[x],
+      harga: harga[x]
+    }
+    dataItem.items.push(item)
+  }
+
+  const newItemsList = new stockOut(dataItem)
+  newItemsList
+  .save()
+  .then((newItemsList)=>{
+    console.log(newItemsList)
+    res.render('dataStock/dataout')
+  })
+  .catch((err)=>{
+    console.log(err)  
+      // res.json({ error: 'Data berhasil diterima dan diproses di server.' });
+
+
+  })
+});
+
+
 module.exports = router;
