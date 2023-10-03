@@ -13,9 +13,15 @@
     </div>
     <div class="d-grid gap-2">
       <button class="btn btn-primary" type="submit" onclick="addData()" id="tombolAdd" disabled > 
-
         Add
       </button>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+        <select class="form-select" id="inputGroupSelect01">
+   ///
+        </select>
+      </div>
     </div>
   </form>
   <div calss="">
@@ -69,17 +75,33 @@ function checkInput() {
 inputJumlah.addEventListener("input", checkInput)
 inputkode.addEventListener("input", checkInput)
 
+let select = document.getElementById('inputGroupSelect01')
+let isidata = [] 
+fetch('/dataStock/json')
+      .then(response => response.json())
+      .then(data =>{
+        data.forEach(datastock=>{
+          let dataisi=({ // lopping untuk array isi data
+            kode:datastock.kode,
+            nama:datastock.nama,
+          })
+          isidata.push(dataisi)
+          let dropdown;
+          data.forEach(datastock=>{ //looping langsung dari database
+            dropdown += ` <option value='${datastock.kode}'>${datastock.kode}</option>`
+          })
+          select.innerHTML = dropdown
+        })
+        console.log(isidata)
+      })
+      .catch((err)=>{
+        console.log("error"+ err)
+      })
+
     // Fungsi untuk menyimpan data jumlah ke local storage
     function addData() {
       const jumlah = document.getElementById("jumlah").value;
-      // fetch('dataOutput/find')
-      // .then(response => response.json())
-      // .then(data =>{
-      //   console.log(data)
-      // })
-      // .catch((err)=>{
-      //   console.log(err)
-      // })
+  
       if(!jumlah){
 
       }else{
@@ -136,11 +158,30 @@ inputkode.addEventListener("input", checkInput)
       let totalharga = arrayhargatotal.reduce(reducetotal)
       const tdtotal = document.getElementById("total")
       tdtotal.textContent = "Rp. "+totalharga
-    
+
+
     });
   
     });
-  
+  // function get(){
+  //   fetch('/dataStock/json')
+  //     .then(response => response.json())
+  //     .then(data =>{
+  //       let isidata = [] 
+  //       data.forEach(datastock=>{
+  //         let dataisi=({
+  //           kode:datastock.kode,
+  //           nama:datastock.nama,
+  //         })
+  //         isidata.push(dataisi)
+  //       })
+  //       console.log(isidata)
+
+  //     })
+  //     .catch((err)=>{
+  //       console.log("error"+ err)
+  //     })
+  // }
   
     //metode untuk mengirim data ke route server
     function post(){

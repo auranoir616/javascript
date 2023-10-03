@@ -23,6 +23,7 @@ router.get('/',cekuser, function(req,res,next){
                 })
             }
             res.render("dataStock/StockIn",{liststock})
+            console.log(stockIn)
         }else{
             liststock.push({
                 kode: "",
@@ -95,5 +96,28 @@ router.get("/delete/:dataId",cekuser, async function(req, res){
         console.log(err)
     }
 })
-
+//!route get json
+router.get('/json',cekuser, function(req,res,next){
+    let liststock =[]
+    stockIn.find({})
+    .then((stockIn)=>{
+        if(stockIn){
+            for(let data of stockIn){
+                const date = new Date(data.date_in);
+                const formattedDate = `${date.getDate().toString().padStart(2, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
+                liststock.push({
+                    id: data.id,
+                    kode: data.kode,
+                    nama: data.nama,
+                    total_in: data.total_in,
+                    date_in: formattedDate,
+                    no_invoice: data.no_invoice,
+                    harga_satuan: data.harga_satuan,
+                })
+            }
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(liststock));
+            console.log(stockIn)
+        }})
+    })
 module.exports = router
