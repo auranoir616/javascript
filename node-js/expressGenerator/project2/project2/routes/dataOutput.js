@@ -5,41 +5,44 @@ var stockOut = require('../model/outListSchema')
 const { cekuser } = require("../config/auth");
 
 router.get("/", cekuser, function (req, res, next) {
-  res.render("dataStock/dataOut", { namabarang });
+  res.render("dataStock/dataOut", {namabarang, info});
 });
-
+let info =[]
 let namabarang = [];
-router.get("/find", cekuser, async function (req, res, next) {
 
+router.get("/find", cekuser, async function (req, res, next) {
   try {
     const kodebarang = await req.query.kode;
-    let infoOut  = []
-
+    
     stockIn
       .findOne({
         kode: kodebarang,
       })
       .then((data) => {
-        if (!data) {
+         if (!data) {
           console.log("data tidak ditemukan");
-          infoOut.push({msg: "lengkapi input data"})
-          console.log(infoOut);
-          res.redirect("/dataOutput");
-          // res.render("dataStock/dataOut", { infoOut });
-
-
-        } else {
+          info[0]={msg: "kode barang salah"}
+          console.log(data);
+          res.status(404).json({ message: "Data tidak ditemukan" });
+          // res.redirect("/dataOutput");
+          // res.render("dataStock/dataOut", { info, namabarang });
+        } 
+        else {
           namabarang.push({
             nama: data.nama,
             harga_satuan: data.harga_satuan,
           });
           console.log(namabarang);
+          console.log(data)
+          info.shift()
           res.redirect("/dataOutput");
+          // res.render("dataStock/dataOut", { info, namabarang });
+
         }
       })
       .catch((err) => {
         console.error(err);
-        res.status(500).send("Terjadi kesalahan dalam pencarian data.");
+        // res.status(500).send("Terjadi kesalahan dalam pencarian data.");
       });
   } catch (err) {
     console.log(err);
@@ -53,9 +56,11 @@ router.get('/reset', cekuser, function(req, res, next){
 })
 
 //!menambahkan route untuk post output 
+router.get('/inputout', cekuser,function(req,res, next){
+  res.render("dataStock/inputOut", {namabarang, info})
+})
 router.post('/inputOut', cekuser, function(req, res, next){
   const { nama_barang, jumlah, harga_satuan, harga, total } = req.body;
-  let infoOut  = []
 
   const dataItem ={
     items: [],
@@ -71,31 +76,27 @@ router.post('/inputOut', cekuser, function(req, res, next){
     }
     dataItem.items.push(item)
   }
+  // let info =[]
   if(!dataItem.items || dataItem.items.length<1){
-    infoOut.push({msg: "data kosong"})
+    info[0]={msg: "data kosong"}
   }
-if(infoOut.length > 0){
-   res.render("dataStock/dataOut", { infoOut });
-  console.log(infoOut)
+if(info.length > 0){
+  res.render("dataStock/dataOut", {info})  // res.send(info)
+  console.log(info)
 }
 else{
   const newItemsList = new stockOut(dataItem)
   newItemsList
   .save()
   .then((newItemsList)=>{
+    res.render("dataStock/dataOut", {info})  // res.send(info)
     console.log(newItemsList)
-    infoOut.push({msg: "data berhasil disimpan"})
-    res.render("dataStock/dataOut", { infoOut });
-
+    info[0] = {msg: "data berhasil disimpan"}    // res.render("dataStock/dataOut", {info});
     console.log(dataItem)
-    console.log(infoOut)
-
-
-  
+    console.log(info)
   })
-
-
   .catch((err)=>{
+    res.status(500).send("server error")
     console.log(err)  
 
 

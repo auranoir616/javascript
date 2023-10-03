@@ -1,3 +1,41 @@
-<%  for (let data of namabarang) {%>
-    <p><%= data.nama %></p> 
-    <%}%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input1" placeholder="Input 1">
+<input type="text" id="input2" placeholder="Input 2">
+<input type="text" id="input3" placeholder="Input 3">
+<button id="submitButton" disabled>Submit</button>
+<script>
+    // Mendapatkan elemen-elemen yang diperlukan
+const input1 = document.getElementById('input1');
+const input2 = document.getElementById('input2');
+const input3 = document.getElementById('input3');
+const submitButton = document.getElementById('submitButton');
+
+// Membuat fungsi untuk memeriksa apakah semua input terisi
+function checkInputs() {
+  const value1 = input1.value.trim();
+  const value2 = input2.value.trim();
+  const value3 = input3.value.trim();
+
+  // Mengaktifkan tombol jika semua input terisi, atau menonaktifkannya jika tidak
+  if (value1 !== '' && value2 !== '' && value3 !== '') {
+    submitButton.removeAttribute('disabled');
+  } else {
+    submitButton.setAttribute('disabled', 'true');
+  }
+}
+
+// Menambahkan event listener untuk setiap input
+input1.addEventListener('input', checkInputs);
+input2.addEventListener('input', checkInputs);
+input3.addEventListener('input', checkInputs);
+
+</script>
+</body>
+</html>

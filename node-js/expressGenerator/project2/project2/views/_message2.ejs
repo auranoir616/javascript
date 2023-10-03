@@ -1,8 +1,0 @@
-<% if (Array.isArray(infoOut) && infoOut.length > 0) { %>
-    <% infoOut.forEach(function(info){ %>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong><%= info.msg %></strong> 
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    <%})%>
-<% } %>

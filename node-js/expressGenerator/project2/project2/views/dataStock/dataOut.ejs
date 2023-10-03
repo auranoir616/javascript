@@ -1,7 +1,6 @@
 <%- include ('../_header') %>
-    <%- include ('../_message2') %>
 
-  <form action="dataOutput/find" method="get">
+  <form action="dataOutput/find" method="get" id="myform">
     <div class="input-group input-group-lg">
       <span class="input-group-text" id="inputGroup-sizing-lg ">KODE</span>
       <input name="kode" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
@@ -13,7 +12,8 @@
         aria-describedby="inputGroup-sizing-lg" id="jumlah" />
     </div>
     <div class="d-grid gap-2">
-      <button class="btn btn-primary" type="submit" onclick="addData()">
+      <button class="btn btn-primary" type="submit" onclick="addData()" id="tombolAdd" disabled > 
+
         Add
       </button>
     </div>
@@ -21,6 +21,7 @@
   <div calss="">
 
     <button class="btn btn-warning" type="submit" onclick="reset()">reset</button>
+    <%- include ('../_message') %>
 
     <table class="table table-striped table-hover w-50 p-3" id="resultTable">
       <tr>
@@ -52,16 +53,44 @@
 
   </div>
   <script>
+const inputJumlah = document.getElementById("jumlah");
+const inputkode = document.getElementById("kode")
+const tombol = document.getElementById("tombolAdd");
+function checkInput() {
+  const jumlah = inputJumlah.value.trim(); // Menghapus spasi kosong di awal dan akhir
+  const kode = inputkode.value.trim(); 
+
+  if (jumlah !== '' && kode !== '') {
+    tombol.removeAttribute('disabled');
+  } else {
+    tombol.setAttribute('disabled', 'true');
+  }
+};
+inputJumlah.addEventListener("input", checkInput)
+inputkode.addEventListener("input", checkInput)
+
     // Fungsi untuk menyimpan data jumlah ke local storage
     function addData() {
       const jumlah = document.getElementById("jumlah").value;
+      // fetch('dataOutput/find')
+      // .then(response => response.json())
+      // .then(data =>{
+      //   console.log(data)
+      // })
+      // .catch((err)=>{
+      //   console.log(err)
+      // })
+      if(!jumlah){
+
+      }else{
       // Menambahkan data jumlah ke local storage
       const savedArray = JSON.parse(localStorage.getItem("jumlah")) || [];
       savedArray.push(jumlah);
       localStorage.setItem("jumlah", JSON.stringify(savedArray));
+      }
     }
-
     //Mengambil data jumlah dari local storage saat halaman dimuat
+
     document.addEventListener("DOMContentLoaded", function () {
       const savedArray = JSON.parse(localStorage.getItem("jumlah")) || [];
       savedArray.forEach(function (jumlah, index) {
@@ -107,10 +136,12 @@
       let totalharga = arrayhargatotal.reduce(reducetotal)
       const tdtotal = document.getElementById("total")
       tdtotal.textContent = "Rp. "+totalharga
-
+    
     });
-
+  
     });
+  
+  
     //metode untuk mengirim data ke route server
     function post(){
       let arraynama = []
@@ -193,7 +224,8 @@
       location.reload();
     }
 
-    function confirm(){
-      let reset = confirm("data berhasil disimpan")
-    }
+
+
+
+
   </script>
