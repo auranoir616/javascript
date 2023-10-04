@@ -1,17 +1,15 @@
 <%- include ('../_header') %>
 
-  <form action="dataOutput/find" method="get" id="myform">
-    <div class="input-group input-group-lg">
-      <span class="input-group-text" id="inputGroup-sizing-lg ">KODE</span>
+  <form action="dataOutput/find" method="get" id="myform" autocomplete="off">
+      <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg ">KODE.</span>
       <input name="kode" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
-        id="kode" />
-
-        <!-- <div id="result" style="
-        height: auto; width: 30%;z-index: 5; background-color: rgb(231, 231, 231);position: absolute;
-        border-radius: 5px;">
-      
-      </div> -->
+      id="kode" />
     </div>
+
+    <div id="result">
+
+  </div>  
     <div class="input-group input-group-lg">
       <span class="input-group-text" id="inputGroup-sizing-lg ">jumlah</span>
       <input name="jumlah" type="number" class="form-control" aria-label="Sizing example input"
@@ -23,27 +21,15 @@
       </button>
 
 
-      <div class="input-group mb-3">
+      <!-- <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Options</label>
         <select class="form-select" id="inputGroupSelect01">
-   ///
         </select>
-      </div>
+      </div> -->
     </div>
   </form>
   <div>
 
-    <button class="btn btn-warning" type="submit" onclick="reset()">reset</button>
-
-    <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
-    id="search" />
-
-  <div id="result" style="
-  height: auto; width: 30%;z-index: 5; background-color: rgb(231, 231, 231);position: absolute;
-  border-radius: 5px;"
-  >
-
-</div>
 
     <%- include ('../_message') %>
 
@@ -71,7 +57,10 @@
             <td>TOTAL HARGA:</td>
             <td id="total" colspan="3" align="right"></td>
             </tr>
-<tr><td colspan="4" align="center"><button class="btn btn-secondary" type="submit" onclick="post()">Confirm</button>
+<tr><td colspan="4" align="center">
+  <button class="btn btn-warning" type="submit" onclick="reset()">reset</button>
+
+  <button class="btn btn-secondary" type="submit" onclick="post()">Confirm</button>
 </td></tr>
     </table>
 
@@ -98,13 +87,17 @@ inputkode.addEventListener("input", checkInput)
 let select = document.getElementById('inputGroupSelect01')
 let isidata = [] 
 // fitur search
-  // const inputsearch = document.getElementById("search").value
 
   const searchdisplay = document.getElementById("result")
-  const inputsearch1 = document.getElementById("search")
+  const inputsearch1 = document.getElementById("kode")
 
+inputJumlah.addEventListener('focus',function(){
+  searchdisplay.style.display = "none" 
+})
   inputsearch1.addEventListener('input',function(){
-  const inputsearch = inputsearch1.value
+  const inputsearch = inputsearch1.value.toUpperCase()
+  searchdisplay.style.display = "block" 
+
   searchdisplay.innerHTML= '' //setiap perubahan pada elemen input akan mengambil value dan membersihkan search display
   //search dengan metode filter array menggunakan value dari elemen input
 if(!inputsearch){
@@ -114,29 +107,30 @@ if(!inputsearch){
   return data.kode.includes(inputsearch) 
 })
 for(let x=0;x<searchResult.length;x++){
-let hasilsearch = document.createElement('h1')
-let hasilsearch1 = document.createElement('h1')
+let hasilsearch = document.createElement('h3')
+let hasilsearch1 = document.createElement('h3')
+let divh3 = document.createElement('div')
 let line = document.createElement('hr')
+divh3.id = 'divh3'
+divh3.setAttribute("data-kode", searchResult[x].kode);
 hasilsearch.textContent = "kode : " + searchResult[x].kode 
 hasilsearch1.textContent = "barang : " + searchResult[x].nama 
-searchdisplay.appendChild(hasilsearch) 
-searchdisplay.appendChild(hasilsearch1) 
+searchdisplay.appendChild(divh3)
+divh3.appendChild(hasilsearch) 
+divh3.appendChild(hasilsearch1) 
 searchdisplay.appendChild(line) 
 }
 }
+const searchList = searchdisplay.querySelectorAll("#divh3")
 
+searchList.forEach((resultDiv)=>{
+resultDiv.addEventListener("click",function(){
+const kodeValue = resultDiv.getAttribute("data-kode")
+inputsearch1.value = kodeValue
+console.log(kodeValue)
 })
-// if(searchResult.length >0){
-//   console.log("hasil",searchResult)
-// }else{
-//   console.log("gagal")
-//   console.log(search)
-//   console.log(isidata)
-//   console.log(searchResult)
-
-
-
-// }
+})
+})
 //akses data json dr database
 fetch('/dataStock/json')
       .then(response => response.json())
@@ -149,12 +143,10 @@ fetch('/dataStock/json')
           isidata.push(dataisi)
           let dropdown;
           data.forEach(datastock=>{ //looping langsung dari database
-            // dropdown += ` <option value='${datastock.kode}'>${datastock.kode}</option>`
             console.log(data)
           })
-          select.innerHTML = dropdown
         })
-        // console.log(isidata)
+        console.log(inputkode.value)
       })
       .catch((err)=>{
         console.log("error"+ err)
@@ -164,17 +156,13 @@ fetch('/dataStock/json')
     function addData() {
       const jumlah = document.getElementById("jumlah").value;
   
-      if(!jumlah){
-
-      }else{
       // Menambahkan data jumlah ke local storage
       const savedArray = JSON.parse(localStorage.getItem("jumlah")) || [];
       savedArray.push(jumlah);
       localStorage.setItem("jumlah", JSON.stringify(savedArray));
-      }
     }
-    //Mengambil data jumlah dari local storage saat halaman dimuat
 
+    //Mengambil data jumlah dari local storage saat halaman dimuat
     document.addEventListener("DOMContentLoaded", function () {
       const savedArray = JSON.parse(localStorage.getItem("jumlah")) || [];
       savedArray.forEach(function (jumlah, index) {
@@ -225,26 +213,6 @@ fetch('/dataStock/json')
     });
   
     });
-  // function get(){
-  //   fetch('/dataStock/json')
-  //     .then(response => response.json())
-  //     .then(data =>{
-  //       let isidata = [] 
-  //       data.forEach(datastock=>{
-  //         let dataisi=({
-  //           kode:datastock.kode,
-  //           nama:datastock.nama,
-  //         })
-  //         isidata.push(dataisi)
-  //       })
-  //       console.log(isidata)
-
-  //     })
-  //     .catch((err)=>{
-  //       console.log("error"+ err)
-  //     })
-  // }
-  
     //metode untuk mengirim data ke route server
     function post(){
       let arraynama = []
@@ -326,9 +294,4 @@ fetch('/dataStock/json')
       //reload halaman
       location.reload();
     }
-
-
-
-
-
   </script>
