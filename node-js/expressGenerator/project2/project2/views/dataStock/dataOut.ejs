@@ -5,6 +5,12 @@
       <span class="input-group-text" id="inputGroup-sizing-lg ">KODE</span>
       <input name="kode" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
         id="kode" />
+
+        <!-- <div id="result" style="
+        height: auto; width: 30%;z-index: 5; background-color: rgb(231, 231, 231);position: absolute;
+        border-radius: 5px;">
+      
+      </div> -->
     </div>
     <div class="input-group input-group-lg">
       <span class="input-group-text" id="inputGroup-sizing-lg ">jumlah</span>
@@ -16,6 +22,7 @@
         Add
       </button>
 
+
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Options</label>
         <select class="form-select" id="inputGroupSelect01">
@@ -24,9 +31,20 @@
       </div>
     </div>
   </form>
-  <div calss="">
+  <div>
 
     <button class="btn btn-warning" type="submit" onclick="reset()">reset</button>
+
+    <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+    id="search" />
+
+  <div id="result" style="
+  height: auto; width: 30%;z-index: 5; background-color: rgb(231, 231, 231);position: absolute;
+  border-radius: 5px;"
+  >
+
+</div>
+
     <%- include ('../_message') %>
 
     <table class="table table-striped table-hover w-50 p-3" id="resultTable">
@@ -62,10 +80,11 @@
 const inputJumlah = document.getElementById("jumlah");
 const inputkode = document.getElementById("kode")
 const tombol = document.getElementById("tombolAdd");
+
+// event untuk membuat tombol disabled
 function checkInput() {
   const jumlah = inputJumlah.value.trim(); // Menghapus spasi kosong di awal dan akhir
   const kode = inputkode.value.trim(); 
-
   if (jumlah !== '' && kode !== '') {
     tombol.removeAttribute('disabled');
   } else {
@@ -75,8 +94,50 @@ function checkInput() {
 inputJumlah.addEventListener("input", checkInput)
 inputkode.addEventListener("input", checkInput)
 
+
 let select = document.getElementById('inputGroupSelect01')
 let isidata = [] 
+// fitur search
+  // const inputsearch = document.getElementById("search").value
+
+  const searchdisplay = document.getElementById("result")
+  const inputsearch1 = document.getElementById("search")
+
+  inputsearch1.addEventListener('input',function(){
+  const inputsearch = inputsearch1.value
+  searchdisplay.innerHTML= '' //setiap perubahan pada elemen input akan mengambil value dan membersihkan search display
+  //search dengan metode filter array menggunakan value dari elemen input
+if(!inputsearch){
+  console.log("pp")
+}else{
+  const searchResult =isidata.filter(data=>{
+  return data.kode.includes(inputsearch) 
+})
+for(let x=0;x<searchResult.length;x++){
+let hasilsearch = document.createElement('h1')
+let hasilsearch1 = document.createElement('h1')
+let line = document.createElement('hr')
+hasilsearch.textContent = "kode : " + searchResult[x].kode 
+hasilsearch1.textContent = "barang : " + searchResult[x].nama 
+searchdisplay.appendChild(hasilsearch) 
+searchdisplay.appendChild(hasilsearch1) 
+searchdisplay.appendChild(line) 
+}
+}
+
+})
+// if(searchResult.length >0){
+//   console.log("hasil",searchResult)
+// }else{
+//   console.log("gagal")
+//   console.log(search)
+//   console.log(isidata)
+//   console.log(searchResult)
+
+
+
+// }
+//akses data json dr database
 fetch('/dataStock/json')
       .then(response => response.json())
       .then(data =>{
@@ -88,11 +149,12 @@ fetch('/dataStock/json')
           isidata.push(dataisi)
           let dropdown;
           data.forEach(datastock=>{ //looping langsung dari database
-            dropdown += ` <option value='${datastock.kode}'>${datastock.kode}</option>`
+            // dropdown += ` <option value='${datastock.kode}'>${datastock.kode}</option>`
+            console.log(data)
           })
           select.innerHTML = dropdown
         })
-        console.log(isidata)
+        // console.log(isidata)
       })
       .catch((err)=>{
         console.log("error"+ err)
