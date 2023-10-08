@@ -7,6 +7,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var dataStockRouter = require("./routes/dataStock");
 var dataOutRouter = require("./routes/dataOutput")
+var balanceRouter =require('./routes/currentBalance')
 
 //!import module
 const database = require("./config/database");
@@ -55,6 +56,8 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/dataStock", dataStockRouter);
 app.use("/dataOutput", dataOutRouter);
+app.use("/currentBalance", balanceRouter)
+
 
 // app.use("/dataOutput", dataOutRouter);
 

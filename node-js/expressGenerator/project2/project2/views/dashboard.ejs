@@ -1,3 +1,28 @@
 <%- include ('_header') %>
-
 <h1>dashboard</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">nama barang</th>
+        <th scope="col">total IN</th>
+        <th scope="col">total OUT</th>
+        <th scope="col">balance</th>
+
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr>
+        <% for ( let data of namaBarang){ %>
+      </tr>
+      <tr>
+        <td>
+            <%= data.nama %>
+        </td>
+        <td>
+            <%= data.jumlah_In %>
+        </td>
+      </tr>
+
+      <% } %>
+    </tbody>
+  </table>

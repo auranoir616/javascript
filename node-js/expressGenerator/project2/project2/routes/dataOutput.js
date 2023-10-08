@@ -22,7 +22,7 @@ router.get("/find", cekuser, async function (req, res, next) {
          if (!data) {
           console.log("data tidak ditemukan");
           info[0]={msg: "kode barang salah"}
-          console.log(data);
+          //console.log(data);
           res.status(404).json({ message: "Data tidak ditemukan" });
           //res.redirect("/dataOutput");
           // res.render("dataStock/dataOut", { info, namabarang });

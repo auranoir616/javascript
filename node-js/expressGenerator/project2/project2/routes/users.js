@@ -14,7 +14,7 @@ router.post("/register", function (req, res, next) {
   const { nama, userId, password } = req.body;
   console.log(req.body);
 
-  let info = []; //array untuk menyompan pesan
+  let info = []; //array untuk menyimpan pesan
   if (!nama || !userId || !password) {
     info.push({ msg: "lengkapi data anda" });
   }
@@ -65,7 +65,7 @@ router.post("/login", forwarduser, function (req, res, next) {
   }
   else {
     passport.authenticate("local", {
-      successRedirect: "/dashboard",
+      successRedirect: "/dataOutput/",
       failureRedirect: "/users/login",
       failureFlash: true,
     })(req, res, next);
