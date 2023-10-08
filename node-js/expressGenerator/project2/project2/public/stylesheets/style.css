@@ -15,11 +15,10 @@ a {
   position: absolute;
   left: 10%;
   border-radius: 5px;
-  opacity: 80%;
   padding: 5px;
 }
 #divh3:hover{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(179, 179, 179);
 
 
 }

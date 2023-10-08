@@ -1,0 +1,239 @@
+[33mcommit 5a98c47b6fead1fa41b06b72fa6d2afd8bd875bf[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Wed Oct 4 14:52:19 2023 +0700
+
+    add search fitur dot done
+
+[33mcommit a95473de9ba51ba9e3fdfcb9997dc795b6a829d3[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Tue Oct 3 22:15:27 2023 +0700
+
+    menambah dropdown dari database
+
+[33mcommit ae11fc7411317c484828473c5c8373a4704e9496[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Tue Oct 3 14:55:31 2023 +0700
+
+    error $ info message done, validasi input data dengan disable tombol done,
+
+[33mcommit c06c51253fca180dea09218ecae61896f1ccef30[m
+Author: auranoir616 <128385320+auranoir616@users.noreply.github.com>
+Date:   Tue Oct 3 01:02:37 2023 +0700
+
+    Update _message2.ejs
+    
+    mengganti typeof dengan <% if (Array.isArray(infoOut) && infoOut.length > 0) { %>
+
+[33mcommit 8a566ca240a8ef220a776a9b16ef9cf6b9f9fb3c[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Mon Oct 2 23:29:37 2023 +0700
+
+    menampah pesan error not done
+
+[33mcommit 577c377ed9cb912be6a54a8175f1d47bbbd60c37[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Mon Oct 2 14:57:42 2023 +0700
+
+    display table done, post data output done, tinggal melengkapi pesan2 error
+
+[33mcommit 1ba6845d0d73f148bde8026a47478fc061613485[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Sat Sep 30 14:18:02 2023 +0700
+
+    method output done, menambah route reset dan DOM untuk input data jumlah ke tabel
+
+[33mcommit c19cc1f869ee9b63accf60a32e551ee5d88d720e[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Fri Sep 29 21:38:39 2023 +0700
+
+    berhasil menampilkan beberapa data ketabel terpisah
+
+[33mcommit eb5b051d5eff6603276b06b16d1c4e918e2e30ae[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Fri Sep 29 15:50:34 2023 +0700
+
+    output method 50%
+
+[33mcommit 2d2b147e3866dae61c9838d23a1f8b1dfb7f2eb5[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Thu Sep 28 11:14:57 2023 +0700
+
+    menambah message
+
+[33mcommit 7894f076169e7b22f545c3d9302d7bfe33e484a2[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Wed Sep 27 13:42:27 2023 +0700
+
+    done with data stock
+
+[33mcommit b2f46097e8066947bd34faf7fe812b150a92d427[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Tue Sep 26 23:11:10 2023 +0700
+
+    done with login and register project2
+
+[33mcommit b257cdae56ace312c5c511e6c5102a3bdae73504[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Tue Sep 26 14:14:16 2023 +0700
+
+    menambah project2 50%
+
+[33mcommit d0c59d340d73935bb2e369484d3b75f20a842950[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Mon Sep 25 13:43:06 2023 +0700
+
+    menylesaikan semua file
+
+[33mcommit 2908b8efe1602be815b029c513669be44272bcca[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Mon Sep 25 00:10:07 2023 +0700
+
+    menambah ! pada line 10 auth.js. edit passport untuk menambah pesan(not done), edit line 44 passport.js menjadi function async, import passport pada index.js, mengubah function logout jd async & edit typo, message not done
+
+[33mcommit 5830f22615fca6f63f2b31ac609a783816251617[m
+Author: auranoir616 <128385320+auranoir616@users.noreply.github.com>
+Date:   Sun Sep 24 00:34:56 2023 +0700
+
+    Update auth.js
+    
+    ganti /dashbord >>/users/registee
+
+[33mcommit b0befd7043d572cbc9d622517a83c93876f08160[m
+Author: auranoir616 <128385320+auranoir616@users.noreply.github.com>
+Date:   Sun Sep 24 00:33:10 2023 +0700
+
+    Update users.js
+    
+    hapus forward user d routes. register
+
+[33mcommit 9b0bd0358030b89686b36e9af2bb6b2dda133402[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Sat Sep 23 16:21:22 2023 +0700
+
+    menambah passport 70%
+
+[33mcommit 8dd95789b8ce12b63882d64893bb99e3f782ef2f[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Tue Sep 19 16:01:14 2023 +0700
+
+    project express generator
+
+[33mcommit b623053324ec7a12008e9bd95f535359d2c57353[m
+Author: auranoir616 <fitrafilthmongers@gmail.com>
+Date:   Tue Sep 19 16:00:37 2023 +0700
+
+    project express generator
+
+[33mcommit 3ffb08c62461923774b6d14c35ffbe02afb06eb2[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Fri Sep 15 14:49:31 2023 +0700
+
+    menambah file REST-API
+
+[33mcommit fde62e1519379f0f2daf1a67721f3245220b39b4[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Thu Sep 14 13:29:47 2023 +0700
+
+    tambah file baru
+
+[33mcommit fad0db6613afd5ab56152e01ed904930c52c50f5[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Tue Sep 5 12:50:48 2023 +0700
+
+    menambah project wallet 70%
+
+[33mcommit 85b31dce84c173a9263d8fddbeb354322e6bcf89[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Mon Sep 4 22:16:37 2023 +0700
+
+    menambah project wallet 50%
+
+[33mcommit 6e4e3c333907b0ccba854061f6d37b793a9fec86[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Fri Sep 1 13:23:39 2023 +0700
+
+    project quiz
+
+[33mcommit 5e7c6c3101968eca4024662d9a58f102309f6b30[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Fri Aug 25 14:02:06 2023 +0700
+
+    menambah p daftar wilayah
+
+[33mcommit 5c9b2af7921c3c49ee5097e3eda4e38d8488459d[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Tue Aug 22 16:18:07 2023 +0700
+
+    menambah file FS
+
+[33mcommit e2483d5316099c312f8529dd7ed3870fc7a91921[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Mon Aug 21 16:03:48 2023 +0700
+
+    login
+
+[33mcommit 0d3699868576f0d26bb1c408eb2e3ad5cd7bf6ec[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Sun Aug 20 21:17:52 2023 +0700
+
+    project gabtibg
+
+[33mcommit 099c601abc1a1c73e0a6605c1e7d9ae1f85b6ace[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Sun Aug 20 14:52:03 2023 +0700
+
+    menambah project API stasiun
+
+[33mcommit 72ef30d990b2185f53aaefeb64191c5350cbd150[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Sat Aug 19 14:09:25 2023 +0700
+
+    menambah edit API
+
+[33mcommit 126a65df30e37613fe18f9656491c559aae42c8f[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Fri Aug 18 16:36:01 2023 +0700
+
+    projct API
+
+[33mcommit 1884078aafd1fb1206e6955a85a490a6ea4ad8fb[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Wed Aug 16 16:38:44 2023 +0700
+
+    project apites
+
+[33mcommit 091214948b99cf9e19f116bdfb36e33c1c0978c5[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Fri Aug 4 14:06:35 2023 +0700
+
+    tugas galery
+
+[33mcommit 1f0ecc29d4362d36e6854ff65b98cbfc89b137a5[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Fri Jul 28 13:50:31 2023 +0700
+
+    menambah project todolist
+
+[33mcommit 372d22e548f95265c44089d135c7e9f08b166f76[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Mon Jul 24 15:51:23 2023 +0700
+
+    update file
+
+[33mcommit 004b27c88ecabf7782bb6b21f3bddaa9c0a0ae11[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Thu Jul 20 14:01:37 2023 +0700
+
+    update file
+
+[33mcommit 2d477d9fdaf2e0ea176c68c3f92306a8eea02161[m
+Author: febri <fitrafilthmongers@gmail.com>
+Date:   Wed Jul 19 12:52:59 2023 +0700
+
+    nambah file
+
+[33mcommit 55997735e411bef582af84990647fae669c1e985[m
+Author: NIOMIC <37602130+niomic-id@users.noreply.github.com>
+Date:   Tue Apr 24 18:50:23 2018 +0700
+
+    Initial commit
