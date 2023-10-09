@@ -10,10 +10,8 @@
 
       </tr>
     </thead>
-    <tbody class="table-group-divider">
-      <tr>
-        <% for ( let data of namaBarang){ %>
-      </tr>
+    <tbody class="table-group-divider" id="tbody">
+      <% for ( let data of combinedArray){ %>
       <tr>
         <td>
             <%= data.nama %>
@@ -21,8 +19,45 @@
         <td>
             <%= data.jumlah_In %>
         </td>
+        <td> 
+          <%= data.total_out %>
+        </td>
+        <td id="balance"></td>
+        <% } %>
       </tr>
-
-      <% } %>
     </tbody>
   </table>
+  <script>
+
+    const collIn = document.querySelectorAll("#tbody td:nth-child(2)")
+    const collOut = document.querySelectorAll("#tbody td:nth-child(3)")
+ 
+    document.addEventListener("DOMContentLoaded", function(){
+      let arrayIn = []
+
+      for (x=0; x<collIn.length; x++){
+        arrayIn.push(collIn[x].textContent)
+      }
+      console.log(arrayIn)
+      let arrayInNum = arrayIn.map((str)=>{
+        const clrarrayIn = str.replace(/\D/g, "");
+        return parseInt(clrarrayIn)
+      })
+      console.log(arrayInNum)
+
+      let arrayOut = []
+      for (y=0; y<collOut.length; y++){
+        arrayOut.push(collOut[y].textContent)
+      }
+      console.log(arrayOut)
+
+      let arrayOutNum = arrayOut.map((str)=>{
+        const clrarrayOut = str.replace(/\D/g, "");
+        return parseInt(clrarrayOut)
+      })
+      console.log(arrayOutNum)
+    })
+
+
+
+  </script>

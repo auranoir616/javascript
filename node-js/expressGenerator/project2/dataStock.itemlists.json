@@ -1,0 +1,2328 @@
+[{
+  "_id": {
+    "$oid": "651a73e3e6041672d426e2e0"
+  },
+  "items": [],
+  "total_belanja": "Rp. 77500",
+  "tanggal": {
+    "$date": "2023-10-02T07:40:19.062Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a744fb7a1a13cd3cc18da"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 5,
+      "harga_satuan": 1000,
+      "harga": 5000,
+      "_id": {
+        "$oid": "651a744fb7a1a13cd3cc18db"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 6,
+      "harga_satuan": 500,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651a744fb7a1a13cd3cc18dc"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 8000",
+  "tanggal": {
+    "$date": "2023-10-02T07:42:07.367Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a74acb7a1a13cd3cc1909"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651a74acb7a1a13cd3cc190a"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 2,
+      "harga_satuan": 500,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651a74acb7a1a13cd3cc190b"
+      }
+    },
+    {
+      "nama_barang": "Microphone",
+      "jumlah": 5,
+      "harga_satuan": 75,
+      "harga": 375,
+      "_id": {
+        "$oid": "651a74acb7a1a13cd3cc190c"
+      }
+    },
+    {
+      "nama_barang": "Router",
+      "jumlah": 3,
+      "harga_satuan": 90,
+      "harga": 270,
+      "_id": {
+        "$oid": "651a74acb7a1a13cd3cc190d"
+      }
+    },
+    {
+      "nama_barang": "Headphones",
+      "jumlah": 1,
+      "harga_satuan": 100,
+      "harga": 100,
+      "_id": {
+        "$oid": "651a74acb7a1a13cd3cc190e"
+      }
+    },
+    {
+      "nama_barang": "Keyboard",
+      "jumlah": 4,
+      "harga_satuan": 150,
+      "harga": 600,
+      "_id": {
+        "$oid": "651a74acb7a1a13cd3cc190f"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3345",
+  "tanggal": {
+    "$date": "2023-10-02T07:43:40.661Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a74d71c9f393215708b49"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651a74d71c9f393215708b4a"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-02T07:44:23.789Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a7511f20530559c433175"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651a7511f20530559c433176"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-02T07:45:21.383Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a756b240b201c59fc7ff9"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651a756b240b201c59fc7ffa"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-02T07:46:51.184Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a760e11a5b51dccbb280f"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 5,
+      "harga_satuan": 500,
+      "harga": 2500,
+      "_id": {
+        "$oid": "651a760e11a5b51dccbb2810"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2500",
+  "tanggal": {
+    "$date": "2023-10-02T07:49:34.738Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a764e2c38e9b4e5a3d908"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651a764e2c38e9b4e5a3d909"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T07:50:38.752Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a766c2c38e9b4e5a3d922"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 7,
+      "harga_satuan": 1000,
+      "harga": 7000,
+      "_id": {
+        "$oid": "651a766c2c38e9b4e5a3d923"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 7000",
+  "tanggal": {
+    "$date": "2023-10-02T07:51:08.886Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a76a68f2e3b6b5ba9f362"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 7,
+      "harga_satuan": 500,
+      "harga": 3500,
+      "_id": {
+        "$oid": "651a76a68f2e3b6b5ba9f363"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3500",
+  "tanggal": {
+    "$date": "2023-10-02T07:52:06.423Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a773003d2acbdd2b5ee63"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651a773003d2acbdd2b5ee64"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-02T07:54:24.997Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a773803d2acbdd2b5ee67"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651a773803d2acbdd2b5ee68"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-02T07:54:32.387Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651a78621c3d872bade0a138"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651a78621c3d872bade0a139"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T07:59:30.239Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ad647dab144afc64c191b"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 5,
+      "harga_satuan": 1000,
+      "harga": 5000,
+      "_id": {
+        "$oid": "651ad647dab144afc64c191c"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 5,
+      "harga_satuan": 500,
+      "harga": 2500,
+      "_id": {
+        "$oid": "651ad647dab144afc64c191d"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 7500",
+  "tanggal": {
+    "$date": "2023-10-02T14:40:07.735Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ad6983d6905139df1198c"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651ad6983d6905139df1198d"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-02T14:41:28.532Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ad6bbbd059e6c5537df31"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ad6bbbd059e6c5537df32"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651ad6bbbd059e6c5537df33"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-02T14:42:03.830Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ad6c1bd059e6c5537df39"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ad6c1bd059e6c5537df3a"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651ad6c1bd059e6c5537df3b"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-02T14:42:09.506Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ad797b5879ea8314b7cdd"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 2,
+      "harga_satuan": 1000,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ad797b5879ea8314b7cde"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T14:45:43.508Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ad7d2b5879ea8314b7ceb"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 5,
+      "harga_satuan": 500,
+      "harga": 2500,
+      "_id": {
+        "$oid": "651ad7d2b5879ea8314b7cec"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2500",
+  "tanggal": {
+    "$date": "2023-10-02T14:46:42.259Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ad87550af2450636a4ea7"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 2,
+      "harga_satuan": 1000,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ad87550af2450636a4ea8"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T14:49:25.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ad8b50b75f009640e2590"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651ad8b50b75f009640e2591"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-02T14:50:29.832Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651adaeea8a755a19e04f931"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 45,
+      "harga_satuan": 1000,
+      "harga": 45000,
+      "_id": {
+        "$oid": "651adaeea8a755a19e04f932"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 45000",
+  "tanggal": {
+    "$date": "2023-10-02T14:59:58.390Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651adb3196503f3cf91d3d41"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651adb3196503f3cf91d3d42"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-02T15:01:05.668Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651adbaf96503f3cf91d3d4f"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 5,
+      "harga_satuan": 500,
+      "harga": 2500,
+      "_id": {
+        "$oid": "651adbaf96503f3cf91d3d50"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2500",
+  "tanggal": {
+    "$date": "2023-10-02T15:03:11.519Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651adc0e96503f3cf91d3d7a"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651adc0e96503f3cf91d3d7b"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-02T15:04:46.056Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651adce696503f3cf91d3d97"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651adce696503f3cf91d3d98"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-02T15:08:22.859Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651adcff96503f3cf91d3da0"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651adcff96503f3cf91d3da1"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-02T15:08:47.054Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651add7196503f3cf91d3db7"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 3,
+      "harga_satuan": 500,
+      "harga": 1500,
+      "_id": {
+        "$oid": "651add7196503f3cf91d3db8"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1500",
+  "tanggal": {
+    "$date": "2023-10-02T15:10:41.175Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ade2596503f3cf91d3ddc"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ade2596503f3cf91d3ddd"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:13:41.122Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ade2996503f3cf91d3de0"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ade2996503f3cf91d3de1"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:13:45.672Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ade8296503f3cf91d3de4"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ade8296503f3cf91d3de5"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:15:14.466Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651adea996503f3cf91d3df4"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651adea996503f3cf91d3df5"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:15:53.054Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651adeea96503f3cf91d3df8"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651adeea96503f3cf91d3df9"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:16:58.926Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651adfbb5351d5463ef1ed78"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 2,
+      "harga_satuan": 1000,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651adfbb5351d5463ef1ed79"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:20:27.089Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae009c47d3d32e91eb6c7"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ae009c47d3d32e91eb6c8"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:21:45.966Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae0e3c47d3d32e91eb6cb"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ae0e3c47d3d32e91eb6cc"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:25:23.617Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae11ac47d3d32e91eb6cf"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ae11ac47d3d32e91eb6d0"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:26:18.565Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae150c47d3d32e91eb6db"
+  },
+  "items": [],
+  "total_belanja": "",
+  "tanggal": {
+    "$date": "2023-10-02T15:27:12.185Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae155c47d3d32e91eb6e8"
+  },
+  "items": [],
+  "total_belanja": "",
+  "tanggal": {
+    "$date": "2023-10-02T15:27:17.778Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae2afafd23c80b305827b"
+  },
+  "items": [],
+  "total_belanja": "",
+  "tanggal": {
+    "$date": "2023-10-02T15:33:03.645Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae31ec562914b16825381"
+  },
+  "items": [],
+  "total_belanja": "",
+  "tanggal": {
+    "$date": "2023-10-02T15:34:54.993Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae35bb543eb5d6de1d908"
+  },
+  "items": [],
+  "total_belanja": "",
+  "tanggal": {
+    "$date": "2023-10-02T15:35:55.242Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae47696959ca451ac363f"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ae47696959ca451ac3640"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:40:38.647Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae47e96959ca451ac3652"
+  },
+  "items": [],
+  "total_belanja": "",
+  "tanggal": {
+    "$date": "2023-10-02T15:40:46.785Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae4aab83bdddefaa648a0"
+  },
+  "items": [],
+  "total_belanja": "",
+  "tanggal": {
+    "$date": "2023-10-02T15:41:30.676Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae513de8efb7ecdfed3fc"
+  },
+  "items": [],
+  "total_belanja": "",
+  "tanggal": {
+    "$date": "2023-10-02T15:43:15.864Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae576a4cc9462365e9680"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 2,
+      "harga_satuan": 1000,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651ae576a4cc9462365e9681"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T15:44:54.680Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ae9d5784b024d5713bbee"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651ae9d5784b024d5713bbef"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-02T16:03:33.650Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651aea09248e677d61ef8cce"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651aea09248e677d61ef8ccf"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-02T16:04:25.978Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651aeac6817ebb0073f358f8"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 3,
+      "harga_satuan": 500,
+      "harga": 1500,
+      "_id": {
+        "$oid": "651aeac6817ebb0073f358f9"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1500",
+  "tanggal": {
+    "$date": "2023-10-02T16:07:34.148Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651aec4ef5003d5c60dd0a56"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651aec4ef5003d5c60dd0a57"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-02T16:14:06.029Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651aed7c41d0c2b479174691"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 2,
+      "harga_satuan": 1000,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651aed7c41d0c2b479174692"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-02T16:19:08.220Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651aee2041d0c2b4791746b7"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651aee2041d0c2b4791746b8"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-02T16:21:52.371Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651aee6741d0c2b4791746d9"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 2,
+      "harga_satuan": 500,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651aee6741d0c2b4791746da"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-02T16:23:03.739Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b8024094c0b6500cd9263"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 2,
+      "harga_satuan": 1000,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651b8024094c0b6500cd9264"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2000",
+  "tanggal": {
+    "$date": "2023-10-03T02:44:52.150Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b8057094c0b6500cd9287"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651b8057094c0b6500cd9288"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T02:45:43.219Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b811a094c0b6500cd92a7"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651b811a094c0b6500cd92a8"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T02:48:58.749Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b83293e8ec82073e525b9"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651b83293e8ec82073e525ba"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T02:57:45.322Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b84cf3e8ec82073e525d5"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 5,
+      "harga_satuan": 1000,
+      "harga": 5000,
+      "_id": {
+        "$oid": "651b84cf3e8ec82073e525d6"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 5000",
+  "tanggal": {
+    "$date": "2023-10-03T03:04:47.675Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b87a3b5340f74277506b4"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 5,
+      "harga_satuan": 1000,
+      "harga": 5000,
+      "_id": {
+        "$oid": "651b87a3b5340f74277506b5"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 5000",
+  "tanggal": {
+    "$date": "2023-10-03T03:16:51.360Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b88fc9c749b088b18db59"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651b88fc9c749b088b18db5a"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-03T03:22:36.170Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b8f14b7433d17666c3c84"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651b8f14b7433d17666c3c85"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T03:48:36.447Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b8f2cf8b84b4010fdc086"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651b8f2cf8b84b4010fdc087"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T03:49:00.519Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b8f477e574bd60d1e961b"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651b8f477e574bd60d1e961c"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T03:49:27.623Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b8f4c7e574bd60d1e961f"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651b8f4c7e574bd60d1e9620"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T03:49:32.780Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b8fdde1456560ffe73331"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651b8fdde1456560ffe73332"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T03:51:57.964Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b917212aeab3a1abd6388"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651b917212aeab3a1abd6389"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T03:58:42.315Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b919112aeab3a1abd6399"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 3,
+      "harga_satuan": 500,
+      "harga": 1500,
+      "_id": {
+        "$oid": "651b919112aeab3a1abd639a"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1500",
+  "tanggal": {
+    "$date": "2023-10-03T03:59:13.498Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b93c27773a66411280420"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651b93c27773a66411280421"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-03T04:08:34.988Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b9626e6c06b1d85dbe5a9"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651b9626e6c06b1d85dbe5aa"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-03T04:18:46.984Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b99b4e445abafbfe1c43d"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651b99b4e445abafbfe1c43e"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-03T04:33:56.922Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b99d5d662b1f9c77f2563"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651b99d5d662b1f9c77f2564"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-03T04:34:29.211Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b99dcd662b1f9c77f2571"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651b99dcd662b1f9c77f2572"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T04:34:36.119Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b9b875966942160ac6d84"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651b9b875966942160ac6d85"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-03T04:41:43.852Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b9c4ca7712bc67ebc0875"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651b9c4ca7712bc67ebc0876"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-03T04:45:00.050Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b9c54a7712bc67ebc0883"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 3,
+      "harga_satuan": 500,
+      "harga": 1500,
+      "_id": {
+        "$oid": "651b9c54a7712bc67ebc0884"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1500",
+  "tanggal": {
+    "$date": "2023-10-03T04:45:08.052Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b9caea7712bc67ebc08bb"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651b9caea7712bc67ebc08bc"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-03T04:46:38.440Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b9e2836dbaaf0d2dc7e45"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651b9e2836dbaaf0d2dc7e46"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-03T04:52:56.591Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b9ee49f7cb70a2f4270f9"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651b9ee49f7cb70a2f4270fa"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 3,
+      "harga_satuan": 500,
+      "harga": 1500,
+      "_id": {
+        "$oid": "651b9ee49f7cb70a2f4270fb"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 2,
+      "harga_satuan": 500,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651b9ee49f7cb70a2f4270fc"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3500",
+  "tanggal": {
+    "$date": "2023-10-03T04:56:04.743Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ba03d479494d06eee1072"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651ba03d479494d06eee1073"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-03T05:01:49.577Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ba19891aa5e988ef68f58"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651ba19891aa5e988ef68f59"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651ba19891aa5e988ef68f5a"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-03T05:07:36.979Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651ba1a291aa5e988ef68f6b"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651ba1a291aa5e988ef68f6c"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 5,
+      "harga_satuan": 1000,
+      "harga": 5000,
+      "_id": {
+        "$oid": "651ba1a291aa5e988ef68f6d"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 8000",
+  "tanggal": {
+    "$date": "2023-10-03T05:07:46.528Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651bc3a484fc9b6887faf146"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651bc3a484fc9b6887faf147"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651bc3a484fc9b6887faf148"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651bc3a484fc9b6887faf149"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 5000",
+  "tanggal": {
+    "$date": "2023-10-03T07:32:52.475Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651bc3dc84fc9b6887faf1bb"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651bc3dc84fc9b6887faf1bc"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3000",
+  "tanggal": {
+    "$date": "2023-10-03T07:33:48.214Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651bc5435ed1ae56cc417b5e"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651bc5435ed1ae56cc417b5f"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-03T07:39:47.509Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651bc7454d1fa88071ee639f"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651bc7454d1fa88071ee63a0"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651bc7454d1fa88071ee63a1"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 4,
+      "harga_satuan": 500,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651bc7454d1fa88071ee63a2"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651bc7454d1fa88071ee63a3"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 6000",
+  "tanggal": {
+    "$date": "2023-10-03T07:48:21.369Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651bc85e4d1fa88071ee6414"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651bc85e4d1fa88071ee6415"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 3,
+      "harga_satuan": 500,
+      "harga": 1500,
+      "_id": {
+        "$oid": "651bc85e4d1fa88071ee6416"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2500",
+  "tanggal": {
+    "$date": "2023-10-03T07:53:02.578Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651c27473fe440280448c19f"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651c27473fe440280448c1a0"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-03T14:37:59.896Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651d14821402eeb673000416"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 1,
+      "harga_satuan": 500,
+      "harga": 500,
+      "_id": {
+        "$oid": "651d14821402eeb673000417"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 500",
+  "tanggal": {
+    "$date": "2023-10-04T07:30:10.835Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651d7677169cf92a3b32b786"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651d7677169cf92a3b32b787"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 1,
+      "harga_satuan": 500,
+      "harga": 500,
+      "_id": {
+        "$oid": "651d7677169cf92a3b32b788"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1500",
+  "tanggal": {
+    "$date": "2023-10-04T14:28:07.113Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651d7691169cf92a3b32b79e"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651d7691169cf92a3b32b79f"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 1000",
+  "tanggal": {
+    "$date": "2023-10-04T14:28:33.458Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651d7c63169cf92a3b32b81f"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 12,
+      "harga_satuan": 1000,
+      "harga": 12000,
+      "_id": {
+        "$oid": "651d7c63169cf92a3b32b820"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 12000",
+  "tanggal": {
+    "$date": "2023-10-04T14:53:23.082Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651d8261169cf92a3b32b919"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651d8261169cf92a3b32b91a"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651d8261169cf92a3b32b91b"
+      }
+    },
+    {
+      "nama_barang": "Camera",
+      "jumlah": 4,
+      "harga_satuan": 250,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651d8261169cf92a3b32b91c"
+      }
+    },
+    {
+      "nama_barang": "Monitor",
+      "jumlah": 1,
+      "harga_satuan": 400,
+      "harga": 400,
+      "_id": {
+        "$oid": "651d8261169cf92a3b32b91d"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 3400",
+  "tanggal": {
+    "$date": "2023-10-04T15:18:57.820Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651d83bd169cf92a3b32b9c9"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 2,
+      "harga_satuan": 1000,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651d83bd169cf92a3b32b9ca"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 2,
+      "harga_satuan": 1000,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651d83bd169cf92a3b32b9cb"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 4000",
+  "tanggal": {
+    "$date": "2023-10-04T15:24:45.485Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651d8411169cf92a3b32ba07"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 1,
+      "harga_satuan": 1000,
+      "harga": 1000,
+      "_id": {
+        "$oid": "651d8411169cf92a3b32ba08"
+      }
+    },
+    {
+      "nama_barang": "Camera",
+      "jumlah": 2,
+      "harga_satuan": 250,
+      "harga": 500,
+      "_id": {
+        "$oid": "651d8411169cf92a3b32ba09"
+      }
+    },
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 1,
+      "harga_satuan": 500,
+      "harga": 500,
+      "_id": {
+        "$oid": "651d8411169cf92a3b32ba0a"
+      }
+    },
+    {
+      "nama_barang": "Keyboard",
+      "jumlah": 1,
+      "harga_satuan": 150,
+      "harga": 150,
+      "_id": {
+        "$oid": "651d8411169cf92a3b32ba0b"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 2150",
+  "tanggal": {
+    "$date": "2023-10-04T15:26:09.184Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651e31c070840f79a61e008e"
+  },
+  "items": [
+    {
+      "nama_barang": "Smartphone",
+      "jumlah": 5,
+      "harga_satuan": 500,
+      "harga": 2500,
+      "_id": {
+        "$oid": "651e31c070840f79a61e008f"
+      }
+    },
+    {
+      "nama_barang": "Tablet",
+      "jumlah": 3,
+      "harga_satuan": 350,
+      "harga": 1050,
+      "_id": {
+        "$oid": "651e31c070840f79a61e0090"
+      }
+    },
+    {
+      "nama_barang": "Printer",
+      "jumlah": 23,
+      "harga_satuan": 300,
+      "harga": 6900,
+      "_id": {
+        "$oid": "651e31c070840f79a61e0091"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 5,
+      "harga_satuan": 1000,
+      "harga": 5000,
+      "_id": {
+        "$oid": "651e31c070840f79a61e0092"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651e31c070840f79a61e0093"
+      }
+    },
+    {
+      "nama_barang": "External Hard Drive",
+      "jumlah": 4,
+      "harga_satuan": 120,
+      "harga": 480,
+      "_id": {
+        "$oid": "651e31c070840f79a61e0094"
+      }
+    },
+    {
+      "nama_barang": "Camera",
+      "jumlah": 5,
+      "harga_satuan": 250,
+      "harga": 1250,
+      "_id": {
+        "$oid": "651e31c070840f79a61e0095"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 2,
+      "harga_satuan": 1000,
+      "harga": 2000,
+      "_id": {
+        "$oid": "651e31c070840f79a61e0096"
+      }
+    },
+    {
+      "nama_barang": "Projector",
+      "jumlah": 2,
+      "harga_satuan": 600,
+      "harga": 1200,
+      "_id": {
+        "$oid": "651e31c070840f79a61e0097"
+      }
+    },
+    {
+      "nama_barang": "Scanner",
+      "jumlah": 2,
+      "harga_satuan": 180,
+      "harga": 360,
+      "_id": {
+        "$oid": "651e31c070840f79a61e0098"
+      }
+    },
+    {
+      "nama_barang": "Camera",
+      "jumlah": 1,
+      "harga_satuan": 250,
+      "harga": 250,
+      "_id": {
+        "$oid": "651e31c070840f79a61e0099"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 23990",
+  "tanggal": {
+    "$date": "2023-10-05T03:47:12.635Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651e42ff70840f79a61e0227"
+  },
+  "items": [
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 3,
+      "harga_satuan": 1000,
+      "harga": 3000,
+      "_id": {
+        "$oid": "651e42ff70840f79a61e0228"
+      }
+    },
+    {
+      "nama_barang": "External Hard Drive",
+      "jumlah": 3,
+      "harga_satuan": 120,
+      "harga": 360,
+      "_id": {
+        "$oid": "651e42ff70840f79a61e0229"
+      }
+    },
+    {
+      "nama_barang": "Monitor",
+      "jumlah": 1,
+      "harga_satuan": 400,
+      "harga": 400,
+      "_id": {
+        "$oid": "651e42ff70840f79a61e022a"
+      }
+    },
+    {
+      "nama_barang": "Laptop",
+      "jumlah": 4,
+      "harga_satuan": 1000,
+      "harga": 4000,
+      "_id": {
+        "$oid": "651e42ff70840f79a61e022b"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 7760",
+  "tanggal": {
+    "$date": "2023-10-05T05:00:47.269Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651f99a1ab07bd30c0601385"
+  },
+  "items": [
+    {
+      "nama_barang": "Monitor",
+      "jumlah": 1,
+      "harga_satuan": 400,
+      "harga": 400,
+      "_id": {
+        "$oid": "651f99a1ab07bd30c0601386"
+      }
+    }
+  ],
+  "total_belanja": "Rp. 400",
+  "tanggal": {
+    "$date": "2023-10-06T05:22:41.859Z"
+  },
+  "__v": 0
+}]
