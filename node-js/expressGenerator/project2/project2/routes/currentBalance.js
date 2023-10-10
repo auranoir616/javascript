@@ -63,9 +63,16 @@ router.get("/", cekuser, async function (req, res, next) {
         }
       })
       const combinedArray = Object.values(dataMap);
+      combinedArray.forEach((data)=>{
+        data.balance = data.jumlah_In - data.total_out
+      })
+
       console.log("namabarang ", namaBarang);
       console.log("dataALL ", combinedArray);
+
       res.render("dashboard", { combinedArray });
+
+
     })
     .catch((err) => {
       console.log(err);

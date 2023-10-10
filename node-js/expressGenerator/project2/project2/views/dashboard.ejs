@@ -1,6 +1,7 @@
 <%- include ('_header') %>
 <h1>dashboard</h1>
-<table class="table">
+<div class="container-md">
+<table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">nama barang</th>
@@ -22,42 +23,10 @@
         <td> 
           <%= data.total_out %>
         </td>
-        <td id="balance"></td>
+        <td id="balance"><%= data.balance %>
+        </td>
         <% } %>
       </tr>
     </tbody>
   </table>
-  <script>
-
-    const collIn = document.querySelectorAll("#tbody td:nth-child(2)")
-    const collOut = document.querySelectorAll("#tbody td:nth-child(3)")
- 
-    document.addEventListener("DOMContentLoaded", function(){
-      let arrayIn = []
-
-      for (x=0; x<collIn.length; x++){
-        arrayIn.push(collIn[x].textContent)
-      }
-      console.log(arrayIn)
-      let arrayInNum = arrayIn.map((str)=>{
-        const clrarrayIn = str.replace(/\D/g, "");
-        return parseInt(clrarrayIn)
-      })
-      console.log(arrayInNum)
-
-      let arrayOut = []
-      for (y=0; y<collOut.length; y++){
-        arrayOut.push(collOut[y].textContent)
-      }
-      console.log(arrayOut)
-
-      let arrayOutNum = arrayOut.map((str)=>{
-        const clrarrayOut = str.replace(/\D/g, "");
-        return parseInt(clrarrayOut)
-      })
-      console.log(arrayOutNum)
-    })
-
-
-
-  </script>
+</div>
