@@ -4,7 +4,7 @@ const app = express()
 const schema = require('./Schema/schema')
 app.use('/graphql', graphqlHTTP({
 schema,
-graphiql : true
+graphiql : true //! mengaktifkan graphql GUI
 }))
 
 //!menjalankan server
