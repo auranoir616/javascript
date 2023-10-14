@@ -1,74 +1,111 @@
 const graphql = require('graphql')
 const _ = require('lodash')
-const {GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList} = graphql
+const {GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt,GraphQLList,GraphQLNonNull } = graphql
+const Jurusan = require('../models/jurusan')
+const Mahasiswa = require('../models/mahasiswa')
+const jurusan = require('../models/jurusan')
 
-var tesbarang =[
-    {kode: "QWER123", nama_barang: "panci", jumlah: "500", milikid: 1},//!meberi object dengan value id untuk relasi array
-    {kode: "ASD215", nama_barang: "wajan", jumlah: "1000", milikid: 2},
-    {kode: "PLO124", nama_barang: "sendok", jumlah: "320", milikid: 3},
-    {kode: "DSW098", nama_barang: "garpu", jumlah: "500", milikid: 2},
-    {kode: "JKU323", nama_barang: "sekop", jumlah: "124", milikid: 1},
-    {kode: "GJR232", nama_barang: "wajan", jumlah: "800", milikid: 3},
-
-]
-var tesorang = [
-    {id: 1, nama: "budi warsana", umur: 18, gender: "pria"},
-    {id: 2, nama: "wawan sampurna", umur: 16, gender: "pria"},
-    {id: 3, nama: "komarnia", umur: 11, gender: "wanita"},
-]
-const DataBarang = new GraphQLObjectType({
-    name: "databarang",
+const jurusanType = new GraphQLObjectType({
+    name: "jurusan",
     fields:()=>({
-        kode: {type: GraphQLID },
-        nama_barang: {type: GraphQLString},
-        jumlah: {type: GraphQLString},
-        // menampilkan data orang saat menampilkan data barang
-        orang: {   //!relasi databarang dengan dataorang
-            type :DataOrang,//!nama data yang akan direlasi/gabungkan
-            resolve(parent,args){ //!parent berisi object yang sedang diakses
-                console.log(parent)
-                return _.find(tesorang,{id:parent.milikid })
+        jurusan: {type: GraphQLString},
+        kaprodi: {type: GraphQLString},
+        mahasiswa: { //!relasi data jurusan dan mahasiswa ddengan id sebagai parameter
+            type : new GraphQLList(mahasiswaType),
+            resolve(parent,args){
+                return Mahasiswa.find({jurusanId:parent.id})
             }
         }
     })
 })
-const DataOrang = new GraphQLObjectType({
-    name: "dataorang",
+const mahasiswaType = new GraphQLObjectType({
+    name: "mahasiswa",
     fields:()=>({
-        id: {type: GraphQLInt },
+        jurusanId: {type: GraphQLID },
         nama: {type: GraphQLString},
         umur: {type: GraphQLInt},
-        gender: {type: GraphQLString},
-        //menampilkan data beberapa orang saat menampilkan data barang 
-        barang: {
-            type : new GraphQLList(DataBarang),
-            resolve(parent,args){
-                return _.filter(tesbarang,{milikid: parent.id})
+        prodi: {   
+            type :jurusanType,
+            resolve(parent,args){ 
+                console.log(parent)
+                return jurusan.findById(parent.jurusanId)
             }
         }
+
     })
 })
 const RootQuery = new GraphQLObjectType({
     name: "RootQueryType",
     fields: {
-        barang: {
-            type: DataBarang,
-            args: {kode: {type: GraphQLID }},
+        prodi: {
+            type: jurusanType,
+            args: {id: {type: GraphQLID }},
             resolve(parent,args){
                 console.log(args) //!args berisi kode barang yang sedang di akses
-             return   _.find(tesbarang,{kode:args.kode})
+            return Jurusan.findById(args.id)
             }
         },
-        Orang: {
-            type : DataOrang,
-            args: {id: {type: GraphQLInt}},
+        mahasiswa: {
+            type : mahasiswaType,
+            args: {id: {type: GraphQLID}},
             resolve(parent, args){
-                return _.find(tesorang,{id:args.id})
+            return Mahasiswa.findById(args.id)
             }
+            //!menampilkan semua data dari array
+        },allMahasiswa : {
+            type: new GraphQLList(mahasiswaType),
+            resolve (parent, args){
+            return Mahasiswa.find({})
+            }
+        },
+        allJurusan : {
+            type: new GraphQLList(jurusanType),
+            resolve (parent, args){
+            return Jurusan.find({})
+            }
+
         }
     }
 })
 
+const Mutation = new GraphQLObjectType({
+    name: "mutation",
+    fields : {
+        addjurusan : {
+            type : jurusanType,
+            args :{
+                jurusan : {type : new GraphQLNonNull (GraphQLString)},
+                kaprodi : {type : new GraphQLNonNull (GraphQLString)}
+            },
+            resolve(parent, args){
+                let jurusan = new Jurusan ({
+                    jurusan : args.jurusan,
+                    kaprodi : args.kaprodi
+                })
+                return jurusan.save()
+            }
+        },
+        addmahasiswa : {
+            type: mahasiswaType,
+            args : {
+                nama: {type: GraphQLString},
+                umur: {type: GraphQLInt},
+                jurusanId: {type: GraphQLID}
+            },
+            resolve(parent, args){
+                let mahasiswa = new Mahasiswa({
+                    nama: args.nama,
+                    umur: args.umur,
+                    jurusanId: args.jurusanId
+                })
+                return mahasiswa.save()
+            }
+        }
+
+    }
+})
+
 module.exports = new GraphQLSchema({
-    query: RootQuery
+    query: RootQuery,
+    mutation : Mutation
 })
