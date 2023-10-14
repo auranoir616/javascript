@@ -1,0 +1,21 @@
+<%- include ('../_header') %>
+
+<%for(let data of arrayDataOut){%>
+<div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <!-- <h5 class="card-title"><%= data.id%> </h5> -->
+    <p class="card-text"><%= data.tanggal%></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <%for (let item of data.items){%>
+
+    <li class="list-group-item"><%= item.nama_barang %>(<%= item.harga_satuan %>) <%= item.jumlah %>x</li>
+    <%}%>
+
+  </ul>
+  <div class="card-body">
+    <h5 class="card-title"><%= data.total_belanja%> </h5>
+
+  </div>
+</div>
+<%}%>

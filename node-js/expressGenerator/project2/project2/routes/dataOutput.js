@@ -9,7 +9,7 @@ router.get("/", cekuser, function (req, res, next) {
 });
 let info =[]
 let namabarang = [];
-
+//!route untuk mencari data dari database
 router.get("/find", cekuser, async function (req, res, next) {
   try {
     const kodebarang = await req.query.kode;
@@ -103,6 +103,8 @@ else{
   })
 }
 });
+
+
 
 
 module.exports = router;

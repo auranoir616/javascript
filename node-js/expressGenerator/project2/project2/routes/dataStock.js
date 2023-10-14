@@ -1,6 +1,7 @@
 var express = require("express")
 var router = express.Router()
 var stockIn = require('../model/inSchema')
+
 const {cekuser} =require('../config/auth')
 
 //!get data in

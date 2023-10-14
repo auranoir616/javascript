@@ -7,10 +7,9 @@ const { cekuser } = require("../config/auth");
 router.get("/", cekuser, async function (req, res, next) {
   const combinedDataOut = []; //menggabungkan semua dataOut
   const namaBarang = []; //menggabungkan semua dataIn
-  let filteredDataout =[]; // hasil filter total out setiap barang
+  let filteredDataout = []; // hasil filter total out setiap barang
 
-  await stockOut.find({})
-  .then((dataOut) => {
+  await stockOut.find({}).then((dataOut) => {
     if (dataOut.length > 0) {
       for (x = 0; x < dataOut.length; x++) {
         const items = dataOut[x].items;
@@ -18,21 +17,20 @@ router.get("/", cekuser, async function (req, res, next) {
           combinedDataOut.push({
             nama: data.nama_barang,
             jumlah_out: data.jumlah,
-          })
+          });
         }
       }
-      const finalData ={}
-      combinedDataOut.forEach( item => {
-        if(!finalData[item.nama]){
-        finalData[item.nama] =  { nama: item.nama, total_out: 0}
+      const finalData = {};
+      combinedDataOut.forEach((item) => {
+        if (!finalData[item.nama]) {
+          finalData[item.nama] = { nama: item.nama, total_out: 0 };
         }
-        finalData[item.nama].total_out += item.jumlah_out
-      })
-      let finalDataArray = Object.values(finalData)
-      filteredDataout = finalDataArray
-      console.log("final data ",filteredDataout)
+        finalData[item.nama].total_out += item.jumlah_out;
+      });
+      let finalDataArray = Object.values(finalData);
+      filteredDataout = finalDataArray;
+      console.log("final data ", filteredDataout);
     }
-
   });
   stockIn
     .find({})
@@ -44,39 +42,54 @@ router.get("/", cekuser, async function (req, res, next) {
             jumlah_In: data.total_in,
           });
         }
-      }
-      const dataMap = {}
-      filteredDataout.forEach((data)=>{
-        const {nama, total_out } = data
-        if(!dataMap[nama]){
-          dataMap[nama] = {nama, total_out, jumlah_In: 0}
-        }else{
-          dataMap[nama].total_out += total_out
+      } //!menggabungkan object menjadi satu sesuai barang
+      const dataMap = {};
+      filteredDataout.forEach((data) => {
+        const { nama, total_out } = data;
+        if (!dataMap[nama]) {
+          dataMap[nama] = { nama, total_out, jumlah_In: 0 };
+        } else {
+          dataMap[nama].total_out += total_out;
         }
-      })
-      namaBarang.forEach((data)=>{
-        const {nama, jumlah_In } = data
-        if(!dataMap[nama]){
-          dataMap[nama] = {nama, total_out: 0, jumlah_In}
-        }else{
-          dataMap[nama].jumlah_In += jumlah_In
+      });
+      namaBarang.forEach((data) => {
+        const { nama, jumlah_In } = data;
+        if (!dataMap[nama]) {
+          dataMap[nama] = { nama, total_out: 0, jumlah_In };
+        } else {
+          dataMap[nama].jumlah_In += jumlah_In;
         }
-      })
+      });
       const combinedArray = Object.values(dataMap);
-      combinedArray.forEach((data)=>{
-        data.balance = data.jumlah_In - data.total_out
-      })
+      combinedArray.forEach((data) => {
+        data.balance = data.jumlah_In - data.total_out;
+      });
 
-      console.log("namabarang ", namaBarang);
-      console.log("dataALL ", combinedArray);
-
+      // console.log("namabarang ", namaBarang);
+      // console.log("dataALL ", combinedArray);
       res.render("dashboard", { combinedArray });
-
-
     })
     .catch((err) => {
       console.log(err);
       next(err);
     });
 });
+
+router.get("/listOut", cekuser, function (req, res, next) {
+  let arrayDataOut = [];
+
+  stockOut.find({}).then((dataOut) => {
+    if (dataOut.length > 0) {
+      arrayDataOut = dataOut;
+    }
+    res.render("dataStock/dataStockOut", { arrayDataOut });
+    console.log(arrayDataOut);
+    // console.log(arrayDataOut.items.nama_barang)
+  });
+  stockIn.find({})
+  .then((data))
+
+});
+
+
 module.exports = router;
