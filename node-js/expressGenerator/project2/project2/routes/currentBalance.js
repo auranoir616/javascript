@@ -75,21 +75,38 @@ router.get("/", cekuser, async function (req, res, next) {
     });
 });
 
+let arrayDataOut = [];
+let arrayDataIn = [];
+let filteredOut = []
 router.get("/listOut", cekuser, function (req, res, next) {
-  let arrayDataOut = [];
-
   stockOut.find({}).then((dataOut) => {
     if (dataOut.length > 0) {
       arrayDataOut = dataOut;
     }
-    res.render("dataStock/dataStockOut", { arrayDataOut });
     console.log(arrayDataOut);
-    // console.log(arrayDataOut.items.nama_barang)
   });
-  // stockIn.find({})
-  // .then((data))
-
+  stockIn.find({})
+  .then((data)=>{
+    arrayDataIn = data
+   res.render("dataStock/dataStockOut", {filteredOut,arrayDataIn});
+  })
 });
+
+
+router.post("/listOut", cekuser, function(req, res, next){
+  const optionValue = req.body.optionValue
+    const dataFilter = arrayDataOut.filter(data=>{
+      return data.items.some(item=>item.nama_barang === optionValue)
+     })
+     filteredOut = dataFilter
+
+  // console.log("araydataout",arrayDataOut)
+  console.log("value",optionValue)
+  console.log("datafilter",filteredOut)
+  res.render("dataStock/dataStockOut", { filteredOut,arrayDataIn });
+
+})
+
 
 
 module.exports = router;

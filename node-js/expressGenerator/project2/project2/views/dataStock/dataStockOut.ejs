@@ -1,6 +1,26 @@
 <%- include ('../_header') %>
+<div>
+  <select name="" id="cariData">
+    <option value="" selected disabled>pilih barang</option>
+    <%for(let nama of arrayDataIn) {%>
+    <option value="<%=nama.nama%>">
+    <%=nama.nama%> 
+    </option>
+  <%}%>
+  </select>
+</div>
+<div class="d-grid gap-2">
+  <button class="btn btn-primary" type="submit" onclick="cari()" id="tombolCari">
+    cari
+  </button>
+</div>
 
-<%for(let data of arrayDataOut){%>
+
+
+
+<%for(let data of filteredOut){%>
+
+  
 <div class="card" style="width: 25rem;">
   <div class="card-body">
     <!-- <h5 class="card-title"><%= data.id%> </h5> -->
@@ -19,3 +39,23 @@
   </div>
 </div>
 <%}%>
+
+<script>
+function cari(){
+const optionElemen = document.getElementById("cariData")
+const optionValue = optionElemen.value
+
+ fetch("/currentBalance/listOut", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({optionValue}),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+
+        .catch((error) => {
+          console.log("error");
+
+        });
+      }
+</script>
