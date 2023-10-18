@@ -86,8 +86,8 @@ router.get("/listOut", cekuser, function (req, res, next) {
     console.log(arrayDataOut);
     // console.log(arrayDataOut.items.nama_barang)
   });
-  stockIn.find({})
-  .then((data))
+  // stockIn.find({})
+  // .then((data))
 
 });
 
