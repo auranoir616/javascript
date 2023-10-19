@@ -1,6 +1,6 @@
 <%- include ('../_header') %>
 <div>
-  <select name="" id="cariData">
+  <select class="form-select" aria-label="Default select example" id="cariData">
     <option value="" selected disabled>pilih barang</option>
     <%for(let nama of arrayDataIn) {%>
     <option value="<%=nama.nama%>">
@@ -14,13 +14,13 @@
     cari
   </button>
 </div>
+<%- include ('../_message') %>
 
 
 
 
 <%for(let data of filteredOut){%>
 
-  
 <div class="card" style="width: 25rem;">
   <div class="card-body">
     <!-- <h5 class="card-title"><%= data.id%> </h5> -->
@@ -55,7 +55,8 @@ const optionValue = optionElemen.value
 
         .catch((error) => {
           console.log("error");
-
+        
         });
+        location.reload()
       }
 </script>

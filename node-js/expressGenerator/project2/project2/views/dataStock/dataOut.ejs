@@ -1,11 +1,19 @@
 <%- include ('../_header') %>
 
   <form action="dataOutput/find" method="get" id="myform" autocomplete="off">
-    <div class="input-group input-group-lg">
+    <!-- <div class="input-group input-group-lg">
       <span class="input-group-text" id="inputGroup-sizing-lg ">KODE.</span>
       <input name="kode" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
         id="kode" />
-    </div>
+    </div> -->
+    <select name="kode" class="form-select" aria-label="Default select example" id="kode">
+      <option selected>Open this select menu</option>
+      <%for(let data of kodebarang1) {%>
+        <option value="<%=data.kode%>">
+        <%=data.kode%>
+        </option>
+        <%}%>
+    </select>
 
     <div id="result"></div>
     <div class="input-group input-group-lg">
@@ -14,7 +22,7 @@
         aria-describedby="inputGroup-sizing-lg" id="jumlah" />
     </div>
     <div class="d-grid gap-2">
-      <button class="btn btn-primary" type="submit" onclick="addData()" id="tombolAdd" disabled>
+      <button class="btn btn-primary" type="submit" onclick="addData()" id="tombolAdd" >
         Add
       </button>
     </div>
@@ -80,40 +88,40 @@
       //search dengan metode filter array menggunakan value dari elemen input
 
       // event untuk membuat tombol disabled
-    const inputkode1 = document.getElementById("kode").value;
-    const dataSome = isidata.some(data => data.kode === inputkode1)
-      function checkInput() {
-      const jumlah = inputJumlah.value.trim(); // Menghapus spasi kosong di awal dan akhir
-      const kode = inputkode.value.trim();
-      const inputkodevalue = document.getElementById("kode").value;
-      const dataSome = isidata.some(data => data.kode === inputkodevalue)
-      if (jumlah !== "" && kode !== "" && dataSome) {
-        tombol.removeAttribute("disabled");
-      } else {
-        tombol.setAttribute("disabled", "true");
-      }
-    }
-    inputJumlah.addEventListener("input", checkInput);
-    inputkode.addEventListener("input", checkInput);
+    // const inputkode1 = document.getElementById("kode").value;
+    // const dataSome = isidata.some(data => data.kode === inputkode1)
+    //   function checkInput() {
+    //   const jumlah = inputJumlah.value.trim(); // Menghapus spasi kosong di awal dan akhir
+    //   const kode = inputkode.value.trim();
+    //   const inputkodevalue = document.getElementById("kode").value;
+    //   const dataSome = isidata.some(data => data.kode === inputkodevalue)
+    //   if (jumlah !== "" && kode !== "" && dataSome) {
+    //     tombol.removeAttribute("disabled");
+    //   } else {
+    //     tombol.setAttribute("disabled", "true");
+    //   }
+    // }
+    // inputJumlah.addEventListener("input", checkInput);
+    // inputkode.addEventListener("input", checkInput);
   
         //memfilter data stock berdasarkan value dari input kode
-        const searchResult = isidata.filter((data) => {
-          return data.kode.includes(inputsearch);
-        }); // menampilkan data yang sudah difilter ke elemen h3
-        for (let x = 0; x < searchResult.length; x++) {
-          let hasilsearch = document.createElement("h4");
-          let hasilsearch1 = document.createElement("h4");
-          let divh3 = document.createElement("div");
-          let line = document.createElement("hr");
-          divh3.id = "divh3";
-          divh3.setAttribute("data-kode", searchResult[x].kode);
-          hasilsearch.textContent = "kode : " + searchResult[x].kode;
-          hasilsearch1.textContent = "barang : " + searchResult[x].nama;
-          searchdisplay.appendChild(divh3);
-          divh3.appendChild(hasilsearch);
-          divh3.appendChild(hasilsearch1);
-          searchdisplay.appendChild(line);
-        }
+        // const searchResult = isidata.filter((data) => {
+        //   return data.kode.includes(inputsearch);
+        // }); // menampilkan data yang sudah difilter ke elemen h3
+        // for (let x = 0; x < searchResult.length; x++) {
+        //   let hasilsearch = document.createElement("h4");
+        //   let hasilsearch1 = document.createElement("h4");
+        //   let divh3 = document.createElement("div");
+        //   let line = document.createElement("hr");
+        //   divh3.id = "divh3";
+        //   divh3.setAttribute("data-kode", searchResult[x].kode);
+        //   hasilsearch.textContent = "kode : " + searchResult[x].kode;
+        //   hasilsearch1.textContent = "barang : " + searchResult[x].nama;
+        //   searchdisplay.appendChild(divh3);
+        //   divh3.appendChild(hasilsearch);
+        //   divh3.appendChild(hasilsearch1);
+        //   searchdisplay.appendChild(line);
+        // }
       //  event untuk pilih hasil dengan keyboard
   //     document.addEventListener('keydown', function(e){
   //  const resultDiv = document.getElementById('result')

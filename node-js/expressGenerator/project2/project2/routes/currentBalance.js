@@ -77,18 +77,19 @@ router.get("/", cekuser, async function (req, res, next) {
 
 let arrayDataOut = [];
 let arrayDataIn = [];
-let filteredOut = []
+let filteredOut = [];
+let info = []
 router.get("/listOut", cekuser, function (req, res, next) {
   stockOut.find({}).then((dataOut) => {
     if (dataOut.length > 0) {
       arrayDataOut = dataOut;
     }
-    console.log(arrayDataOut);
+    // console.log(arrayDataOut);
   });
   stockIn.find({})
   .then((data)=>{
     arrayDataIn = data
-   res.render("dataStock/dataStockOut", {filteredOut,arrayDataIn});
+   res.render("dataStock/dataStockOut", {filteredOut,arrayDataIn,info});
   })
 });
 
@@ -100,10 +101,17 @@ router.post("/listOut", cekuser, function(req, res, next){
      })
      filteredOut = dataFilter
 
+     if(filteredOut.length < 1){
+    info.push({ msg: "data kosong" });
+     }else{
+      info = []
+    }
   // console.log("araydataout",arrayDataOut)
-  console.log("value",optionValue)
-  console.log("datafilter",filteredOut)
-  res.render("dataStock/dataStockOut", { filteredOut,arrayDataIn });
+  // console.log("info", info)
+
+  // console.log("value",optionValue)
+  // console.log("datafilter",filteredOut)
+  res.render("dataStock/dataStockOut", { filteredOut,arrayDataIn,info });
 
 })
 

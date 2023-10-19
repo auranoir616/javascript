@@ -65,7 +65,7 @@ router.post("/login", forwarduser, function (req, res, next) {
   }
   else {
     passport.authenticate("local", {
-      successRedirect: "/dataOutput/",
+      successRedirect: "/currentBalance",
       failureRedirect: "/users/login",
       failureFlash: true,
     })(req, res, next);

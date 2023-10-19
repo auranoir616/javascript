@@ -4,8 +4,14 @@ var stockIn = require("../model/inSchema");
 var stockOut = require('../model/outListSchema')
 const { cekuser } = require("../config/auth");
 
+let kodebarang1 = []
 router.get("/", cekuser, function (req, res, next) {
-  res.render("dataStock/dataOut", {namabarang, info});
+  stockIn.find({})
+  .then((data)=>{
+    kodebarang1 = data
+  })
+  console.log("kode",kodebarang1)
+  res.render("dataStock/dataOut", {namabarang, info, kodebarang1});
 });
 let info =[]
 let namabarang = [];
@@ -20,7 +26,7 @@ router.get("/find", cekuser, async function (req, res, next) {
       })
       .then((data) => {
          if (!data) {
-          console.log("data tidak ditemukan");
+          console.log(kodebarang);
           info[0]={msg: "kode barang salah"}
           //console.log(data);
           res.status(404).json({ message: "Data tidak ditemukan" });
@@ -57,7 +63,7 @@ router.get('/reset', cekuser, function(req, res, next){
 
 //!menambahkan route untuk post output 
 router.get('/inputout', cekuser,function(req,res, next){
-  res.render("dataStock/inputOut", {namabarang, info})
+  res.render("dataStock/inputOut", {namabarang, info, kodebarang1})
 })
 router.post('/inputOut', cekuser, function(req, res, next){
   const { nama_barang, jumlah, harga_satuan, harga, total } = req.body;
