@@ -3,32 +3,40 @@
 <a href="/currentBalance/listOut" class="btn btn-info">history</a>
 
 <div class="container-md">
-<table class="table table-hover">
+  <table class="table table-hover" id="tableBalance">
     <thead>
       <tr>
         <th scope="col">nama barang</th>
         <th scope="col">total IN</th>
         <th scope="col">total OUT</th>
         <th scope="col">balance</th>
-
       </tr>
     </thead>
     <tbody class="table-group-divider" id="tbody">
       <% for ( let data of combinedArray){ %>
       <tr>
-        <td>
-            <%= data.nama %>
-        </td>
-        <td>
-            <%= data.jumlah_In %>
-        </td>
-        <td> 
-          <%= data.total_out %>
-        </td>
-        <td id="balance"><%= data.balance %>
-        </td>
+        <td><%= data.nama %></td>
+        <td><%= data.jumlah_In %></td>
+        <td><%= data.total_out %></td>
+        <td><%= data.balance %></td>
         <% } %>
       </tr>
     </tbody>
   </table>
 </div>
+
+<script>
+  const rows = document.querySelectorAll("tr");
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td:nth-child(4)");
+    for (let cell of cells) {
+      const cellval = cell.textContent;
+      if (cellval <= 5) {
+        row.className = "table-danger";
+      }
+      if (cellval >= 5 && cellval <= 10) {
+        row.className = "table-warning";
+      }
+    }
+  });
+</script>
