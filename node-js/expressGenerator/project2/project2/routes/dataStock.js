@@ -118,7 +118,6 @@ router.get('/json',cekuser, function(req,res,next){
             }
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify(liststock));
-            // console.log(stockIn)
         }})
     })
 module.exports = router
