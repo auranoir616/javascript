@@ -23,18 +23,23 @@ class Input extends Component {
                 placeholder="Type here"
                 placeholderTextColor="gray"
         />
-        <Text>text input: {this.state.input}</Text>
+        <Text style={styles.text}>{this.state.input}</Text>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
   input: { //selector
-    color: 'blue', // Warna teks
     borderColor: 'gray', // Warna garis bingkai
     borderWidth: 1,
     padding: 10,
   },
+  text:{
+    margin:10,
+    color:"red",
+    fontSize: 20,
+    fontStyle:"italic"
+  }
 });
 
 export default Input;
