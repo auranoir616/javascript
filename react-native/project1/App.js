@@ -6,11 +6,10 @@
  */
 
 import React, {useState} from 'react';
-import {Text, View, StatusBar, Button, Alert, StyleSheet} from 'react-native';
+import {View,Text,Button, StatusBar, Alert, StyleSheet} from 'react-native';
 import Header from './header';
 import Footer from './footer';
 import Input from './input';
-
 
 function App() {
   const [nilai, operator] = useState(0);
@@ -39,10 +38,7 @@ function App() {
 
     </View>
 
-    // <View style={{flex:1, backgroundColor:"red"}}>
-    //   <Text style={{flex:2, backgroundColor:"yellow"}}>Halman 1</Text>
-    //   <Text style={{flex:1, backgroundColor:"green"}}>Halman 2</Text>
-    // </View>
+
   );
 }
 const styles = StyleSheet.create({
@@ -54,5 +50,7 @@ const styles = StyleSheet.create({
   },
   title: {margin: 10, textAlign: 'center', color: 'blue', fontSize: 30},
 });
+
+
 
 export default App;
