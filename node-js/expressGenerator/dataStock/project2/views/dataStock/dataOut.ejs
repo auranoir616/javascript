@@ -1,0 +1,330 @@
+<%- include ('../_header') %>
+
+  <form action="dataOutput/find" method="get" id="myform" autocomplete="off">
+    <!-- <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg ">KODE.</span>
+      <input name="kode" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+        id="kode" />
+    </div> -->
+    <select name="kode" class="form-select" aria-label="Default select example" id="kode">
+      <option selected>Pilih Barang</option>
+      <%for(let data of kodebarang1) {%>
+        <option value="<%=data.kode%>">
+        <%=data.kode%> // <%=data.nama%> // <%=data.harga_satuan%>
+        </option>
+        <%}%>
+    </select>
+
+    <div id="result"></div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-text" id="inputGroup-sizing-lg ">jumlah</span>
+      <input name="jumlah" type="number" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-lg" id="jumlah" />
+    </div>
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="submit" onclick="addData()" id="tombolAdd" >
+        Add
+      </button>
+    </div>
+  </form>
+  <div>
+    <%- include ('../_message') %>
+
+      <table class="table table-striped table-hover w-50 p-3" id="resultTable">
+        <tr>
+          <th>NAMA BARANG</th>
+          <th>JUMLAH</th>
+          <th>HARGA SATUAN</th>
+          <th>HARGA</th>
+        </tr>
+        <% if (typeof namabarang !=='undefined' && namabarang.length> 0) { %> <% namabarang.forEach(function(data) { %>
+            <tr>
+              <td>
+                <%= data.nama %>
+              </td>
+              <td></td>
+              <td>
+                <%= data.harga_satuan %>
+              </td>
+              <td></td>
+            </tr>
+            <% }) %>
+              <% } %>
+                <tr>
+                  <td>TOTAL HARGA:</td>
+                  <td id="total" colspan="3" align="right"></td>
+                </tr>
+                <tr>
+                  <td colspan="4" align="center">
+                    <button class="btn btn-warning" type="submit" onclick="reset()">
+                      reset
+                    </button>
+
+                    <button class="btn btn-secondary" type="submit" onclick="post()">
+                      Confirm
+                    </button>
+                  </td>
+                </tr>
+      </table>
+  </div>
+  <script>
+    const inputJumlah = document.getElementById("jumlah");
+    const inputkode = document.getElementById("kode");
+    const tombol = document.getElementById("tombolAdd");
+
+    let isidata = []; //array berisi data stock
+
+    // fitur search
+    const searchdisplay = document.getElementById("result");
+    const inputsearch1 = document.getElementById("kode");
+
+    inputJumlah.addEventListener("focus", function () {
+      searchdisplay.style.display = "none";
+    });
+    inputsearch1.addEventListener("input", function () {
+      const inputsearch = inputsearch1.value.toUpperCase();
+      searchdisplay.style.display = "block";
+      searchdisplay.innerHTML = ""; //setiap perubahan pada elemen input akan mengambil value dan membersihkan search display
+      //search dengan metode filter array menggunakan value dari elemen input
+
+      // event untuk membuat tombol disabled
+    // const inputkode1 = document.getElementById("kode").value;
+    // const dataSome = isidata.some(data => data.kode === inputkode1)
+    //   function checkInput() {
+    //   const jumlah = inputJumlah.value.trim(); // Menghapus spasi kosong di awal dan akhir
+    //   const kode = inputkode.value.trim();
+    //   const inputkodevalue = document.getElementById("kode").value;
+    //   const dataSome = isidata.some(data => data.kode === inputkodevalue)
+    //   if (jumlah !== "" && kode !== "" && dataSome) {
+    //     tombol.removeAttribute("disabled");
+    //   } else {
+    //     tombol.setAttribute("disabled", "true");
+    //   }
+    // }
+    // inputJumlah.addEventListener("input", checkInput);
+    // inputkode.addEventListener("input", checkInput);
+  
+        //memfilter data stock berdasarkan value dari input kode
+        // const searchResult = isidata.filter((data) => {
+        //   return data.kode.includes(inputsearch);
+        // }); // menampilkan data yang sudah difilter ke elemen h3
+        // for (let x = 0; x < searchResult.length; x++) {
+        //   let hasilsearch = document.createElement("h4");
+        //   let hasilsearch1 = document.createElement("h4");
+        //   let divh3 = document.createElement("div");
+        //   let line = document.createElement("hr");
+        //   divh3.id = "divh3";
+        //   divh3.setAttribute("data-kode", searchResult[x].kode);
+        //   hasilsearch.textContent = "kode : " + searchResult[x].kode;
+        //   hasilsearch1.textContent = "barang : " + searchResult[x].nama;
+        //   searchdisplay.appendChild(divh3);
+        //   divh3.appendChild(hasilsearch);
+        //   divh3.appendChild(hasilsearch1);
+        //   searchdisplay.appendChild(line);
+        // }
+      //  event untuk pilih hasil dengan keyboard
+  //     document.addEventListener('keydown', function(e){
+  //  const resultDiv = document.getElementById('result')
+  //  const divElmenent = resultDiv.querySelectorAll('div#divh3')
+  //  const activeElement = document.activeElement
+  //  if(e.key === "ArrowUp" || e.key === "ArrowDown"){
+  //   let selectIndex = -1;
+  //   for (let x=0; x<divElmenent.length; x++){
+  //     if(divElmenent[x].contains(activeElement)){
+  //       selectIndex = x;
+  //       console.log(divElmenent[x])
+  //       break;
+  //     }
+  //   }
+  //   if(e.key === "ArrowUp" && selectIndex > 0){
+  //     selectIndex--
+  //   }else if(e.key === "ArrowDown" && selectIndex < divElmenent.length - 1){
+  //     selectIndex++
+  //   }
+  //   if(selectIndex >=0 && selectIndex < divElmenent.length){
+  //     const selectDiv = divElmenent[selectIndex]
+  //     selectDiv.querySelector('h4').focus()
+  //   }
+  //  }
+  //     })
+
+      //menambahkan event saat hasil filter diklik akan mengisi input kode
+      const searchList = searchdisplay.querySelectorAll("#divh3");
+      searchList.forEach((resultDiv) => {
+        resultDiv.addEventListener("click", function () {
+          const kodeValue = resultDiv.getAttribute("data-kode");
+          inputsearch1.value = kodeValue;
+          console.log(kodeValue);
+        });
+      });
+    });
+    //akses data json dr database
+    fetch("/dataStock/json")
+      .then((response) => response.json())
+      .then((data) => {
+        data.forEach((datastock) => {
+          let dataisi = {
+            // lopping untuk array isi data
+            kode: datastock.kode,
+            nama: datastock.nama,
+          };
+          isidata.push(dataisi);
+          let dropdown;
+          data.forEach((datastock) => {
+            //looping langsung dari database
+            console.log(data);
+          });
+        });
+        console.log(inputkode.value);
+      })
+      .catch((err) => {
+        console.log("error" + err);
+      });
+
+    // Fungsi untuk menyimpan data jumlah ke local storage
+    function addData() {
+      const jumlah = document.getElementById("jumlah").value;
+
+      // Menambahkan data jumlah ke local storage
+      const savedArray = JSON.parse(localStorage.getItem("jumlah")) || [];
+      savedArray.push(jumlah);
+      localStorage.setItem("jumlah", JSON.stringify(savedArray));
+    }
+
+    //Mengambil data jumlah dari local storage saat halaman dimuat
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedArray = JSON.parse(localStorage.getItem("jumlah")) || [];
+      savedArray.forEach(function (jumlah, index) {
+        // Mengambil elemen <tr> yang sesuai berdasarkan index
+        const rows = document.querySelectorAll("#resultTable tr");
+        const row = rows[index + 1]; // +1 untuk melewati baris header
+        const tdJumlah = row.querySelector("td:nth-child(2)");
+        // Update nilai kolom jumlah dengan nilai dari local storage
+        tdJumlah.textContent = jumlah;
+
+        //metode untuk menghitung total jumlah
+        let savedArraynumber = savedArray.map((str) => {
+          return parseInt(str);
+        });
+        const reducejumlah = (acc, curr) => acc + curr;
+        let totaljumlah = savedArraynumber.reduce(reducejumlah);
+
+        //metode untuk mendapatkan nilai harga satuan dari tabel
+        const jumlahharga = document.querySelectorAll(
+          "#resultTable td:nth-child(3)"
+        );
+        let arrayjumlahharga = [];
+        jumlahharga.forEach((cell) => {
+          arrayjumlahharga.push(cell.textContent);
+        });
+        //menghilangkan karakter yang tidak perlu
+        let arrayjumlahharganumber = arrayjumlahharga.map((str) => {
+          const cleanedarray = str.replace(/\D/g, "");
+          return parseInt(cleanedarray, 10);
+        });
+        //metode untuk menghitung total harga satuan dengan reducer
+        const reducehargasatuan = (acc, curr) => acc + curr;
+        let totalhargasatuan = arrayjumlahharganumber.reduce(reducehargasatuan);
+
+        let arrayhargatotal = [];
+        for (let x = 0; x < arrayjumlahharganumber.length; x++) {
+          let hargatotal = savedArraynumber[x] * arrayjumlahharganumber[x];
+          arrayhargatotal.push(hargatotal);
+        }
+        //menampilkan harga total ke elemen tabel
+        const tdtotalharga = document.querySelectorAll(
+          "#resultTable td:nth-child(4)"
+        );
+        tdtotalharga.forEach((Element, index) => {
+          Element.textContent = arrayhargatotal[index];
+        });
+        //mendapatkan total harga dan menampilkannya ke tabel
+        const reducetotal = (acc, curr) => acc + curr;
+        let totalharga = arrayhargatotal.reduce(reducetotal);
+        const tdtotal = document.getElementById("total");
+        tdtotal.textContent = "Rp. " + totalharga;
+      });
+    });
+    //metode untuk mengirim data ke route server
+    function post() {
+      let arraynama = [];
+      const coll1 = document.querySelectorAll("#resultTable td:nth-child(1)");
+      for (x = 0; x < coll1.length - 2; x++) {
+        arraynama.push(coll1[x].textContent);
+      }
+      let arraynamacleared = arraynama.map((str) => {
+        //array nama barang
+        return str.trim();
+      });
+      console.log(arraynamacleared);
+
+      let arrayjumlah = []; //array jumlah barang
+      const coll2 = document.querySelectorAll("#resultTable td:nth-child(2)");
+      for (x = 0; x < coll2.length - 1; x++) {
+        arrayjumlah.push(parseInt(coll2[x].textContent, 10));
+      }
+      console.log(arrayjumlah);
+
+      let arrayhargasatuan = [];
+      const coll3 = document.querySelectorAll("#resultTable td:nth-child(3)");
+      for (x = 0; x < coll3.length; x++) {
+        arrayhargasatuan.push(coll3[x].textContent);
+      }
+      let arrayhargasatuannumber = arrayhargasatuan.map((str) => {
+        //array harga satuan
+        const cleanedarray = str.replace(/\D/g, "");
+        return parseInt(cleanedarray, 10);
+      });
+      console.log(arrayhargasatuannumber);
+
+      let arrayharga = []; //array harga
+      const coll4 = document.querySelectorAll("#resultTable td:nth-child(4)");
+      for (x = 0; x < coll4.length; x++) {
+        arrayharga.push(parseInt(coll4[x].textContent));
+      }
+      console.log(arrayharga);
+
+      let total = document.getElementById("total").textContent;
+
+      //data yang akan dikirim ke server
+      const dataToSend = {
+        nama_barang: arraynamacleared,
+        jumlah: arrayjumlah,
+        harga_satuan: arrayhargasatuannumber,
+        harga: arrayharga,
+        total: total,
+      }; // akses server dengan fecth
+      fetch("dataOutput/inputOut", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(dataToSend),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+
+        .catch((error) => {
+          // console.error('Error:', error);
+          console.log("error");
+
+          reset();
+        });
+    }
+    function reset() {
+      // Menghapus semua data dari localStorage
+      localStorage.clear();
+      // mengakses route reset dengan fetch
+      fetch("dataOutput/reset")
+        .then((response) => {
+          if (response.status === 200) {
+            console.log("berhasil reset");
+          } else {
+            console.error("gagal reset");
+          }
+        })
+        .catch((error) => {
+          console.error("error");
+        });
+      //reload halaman
+      location.reload();
+    }
+  </script>

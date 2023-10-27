@@ -11,8 +11,6 @@ return(
     </NativeBaseProvider>
 
 
-
-
 )}
 
 export default App;
