@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Post</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>POST</h1>
 
-  </body>
-</html>
+<%- include ('_header') %>
+<%- include ('_message') %>
+
+<form class="ui form" action="/items/itemPost" method="POST">
+  <div class="field">
+    <label>name</label>
+    <input type="text" name="name" placeholder="nama barang">
+  </div>
+  <div class="field">
+    <label>price</label>
+    <input type="number" name="price" placeholder="harga">
+  </div>
+  <div class="field">
+    <label>image</label>
+    <input type="text" name="image" placeholder="link gambar">
+  </div>
+ 
+  <div class="field">
+    <label>total</label>
+    <input type="number" name="total" placeholder="jumlah barang">
+  </div>
+  <div class="field">
+    <label>shop</label>
+    <input type="text" name="shop" placeholder="nama toko">
+  </div>
+
+  <div class="ui form">
+    <div class="field">
+      <label>desc</label>
+      <textarea name="desc" placeholder="deskripsi"></textarea>
+    </div>
+  <button class="ui button" type="submit">Submit</button>
+</form>

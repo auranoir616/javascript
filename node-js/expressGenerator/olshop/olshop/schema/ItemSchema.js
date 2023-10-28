@@ -14,7 +14,7 @@ const ItemSchema = new mongoose.Schema({
         trim: true
     },
     desc:{
-        Type: String
+        type: String,
     },
     total:{
         type: Number,
@@ -24,4 +24,4 @@ const ItemSchema = new mongoose.Schema({
         type: String
     }
 })
-modeule.exports = mongoose.model('Items', ItemSchema)
+module.exports = mongoose.model('Items', ItemSchema)
