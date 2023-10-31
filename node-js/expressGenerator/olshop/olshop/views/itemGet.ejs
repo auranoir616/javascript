@@ -1,8 +1,12 @@
 <%- include ('_header') %>
-<div style="display: flex; flex-direction: row; width: 100%; height: 100% ;flex-wrap: wrap; justify-content: space-between; ">
+<%- include ('_message') %>
+
+<div style="display: flex;flex-direction: row;">
+<div style="display: flex; flex-direction: row; width: 75%; height: 100% ;flex-wrap: wrap; justify-content: space-evenly; ">
+
 
 <% for ( let item of ItemsArray){ %>
-        <div>
+  <div>
 <div class="ui card">
     <div class="image" >
       <img src="<%=item.image%>" style="height:200px; width:290px" >
@@ -11,17 +15,16 @@
     <div class="content">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
         <div class="content">
-            <h4 class="ui header"><%=item.name%></h4>
+            <h4 class="ui header" ><%=item.name%></h4>
             <p>jumlah: <%=item.total%> kg</p>
         </div>
         <div>
-            <button class="small ui button">
-                <i class="shopping basket icon"></i>
+            <button class="small ui button" ><a href='/items/Add/<%=item.id%>'>
+              <i class="shopping basket icon"></i>
+            </a>
             </button>
           </div>
     </div>
-
-   
       <div class="meta" style=" display: flex; flex-direction: row; justify-content: space-between; margin-top: 5px;">
        <div>
         <span class="date">harga Rp.<%=item.price%>/kg</span>
@@ -38,7 +41,50 @@
         <%=item.shop%>
       </a>
     </div>
+
   </div>
         </div>
-  <%}%>
+       
+
+<%}%>
 </div>
+<div style="position: fixed; right: 100px;">
+  <table class="ui very basic collapsing celled table">
+    <thead>
+      <tr><th>Products</th>
+      <th>Jumlah</th>
+      <th>Total</th>
+    </tr></thead>
+    <tbody>
+      <% for (let fruit of fruitsData){%>
+<% const total = <%=fruit.harga%> %>
+<% const jumlah = document.querySelectorAll('input').value %> 
+
+      <tr>
+        <td><%=fruit.product%></td>
+        <td>
+          <div class="ui right labeled input ">
+              <input type="number" value="1" id="inputJumlah<%=fruit.product%>" >
+              
+            <div class="ui basic label">
+              kg
+            </div>
+          </div>
+        </td>
+        <td id="harga<%=fruit.product%>"><%=fruit.harga%></td>
+        <td id="total<%=fruit.product%>"></td>
+      </tr>
+      <%}%>
+    </tbody>
+  </table>
+</div> 
+</div>
+<script>
+
+const jumlah = document.querySelectorAll('td:nth-child(2)')
+jumlah.forEach((id)=>{
+  jumlahId = id.getAttribute('id')
+})
+console.log(jumlahId)
+</script>
+

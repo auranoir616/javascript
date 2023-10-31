@@ -39,31 +39,59 @@ router.post("/itemPost", function (req, res, next) {
         console.log(info);
       });
   }
-});
-
+})
+// let ItemsArray =[];
+let fruitsData =[];
+let info;
 router.get("/itemGet", function (req, res, next) {
-  let ItemsArray = [];
-  Items.find({}).then((items) => {
-    if (items) {
-      for (let item of items) {
-        ItemsArray.push({
-          name: item.name,
-          price: item.price,
-          image: item.image,
-          desc: item.desc,
-          total: item.total,
-          shop: item.shop,
-        });
+  let ItemsArray =[];
+  Items.find({})
+    .then((items) => {
+      if (items) {
+        for (let item of items) {
+          ItemsArray.push({
+            name: item.name,
+            price: item.price,
+            image: item.image,
+            desc: item.desc,
+            total: item.total,
+            shop: item.shop,
+            id: item.id,
+          });
+        }
+        res.render("itemGet", { ItemsArray,fruitsData,info});
+        // console.log(ItemsArray);
+      } else {
+        res.send("data kosong");
       }
-      res.render('itemGet', {ItemsArray})
-      console.log(ItemsArray)
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    });
+});
+router.get("/Add/:fruitID", async function (req, res, next) {
+  let info1= []
+info = info1
+  try {
+
+    const fruitName = await Items.findById(req.params.fruitID);
+    if(fruitsData.some(data =>data.id === fruitName.id)){
+      info1.push({msg:"buah sudah ada dalam keranjang"})
+      res.redirect("/items/itemGet");
     }else{
-      res.send("data kosong")
+      fruitsData.push({
+        product: fruitName.name,
+        harga: fruitName.price,
+        id: fruitName.id
+      });
+      info1.push({msg:"buah berhasil ditambahkan"})
+      console.log(fruitsData);
+      res.redirect("/items/itemGet");
     }
-  })
-  .catch((err)=>{
-    console.log(err)
-    next(err)
-  })
+
+  } catch (err) {
+    console.log(err);
+  }
 });
 module.exports = router;

@@ -1,11 +1,7 @@
 <%- include ('../_header') %>
 
   <form action="dataOutput/find" method="get" id="myform" autocomplete="off">
-    <!-- <div class="input-group input-group-lg">
-      <span class="input-group-text" id="inputGroup-sizing-lg ">KODE.</span>
-      <input name="kode" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
-        id="kode" />
-    </div> -->
+    <!-- mencari data dalam database dengan kode barang yang dikirim ke route /find -->
     <select name="kode" class="form-select" aria-label="Default select example" id="kode">
       <option selected>Pilih Barang</option>
       <%for(let data of kodebarang1) {%>
@@ -52,7 +48,9 @@
               <% } %>
                 <tr>
                   <td>TOTAL HARGA:</td>
-                  <td id="total" colspan="3" align="right"></td>
+                  <td id="total" colspan="3" align="right">
+                    <!-- //total harga -->
+                  </td>
                 </tr>
                 <tr>
                   <td colspan="4" align="center">
