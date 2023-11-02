@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <script>
+Vue.component('my-component', {
+  render: function(createElement) {
+    return createElement('div', {
+      class: 'my-component',
+      on: {
+        click: this.handleClick
+      }
+    }, [
+      createElement('h1', 'Judul Komponen'),
+      createElement('p', 'Ini adalah contoh render function dalam Vue.js.')
+    ]);
+  },
+  methods: {
+    handleClick: function() {
+      alert('Komponen diklik!');
+    }
+  }
+});
+var vm = new Vue({
+    el: '#app'
+})
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <style>
+      .active {
+        background-color: red;
+      }
+      .displayError {
+        background-color: aquamarine;
+      }
+    </style>
+    <div id="classbinding">
+      <div v-bind:class="{active:isactive, 'displayError': haserror}">
+        <b>{{title}}</b>
+      </div>
+    </div>
+
+    <script>
+      var vm = new Vue({
+        el: "#classbinding",
+        data: {
+          title: "CLASS BINDING",
+          isactive: true,
+          haserror: false,
+        },
+      });
+    </script>
+  </body>
+</html>

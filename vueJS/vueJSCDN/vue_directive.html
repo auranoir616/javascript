@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="directives">
+        <div v-changestyle>
+            VueJs Directive
+        </div>
+    </div>
+
+    <script>
+        Vue.directive("changestyle",{
+            bind(e1,binding,vnode){
+                console.log(e1)
+                e1.style.color="red"
+                e1.style.fontSize="50px"
+            }
+        })
+
+        var vm =new Vue({
+            el: "#directives"
+        })
+    </script>
+  </body>
+</html>

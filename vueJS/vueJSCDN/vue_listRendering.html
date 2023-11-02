@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="listrender">
+      <input
+        type="text"
+        v-on:keyup.enter="showinput"
+        v-bind:style="styleobj"
+        placeholder="enter fruits name"
+      />
+      <h1 v-if="items.length>0">Display Fruits :</h1>
+      <ul>
+        <li v-for="a in items">{{a}}</li>
+      </ul>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#listrender",
+        data: {
+          items: [],
+          styleobj: {
+            width: "30%",
+            padding: "12px 20px",
+            margin: "8px 0",
+            boxSizing: "border-box",
+          },
+        },
+        methods: {
+          showinput: function () {
+            this.items.push(event.target.value);
+            event.target.value = "";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -39,12 +39,12 @@ router.post("/itemPost", function (req, res, next) {
         console.log(info);
       });
   }
-})
+});
 // let ItemsArray =[];
-let fruitsData =[];
+let fruitsData = [];
 let info;
 router.get("/itemGet", function (req, res, next) {
-  let ItemsArray =[];
+  let ItemsArray = [];
   Items.find({})
     .then((items) => {
       if (items) {
@@ -59,7 +59,7 @@ router.get("/itemGet", function (req, res, next) {
             id: item.id,
           });
         }
-        res.render("itemGet", { ItemsArray,fruitsData,info});
+        res.render("itemGet", { ItemsArray, fruitsData, info });
         // console.log(ItemsArray);
       } else {
         res.send("data kosong");
@@ -70,26 +70,38 @@ router.get("/itemGet", function (req, res, next) {
       next(err);
     });
 });
-router.get("/Add/:fruitID", async function (req, res, next) {
-  let info1= []
-info = info1
-  try {
 
+router.get("/Add/:fruitID", async function (req, res, next) {
+  let info1 = [];
+  info = info1;
+  try {
     const fruitName = await Items.findById(req.params.fruitID);
-    if(fruitsData.some(data =>data.id === fruitName.id)){
-      info1.push({msg:"buah sudah ada dalam keranjang"})
+    if (fruitsData.some((data) => data.id === fruitName.id)) {
+      info1.push({ msg: "buah sudah ada dalam keranjang" });
       res.redirect("/items/itemGet");
-    }else{
+    } else {
       fruitsData.push({
         product: fruitName.name,
         harga: fruitName.price,
-        id: fruitName.id
+        id: fruitName.id,
       });
-      info1.push({msg:"buah berhasil ditambahkan"})
+      info1.push({ msg: "buah berhasil ditambahkan" });
       console.log(fruitsData);
       res.redirect("/items/itemGet");
     }
+  } catch (err) {
+    console.log(err);
+  }
+});
 
+
+router.get("/delete/:fruitID", async function (req, res, next) {
+  try {
+    const fruitId = await req.params.fruitID;
+    const deletedfruit = fruitsData.filter((item) => item.id !== fruitId);
+    fruitsData = deletedfruit;
+    console.log(fruitsData);
+    res.redirect("/items/itemGet");
   } catch (err) {
     console.log(err);
   }

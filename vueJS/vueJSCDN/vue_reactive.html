@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+<div id="app">
+<p style="font-size: px;"> Counter: {{counter}}</p>
+<button @click = "counter++" style="font-size: 25px;">click</button>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            counter:1,
+        }
+    })
+    vm.$watch('counter', function(newvalue,oldvalue){
+        console.log("oval= "+oldvalue,"nval= "+newvalue)
+    })
+
+</script>
+  </body>
+</html>

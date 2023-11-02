@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="event">
+        <button v-on:click="displaynumber">click</button>
+        <h2>100 + 900 = {{total}}</h2>
+    </div>
+    <script>
+var vm = new Vue({
+    el: "#event",
+    data: {
+        num1 :100,
+        num2 :900,
+        total :""
+    },
+    methods:{
+        displaynumber : function(e){
+            return this.total = this.num1 + this.num2 
+        }
+    }
+})
+    </script>
+</body>
+</html>

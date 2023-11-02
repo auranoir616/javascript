@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <style>
+        .fade-enter-active, .fade-leave-active{
+            transition: opacity 2s;
+        }
+        .fade-enter, .fade-leave-to{
+            opacity: 0;
+        }
+    </style>
+    <div id="trans">
+<button v-on:click="show = !show">Click</button>
+<transition name="fade">
+    <p v-show="show" v-bind:style = "styleobj">animation example</p> 
+</transition>    
+</div>
+<script>
+    var vm = new Vue({
+        el:"#trans",
+        data:{
+            show: true,
+            styleobj:{
+                fontSize:"30px",
+                color:"red"
+            }
+        }
+    })
+</script>
+
+  </body>
+</html>

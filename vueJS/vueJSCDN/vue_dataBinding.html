@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="dataBinding">
+      <h1>{{title}}</h1>
+      <br />
+      <a v-bind:href="linkhref" target="_blank">click me</a>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#dataBinding",
+        data: {
+          linkhref: "https://www.google.com/",
+          title: "data binding",
+        },
+      });
+    </script>
+  </body>
+</html>

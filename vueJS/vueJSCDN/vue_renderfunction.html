@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+<body>
+    <div id="render">
+        <component1 :elementtype="'div,red,25,div1'">component 1</component1>
+        <component1 :elementtype="'h2,green,24,h2tag'">component 2</component1>
+        <component1 :elementtype="'p,blue,25,ptag'">component 3</component1>
+        <component1 :elementtype="'div,yellow,25,divtag'">component 4</component1>
+    </div>
+
+    <script>
+Vue.component('component1',{
+    render: function(createElement){
+        var a = this.elementtype.split(',')
+        return createElement(a[0],{
+            attrs:{
+                id:a[3],
+                Style: "color:"+a[1]+";font-size:"+a[2]+";"
+            }
+        },
+        this.$slots.default
+        )
+    },
+    props:{
+        elementtype:{
+            attributes: String,
+            requied: true
+        }
+    }
+})
+var vm =new Vue({
+    el: '#render'
+})
+    </script>
+
+  </body>
+</html>

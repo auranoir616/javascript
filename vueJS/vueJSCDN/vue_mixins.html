@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const mixin1 = {
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        methods: {
+          increment() {
+            this.count++;
+          },
+          decrement() {
+            this.count--;
+          },
+        },
+      };
+      const vm = new Vue({
+        el: "#app",
+        mixins: [mixin1],
+        template: `    <div>
+      <p>Count: {{ count }}</p>
+      <button v-on:click="increment">Increment</button>
+      <button v-on:click="decrement">Decrement</button>
+    </div>`,
+        created() {
+          this.increment();
+          this.decrement();
+        },
+      });
+    </script>
+  </body>
+</html>

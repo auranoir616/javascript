@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+<div id="rendering">
+    <button v-on:click="showdata" v-bind:style="styleobj">click</button>
+    <span><b>{{show}}</b></span>
+    <h1 v-if="show">tampilan jika true</h1>
+    <h2 v-else>tampilan jika false</h2>
+<div v-show="show">
+    <img src="js/img.jpg" width="150px" height="150px">
+</div>
+</div>
+<script>
+    var vm = new Vue({
+el:"#rendering",
+data:{
+    show: true,
+    styleobj:{
+        backgroundColor: "red",
+        cursor:"pointer",
+        padding: "8px 16px",
+        verticalAlign: "middle"
+    }
+},
+methods: {
+    showdata: function(){
+        this.show = !this.show
+    }
+}
+    })
+</script>
+  </body>
+</html>

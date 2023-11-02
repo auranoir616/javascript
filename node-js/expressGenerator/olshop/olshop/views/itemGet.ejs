@@ -1,90 +1,163 @@
-<%- include ('_header') %>
-<%- include ('_message') %>
+<%- include ('_header') %> <%- include ('_message') %>
+<div style="display: flex; flex-direction: row">
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      width: 75%;
+      height: 100%;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    "
+  >
+    <% for ( let item of ItemsArray){%>
+    <div>
+      <div class="ui card">
+        <div class="image">
+          <img src="<%=item.image%>" style="height: 200px; width: 290px" />
+        </div>
 
-<div style="display: flex;flex-direction: row;">
-<div style="display: flex; flex-direction: row; width: 75%; height: 100% ;flex-wrap: wrap; justify-content: space-evenly; ">
-
-
-<% for ( let item of ItemsArray){ %>
-  <div>
-<div class="ui card">
-    <div class="image" >
-      <img src="<%=item.image%>" style="height:200px; width:290px" >
-    </div>
- 
-    <div class="content">
-        <div style="display: flex; flex-direction: row; justify-content: space-between;">
         <div class="content">
-            <h4 class="ui header" ><%=item.name%></h4>
-            <p>jumlah: <%=item.total%> kg</p>
-        </div>
-        <div>
-            <button class="small ui button" ><a href='/items/Add/<%=item.id%>'>
-              <i class="shopping basket icon"></i>
-            </a>
-            </button>
-          </div>
-    </div>
-      <div class="meta" style=" display: flex; flex-direction: row; justify-content: space-between; margin-top: 5px;">
-       <div>
-        <span class="date">harga Rp.<%=item.price%>/kg</span>
-       </div>  
-        
-      </div>
-      <div class="description" style="overflow: auto; height: 200px;">
-        <%=item.desc%>
-      </div>
-    </div>
-    <div class="extra content">
-      <a>
-        <i class="user icon"></i>
-        <%=item.shop%>
-      </a>
-    </div>
-
-  </div>
-        </div>
-       
-
-<%}%>
-</div>
-<div style="position: fixed; right: 100px;">
-  <table class="ui very basic collapsing celled table">
-    <thead>
-      <tr><th>Products</th>
-      <th>Jumlah</th>
-      <th>Total</th>
-    </tr></thead>
-    <tbody>
-      <% for (let fruit of fruitsData){%>
-<% const total = <%=fruit.harga%> %>
-<% const jumlah = document.querySelectorAll('input').value %> 
-
-      <tr>
-        <td><%=fruit.product%></td>
-        <td>
-          <div class="ui right labeled input ">
-              <input type="number" value="1" id="inputJumlah<%=fruit.product%>" >
-              
-            <div class="ui basic label">
-              kg
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+            "
+          >
+            <div class="content">
+              <h4 class="ui header"><%=item.name%></h4>
+              <p>jumlah: <%=item.total%> kg</p>
+            </div>
+            <div>
+              <button class="small ui button">
+                <a href="/items/Add/<%=item.id%>">
+                  <i class="shopping basket icon"></i>
+                </a>
+              </button>
             </div>
           </div>
-        </td>
-        <td id="harga<%=fruit.product%>"><%=fruit.harga%></td>
-        <td id="total<%=fruit.product%>"></td>
-      </tr>
-      <%}%>
-    </tbody>
-  </table>
-</div> 
+          <div
+            class="meta"
+            style="
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              margin-top: 5px;
+            "
+          >
+            <div>
+              <span class="date">harga Rp.<%=item.price%>/kg</span>
+            </div>
+          </div>
+          <div class="description" style="overflow: auto; height: 200px">
+            <%=item.desc%>
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="user icon"></i>
+            <%=item.shop%>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <%}%>
+  </div>
+  <div style="width: 25px">
+    <table
+      class="ui very basic collapsing celled table small"
+      style="width: 25px"
+    >
+      <thead>
+        <tr>
+          <th>Products</th>
+          <th>Jumlah</th>
+          <th>Harga/kg</th>
+          <th>Harga</th>
+          <th>action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let fruit of fruitsData){%>
+        <tr id="<%=fruit.product%>">
+          <td><%=fruit.product%></td>
+          <td>
+            <input
+              type="number"
+              style="width: 50px; height: 30px"
+              value="1"
+              id="inputjumlah<%=fruit.product%>"
+            />
+          </td>
+          <td id="harga<%=fruit.product%>"><%=fruit.harga%></td>
+          <td id="total<%=fruit.product%>"><%=fruit.harga%></td>
+          <td>
+            <button class="small ui button" id="delete">
+              <a href="/items/delete/<%=fruit.id%>">delete</a>
+            </button>
+          </td>
+        </tr>
+        <%}%>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <button class="fluid ui button">
+              <a href="/items/buy">buy</a>
+            </button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
 </div>
 <script>
+  //mendapatkan table dan elemen input saat elemen di load
+  document.addEventListener("DOMContentLoaded", function () {
+    const table = document.querySelector("table");
+    const inputElements = table.querySelectorAll('input[type="number"]');
+    //melaukan looping inputElement dan menambahkan event input kedalamnya
+    inputElements.forEach(function (inputElement) {
+      inputElement.addEventListener("input", function () {
+        // mendapatkan elemen tr dengan mencari elemen terdekat menggunakan closest
+        const row = inputElement.closest("tr");
+        const hargaElement = row.querySelector("td:nth-child(3)");
+        const tdtotal = row.querySelector("td:nth-child(4)");
+        //melakukan operasi harga total
+        if (hargaElement && tdtotal) {
+          const hargaValue = parseFloat(hargaElement.textContent);
+          const inputValue = parseFloat(inputElement.value);
+          const totalValue = hargaValue * inputValue;
+          // Update totalvalue kedalam html
+          tdtotal.textContent = totalValue;
+        }
+      });
+    });
+  });
+  //not done
+  document.addEventListener("DOMContentLoaded", function () {
+    const table = document.querySelector("table");
+    const rows = table.querySelectorAll("tr");
+    const inputElements = table.querySelectorAll('input[type="number"]');
+    let arraytotal = [];
 
-const jumlah = document.querySelectorAll('td:nth-child(2)')
-jumlah.forEach((id)=>{
-  jumlahId = id.getAttribute('id')
-})
-console.log(jumlahId)
+    inputElements.forEach(function (inputElement) {
+      inputElement.addEventListener("input", function () {
+
+        rows.forEach((row) => {
+          const tdtotal = row.querySelector("td:nth-child(4)");
+          if (tdtotal) {
+            const totalvalue = parseFloat(tdtotal.textContent);
+            arraytotal.push(totalvalue);
+          }
+        });
+        console.log(arraytotal);
+      });
+    });
+  });
 </script>
-

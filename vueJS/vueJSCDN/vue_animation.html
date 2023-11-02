@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <style>
+        .shiftx-enter-active{
+            animation: shift-in 2s;
+        }
+        .shiftx-leave-active{
+            animation: shift-in 2s reverse;
+        }
+        @keyframes shift-in {
+            0%{transform: rotateX(0deg);}
+            25%{transform: rotateX(90deg);}
+            50%{transform: rotateX(120deg);}
+            75%{transform: rotateX(180deg);}
+            100%{transform: rotateX(360deg);}
+        }
+    </style>
+    <div id="transf">
+        <button v-on:click="show = !show"> click</button>
+    <transition name = 'shiftx'>
+        <p v-show = "show">
+            <img src="js/img.jpg" style="width: 100px;height: 100px;">
+        </p>
+    </transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#transf',
+            data:{
+                show: true
+            }
+        })
+    </script>
+</body>
+</html>

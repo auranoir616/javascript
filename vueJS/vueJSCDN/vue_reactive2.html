@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>VueJs Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+<div id="app">
+    <h1>product</h1>
+<p>{{product.id}}</p>
+<p>{{product.name}}</p>
+<p>{{product.price}}</p>
+<p>{{product.qty}}</p>
+
+</div>
+<script>
+    var myproduct = {"id":1, name:"book", "price":20000}
+    Vue.set(myproduct, 'qty',10)
+    console.log(vm)
+
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            product: myproduct
+        }
+    })
+</script>
+  </body>
+</html>
