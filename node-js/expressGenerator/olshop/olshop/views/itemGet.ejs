@@ -69,6 +69,7 @@
     <table
       class="ui very basic collapsing celled table small"
       style="width: 25px"
+      id="table"
     >
       <thead>
         <tr>
@@ -86,7 +87,8 @@
           <td>
             <input
               type="number"
-              style="width: 50px; height: 30px"
+              style="width: 50px; height: 30px; border: none"
+              name="sum<%=fruit.product%>"
               value="1"
               id="inputjumlah<%=fruit.product%>"
             />
@@ -103,12 +105,12 @@
       </tbody>
       <tfoot>
         <tr>
-          <td></td>
+          <td colspan="4" id="totalBelanja" onclick="lihatTotal()">total Belanja: <span id="totalBelanjaText"> Click Untuk Lihat</span></td>
         </tr>
         <tr>
           <td colspan="5">
-            <button class="fluid ui button">
-              <a href="/items/buy">buy</a>
+            <button class="fluid ui button" type="submit" onclick="postItems()">
+              buy
             </button>
           </td>
         </tr>
@@ -121,13 +123,16 @@
   document.addEventListener("DOMContentLoaded", function () {
     const table = document.querySelector("table");
     const inputElements = table.querySelectorAll('input[type="number"]');
+
     //melaukan looping inputElement dan menambahkan event input kedalamnya
     inputElements.forEach(function (inputElement) {
       inputElement.addEventListener("input", function () {
-        // mendapatkan elemen tr dengan mencari elemen terdekat menggunakan closest
-        const row = inputElement.closest("tr");
+
+         // mendapatkan elemen tr dengan mencari elemen terdekat menggunakan closest
+         const row = inputElement.closest("tr");
         const hargaElement = row.querySelector("td:nth-child(3)");
         const tdtotal = row.querySelector("td:nth-child(4)");
+       
         //melakukan operasi harga total
         if (hargaElement && tdtotal) {
           const hargaValue = parseFloat(hargaElement.textContent);
@@ -135,29 +140,64 @@
           const totalValue = hargaValue * inputValue;
           // Update totalvalue kedalam html
           tdtotal.textContent = totalValue;
+
         }
       });
     });
   });
-  //not done
-  document.addEventListener("DOMContentLoaded", function () {
-    const table = document.querySelector("table");
-    const rows = table.querySelectorAll("tr");
-    const inputElements = table.querySelectorAll('input[type="number"]');
-    let arraytotal = [];
+function lihatTotal(){
+  const totalBelanja = document.getElementById("totalBelanja");
+  const totalBelanjatext = document.getElementById("totalBelanjaText");
+  let totalArray = [];
 
-    inputElements.forEach(function (inputElement) {
-      inputElement.addEventListener("input", function () {
+  const rowTotal = document.querySelectorAll("#table td:nth-child(4)");
+    for (x = 0; x < rowTotal.length; x++) {
+      totalArray.push(parseInt(rowTotal[x].textContent));
+    }
+    const reducer = (a,b) => a+b
+    const arrayreduce = totalArray.reduce(reducer)
+    totalArray = arrayreduce
+   totalBelanjatext.textContent = totalArray;
+}
 
-        rows.forEach((row) => {
-          const tdtotal = row.querySelector("td:nth-child(4)");
-          if (tdtotal) {
-            const totalvalue = parseFloat(tdtotal.textContent);
-            arraytotal.push(totalvalue);
-          }
-        });
-        console.log(arraytotal);
-      });
-    });
-  });
+  function postItems() {
+    let productArray = [];
+    let sumArray = [];
+    let hargaArray = [];
+    let totalArray = [];
+    let totbelanjArray = []
+
+    const rowProduct = document.querySelectorAll("#table td:nth-child(1)");
+    for (x = 0; x < rowProduct.length - 1; x++) {
+      productArray.push(rowProduct[x].textContent);
+    }
+    productArray = productArray
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+    console.log(productArray);
+
+    const rowSum = document.querySelectorAll("#table td:nth-child(2) input");
+    for (x = 0; x < rowSum.length; x++) {
+      sumArray.push(parseInt(rowSum[x].value));
+    }
+    console.log(sumArray);
+
+    const rowHarga = document.querySelectorAll("#table td:nth-child(3)");
+    for (x = 0; x < rowHarga.length; x++) {
+      hargaArray.push(parseInt(rowHarga[x].textContent));
+    }
+    console.log(hargaArray);
+
+    const rowTotal = document.querySelectorAll("#table td:nth-child(4)");
+    for (x = 0; x < rowTotal.length; x++) {
+      totalArray.push(parseInt(rowTotal[x].textContent));
+    }
+    console.log(totalArray);
+    const totalBelanja = document.getElementById("totalBelanjaText")
+    totbelanjArray.push(parseInt(totalBelanja.textContent))
+    console.log(totbelanjArray)
+  
+    //fetch here
+
+  }
 </script>

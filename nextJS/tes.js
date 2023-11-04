@@ -1,4 +1,4 @@
-fetch('https://data.covid19.go.id/public/api/prov_time.json')
+fetch('https://api.covid19api.com/all')
 .then(response => response.json())
 .then(data =>{
     // const isi =[]

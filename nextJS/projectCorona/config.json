@@ -1,0 +1,11 @@
+{
+    "app" : {
+        "version" : "1.0"
+    },
+    "corona" :{
+        "base-url" : "https://covid19.keponet.com/api/",
+        "indonesia" : "negara/indonesia",
+        "negara" : "negara/"
+
+    }
+}

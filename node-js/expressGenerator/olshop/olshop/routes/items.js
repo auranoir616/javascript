@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Items = require("../schema/ItemSchema");
-/* GET users listing. */
+const Buy = require("../schema/buySchema")
 router.get("/", function (req, res, next) {
   res.render("itemPost", { title: "POST" });
 });
@@ -106,4 +106,37 @@ router.get("/delete/:fruitID", async function (req, res, next) {
     console.log(err);
   }
 });
+
+router.post("/buy", function (req, res, next){
+  const {product, harga, sum, total} = req.body
+  const dataItems ={
+    items: []
+  }
+  for(let x=0; x<product.length; x++){
+    const item ={
+      product: product[x],
+      harga: harga[x],
+      sum: sum[x],
+      total: total[x]
+    }
+    dataItems.items.push(item)
+  }
+  if(!product || !harga || !sum || !total){
+    res.send("terjadi kesalahan")
+    console.log(sum)
+  }else{
+    const newBuy = BuySchema(dataItems)
+    newBuy.save()
+      .then((newBuy) => {
+        console.log(newBuy);
+        res.send("Data berhasil disimpan");
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).send("Terjadi kesalahan server");
+      });
+  }
+
+})
+
 module.exports = router;
