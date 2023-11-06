@@ -1,11 +1,23 @@
 import React from "react"
 import IndexPage from "../components/Dashboard/IndexPage"
-class Indonesia extends React.Component{
-    render(){
+import fetch from "isomorphic-fetch";
+const config = require("../config.json");
+
+const Indonesia =({items}) => {
+
         return(
-            <IndexPage isGlobal={false}/>
-        )
-    }
-}
+            <IndexPage isGlobal={false} response={items} />
+            );
+    };
+    export async function getServerSideProps() {
+        const apiUrl = `${config["corona"].base_url}/negara/indonesia`;
+        const response = await fetch(apiUrl);
+        const items = await response.json();
+        console.log(items)
+      
+        return {
+          props: { items },
+        };
+      }
 
 export default Indonesia
