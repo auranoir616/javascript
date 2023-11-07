@@ -9,6 +9,7 @@ const Indonesia =({items}) => {
             <IndexPage isGlobal={false} response={items} />
             );
     };
+    //!fetch data API
     export async function getServerSideProps() {
         const apiUrl = `${config["corona"].base_url}/negara/indonesia`;
         const response = await fetch(apiUrl);

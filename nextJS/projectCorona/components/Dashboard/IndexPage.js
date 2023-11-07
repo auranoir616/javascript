@@ -24,7 +24,7 @@ function IndexPage(props){
                 <p className="mt-3 f12">Website pemantauan Corona</p>
                 </div>
             </div>
-            <CardStatus  isGlobal={props.isGlobal} response={props.response ? props.response : null}/>
+            <CardStatus  isGlobal={props.isGlobal} response={props.response ? props.response : 0}/>
             <Grafik isGlobal={props.isGlobal}/>
             <Table isGlobal={props.isGlobal}/>
         </div>

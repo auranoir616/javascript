@@ -8,7 +8,7 @@ const Index = ({ items }) => {
       <IndexPage isGlobal={true} response={items} />
   );
 };
-
+//! fetch data API
 export async function getServerSideProps() {
   const apiUrl = config["corona"].base_url;
   const response = await fetch(apiUrl);

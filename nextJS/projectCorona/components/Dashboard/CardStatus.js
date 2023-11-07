@@ -14,7 +14,7 @@ const CardStatus = (props)=>{
                                 <h2 className="mb-0 number-font">{props.isGlobal ? props.response[0].positif : props.response[0].Confirmed}</h2>
                                 <p className="text-white mb-0">ORANG</p>
                             </div>
-                            <div className="ml-auto" style={{margin:"20px 30px 20px 80px"}}>
+                            <div className="ml-auto" style={{margin:"auto"}}>
                                 <img src="images/positif.png" alt="positif" width="50" height="50"></img>
                             </div>
                         </div>
@@ -30,7 +30,7 @@ const CardStatus = (props)=>{
                                 <h2 className="mb-0 number-font">{props.isGlobal ? props.response[0].sembuh : props.response[0].Recovered}</h2>
                                 <p className="text-white mb-0">ORANG</p>
                             </div>
-                            <div className="ml-auto" style={{margin:"20px 30px 20px 80px"}}>
+                            <div className="ml-auto" style={{margin:"auto"}}>
                                 <img src="images/sembuh.png" alt="sembuh" width="50" height="50"></img>
                             </div>
                         </div>
@@ -46,7 +46,7 @@ const CardStatus = (props)=>{
                                 <h2 className="mb-0 number-font">{props.isGlobal ? props.response[0].meninggal : props.response[0].Deaths}</h2>
                                 <p className="text-white mb-0">ORANG</p>
                             </div>
-                            <div className="ml-auto" style={{margin:"20px 30px 20px 80px"}}>
+                            <div className="ml-auto" style={{margin:"auto"}}>
                                 <img src="images/meninggal.png" alt="meninggal" width="50" height="50"></img>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ const CardStatus = (props)=>{
                                 <h2 className="mb-0 number-font">{props.isGlobal ? props.response[0].kasus_aktif : props.response[0].Active}</h2>
                                 <p className="text-white mb-0">ORANG</p>
                             </div>
-                            <div className="ml-auto" style={{margin:"20px 30px 20px 80px"}}>
+                            <div className="ml-auto" style={{margin:"auto"}}>
                                 <img src="images/aktif.png" alt="aktif" width="50" height="50"></img>
                             </div>
                         </div>
