@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // pesan yang akan dikirim ke komponen anak
+  public message ="From app component"
+  public pesan =''
+
   title = 'angular_project';
   topic = '1 tahun'
   jumlah = 10;

@@ -8,7 +8,10 @@
     <h2>nama saya adalah {{nama.namaDepan +" "+ nama.namaBelakang + " berumur " + (nama.umur + 10)}}</h2>
     <p>array: {{nomor[5]}}</p>
     <p>array: {{nomor}}</p> -->
-    <div app-new-component></div>
+    <div>
+      <h2>{{pesan}}</h2>
+    </div>
+    <app-new-component (childEvent)="pesan=$event" [parentData]="message"></app-new-component>
   </div>
 </html>
 <router-outlet></router-outlet>
