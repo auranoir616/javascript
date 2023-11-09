@@ -12,7 +12,7 @@
   >
     <% for ( let item of ItemsArray){%>
     <div>
-      <div class="ui card">
+      <div class="ui card" style="margin: 10px;">
         <div class="image">
           <img src="<%=item.image%>" style="height: 200px; width: 290px" />
         </div>
@@ -50,7 +50,7 @@
               <span class="date">harga Rp.<%=item.price%>/kg</span>
             </div>
           </div>
-          <div class="description" style="overflow: auto; height: 200px">
+          <div class="description" style="overflow: auto; height: 100px">
             <%=item.desc%>
           </div>
         </div>
@@ -105,12 +105,20 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="4" id="totalBelanja" onclick="lihatTotal()">total Belanja: <span id="totalBelanjaText"> Click Untuk Lihat</span></td>
+          <td colspan="4" id="totalBelanja" onclick="lihatTotal()">
+            total Belanja: <span id="totalBelanjaText"> Click Untuk Lihat</span>
+          </td>
         </tr>
         <tr>
           <td colspan="5">
-            <button class="fluid ui button" type="submit" onclick="postItems()">
-              buy
+            <button
+              class="fluid ui button"
+              type="submit"
+              onclick="checkOut()"
+              disabled="true"
+              id="buttonBuy"
+            >
+              Check Out
             </button>
           </td>
         </tr>
@@ -127,12 +135,11 @@
     //melaukan looping inputElement dan menambahkan event input kedalamnya
     inputElements.forEach(function (inputElement) {
       inputElement.addEventListener("input", function () {
-
-         // mendapatkan elemen tr dengan mencari elemen terdekat menggunakan closest
-         const row = inputElement.closest("tr");
+        // mendapatkan elemen tr dengan mencari elemen terdekat menggunakan closest
+        const row = inputElement.closest("tr");
         const hargaElement = row.querySelector("td:nth-child(3)");
         const tdtotal = row.querySelector("td:nth-child(4)");
-       
+
         //melakukan operasi harga total
         if (hargaElement && tdtotal) {
           const hargaValue = parseFloat(hargaElement.textContent);
@@ -140,35 +147,45 @@
           const totalValue = hargaValue * inputValue;
           // Update totalvalue kedalam html
           tdtotal.textContent = totalValue;
-
         }
       });
     });
   });
-function lihatTotal(){
-  const totalBelanja = document.getElementById("totalBelanja");
-  const totalBelanjatext = document.getElementById("totalBelanjaText");
-  let totalArray = [];
+  function lihatTotal() {
+    const totalBelanja = document.getElementById("totalBelanja");
+    const totalBelanjatext = document.getElementById("totalBelanjaText");
+    const button = document.getElementById("buttonBuy");
+    let totalArray = [];
 
-  const rowTotal = document.querySelectorAll("#table td:nth-child(4)");
+    const rowTotal = document.querySelectorAll("#table td:nth-child(4)");
     for (x = 0; x < rowTotal.length; x++) {
       totalArray.push(parseInt(rowTotal[x].textContent));
     }
-    const reducer = (a,b) => a+b
-    const arrayreduce = totalArray.reduce(reducer)
-    totalArray = arrayreduce
-   totalBelanjatext.textContent = totalArray;
-}
+    const reducer = (a, b) => a + b;
+    const arrayreduce = totalArray.reduce(reducer);
+    totalArray = arrayreduce;
+    totalBelanjatext.textContent = totalArray;
+    if (totalArray) {
+      button.disabled = false;
+    }
+  }
+
+  function checkOut() {
+    const checkOut = window.confirm("apakah anda sudah yakin?");
+    if (checkOut) {
+      postItems();
+      reloadPage();
+    }
+  }
 
   function postItems() {
     let productArray = [];
     let sumArray = [];
-    let hargaArray = [];
     let totalArray = [];
-    let totbelanjArray = []
-
+    let hargaArray = [];
+    let totbelanjaArray = [];
     const rowProduct = document.querySelectorAll("#table td:nth-child(1)");
-    for (x = 0; x < rowProduct.length - 1; x++) {
+    for (x = 0; x < rowProduct.length - 2; x++) {
       productArray.push(rowProduct[x].textContent);
     }
     productArray = productArray
@@ -193,11 +210,33 @@ function lihatTotal(){
       totalArray.push(parseInt(rowTotal[x].textContent));
     }
     console.log(totalArray);
-    const totalBelanja = document.getElementById("totalBelanjaText")
-    totbelanjArray.push(parseInt(totalBelanja.textContent))
-    console.log(totbelanjArray)
-  
-    //fetch here
+    const totalBelanja = document.getElementById("totalBelanjaText");
+    totbelanjaArray.push(parseInt(totalBelanja.textContent));
+    console.log(totbelanjaArray);
 
+    //fetch here
+    const dataPOST = {
+      product: productArray,
+      sum: sumArray,
+      harga: hargaArray,
+      total: totalArray,
+      totalBelanja: totbelanjaArray,
+    };
+    console.log(dataPOST);
+    fetch("/items/buy", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(dataPOST),
+    })
+      .then((data) => console.log(data))
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function reloadPage() {
+    setTimeout(function () {
+      location.reload();
+    }, 100);
   }
 </script>

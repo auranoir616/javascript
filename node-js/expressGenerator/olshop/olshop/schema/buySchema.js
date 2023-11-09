@@ -19,6 +19,9 @@ const BuyListSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now,
+    },
+    total_belanja: {
+        type: Number
     }
 })
 
