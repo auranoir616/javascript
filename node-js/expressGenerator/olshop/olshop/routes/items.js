@@ -1,4 +1,5 @@
 //import module yangdibutuhkan
+var moment = require("moment");
 var express = require("express");
 var router = express.Router();
 var Items = require("../schema/ItemSchema");
@@ -43,8 +44,8 @@ router.post("/itemPost", function (req, res, next) {
       });
   }
 });
-let fruitsData = []; //?array untuk menyimpan data tabel/keranjang sementara
-let info; 
+let fruitsData=[]; //?array untuk menyimpan data tabel/keranjang sementara
+let info;
 //metode menampilkan data dari database
 router.get("/itemGet", function (req, res, next) {
   let ItemsArray = [];
@@ -77,7 +78,8 @@ router.get("/itemGet", function (req, res, next) {
 router.get("/Add/:fruitID", async function (req, res, next) {
   let info1 = [];
   info = info1;
-  try { //?mencari data menggunakan parameter ID dan mencocokkannya dengan some()
+  try {
+    //?mencari data menggunakan parameter ID dan mencocokkannya dengan some()
     const fruitName = await Items.findById(req.params.fruitID);
     if (fruitsData.some((data) => data.id === fruitName.id)) {
       info1.push({ msg: "buah sudah ada dalam keranjang" });
@@ -90,12 +92,16 @@ router.get("/Add/:fruitID", async function (req, res, next) {
       });
       info1.push({ msg: "buah berhasil ditambahkan" });
       console.log(fruitsData);
-      res.redirect("/items/itemGet");
+      res.redirect('/items/itemGet');
     }
   } catch (err) {
     console.log(err);
   }
 });
+router.get("/Keranjang", function (req, res) {
+  res.render("keranjang", { fruitsData });
+});
+
 //metode untuk delete data dalam keranjang
 router.get("/delete/:fruitID", async function (req, res, next) {
   try {
@@ -103,13 +109,13 @@ router.get("/delete/:fruitID", async function (req, res, next) {
     const deletedfruit = fruitsData.filter((item) => item.id !== fruitId);
     fruitsData = deletedfruit;
     console.log(fruitsData);
-    res.redirect("/items/itemGet");
+    res.redirect("/items/Keranjang");
   } catch (err) {
     console.log(err);
   }
-
 });
 //metode untuk melakukan pembelian
+
 router.post("/buy", function (req, res, next) {
   const { product, sum, harga, total, totalBelanja } = req.body;
   const fruitsItem = {
@@ -136,38 +142,70 @@ router.post("/buy", function (req, res, next) {
       .save()
       .then((newItems) => {
         console.log(newItems);
-        updateTotalBarang()
-        fruitsData = []
+        updateTotalBarang();
+        fruitsData = [];
+        // res.redirect('/items/CheckOut');
       })
       .catch((error) => {
         console.error(error);
         res.status(500).send("Terjadi kesalahan server");
       });
   }
-
-})
-  //! update stock
-  async function updateTotalBarang() {
-    try {
-      //menemukan data dan disotir dari data terbaru dari data Buy
-      const latestBelanja = await Buy.findOne().sort({ date: -1 });
-      if (!latestBelanja) {
-        console.log('Data belanja tidak ditemukan');
-        return;
-      }
-      // mencari product dlam data Buy dan mencocokkannya dengan data Items.name
-      latestBelanja.items.forEach(async (item) => {
-        const barang = await Items.findOne({ name: item.product });
-        //jika barang ditemukan maka akan terjadi pengurangan dr Items.total
-        if (barang) {
-          barang.total -= item.sum;
-          await barang.save();
-        }
-      });
-      console.log('Total barang telah diperbarui');
-    } catch (error) {
-      console.error(error);
+});
+//!menyimpan sementara data
+let fruitsTempSaveGlobal;
+router.post("/CheckOut", function (req, res, next) {
+  try {
+    const { product, sum, harga, total, totalBelanja } = req.body;
+    const newDate = moment().format("DD MMMM YYYY, h:mm:ss a");
+    const fruitsTempSave = {
+      items: [],
+      date: newDate,
+      total_belanja: parseFloat(totalBelanja),
+    };
+    for (let x = 0; x < product.length; x++) {
+      const fruit = {
+        product: product[x],
+        sum: sum[x],
+        harga: harga[x],
+        total: total[x],
+      };
+      fruitsTempSave.items.push(fruit);
+      fruitsTempSaveGlobal = fruitsTempSave;
     }
+    console.log(fruitsTempSave);
+    res.redirect(`/items/CheckOut?data=${encodeURIComponent(JSON.stringify(fruitsTempSave))}`);
+   } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Erroraasdas" + error.message);
   }
+});
+router.get("/CheckOut", function (req, res) {
+  res.render("CheckOut", { fruitsTempSaveGlobal });
+});
+
+//! update stock
+async function updateTotalBarang() {
+  try {
+    //menemukan data dan disotir dari data terbaru dari data Buy
+    const latestBelanja = await Buy.findOne().sort({ date: -1 });
+    if (!latestBelanja) {
+      console.log("Data belanja tidak ditemukan");
+      return;
+    }
+    // mencari product dlam data Buy dan mencocokkannya dengan data Items.name
+    latestBelanja.items.forEach(async (item) => {
+      const barang = await Items.findOne({ name: item.product });
+      //jika barang ditemukan maka akan terjadi pengurangan dr Items.total
+      if (barang) {
+        barang.total -= item.sum;
+        await barang.save();
+      }
+    });
+    console.log("Total barang telah diperbarui");
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 module.exports = router;

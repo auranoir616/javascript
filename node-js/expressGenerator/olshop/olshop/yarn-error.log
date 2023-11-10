@@ -1,5 +1,5 @@
 Arguments: 
-  D:\Program Files\node.exe C:\Users\fitra\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add express-ejs-layout
+  D:\Program Files\node.exe C:\Users\fitra\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add body-parser
 
 PATH: 
   D:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Java\jdk-1.8\bin;D:\Program Files\;C:\Gradle\bin;C:\Users\fitra\AppData\Local\Android\Sdk\tools;C:\Users\fitra\AppData\Local\jdk-11.0.2\bin;C:\Users\fitra\AppData\Local\jdk-11.0.2\bin;C:\Users\fitra\AppData\Local\Microsoft\WindowsApps;C:\Users\fitra\AppData\Local\GitHubDesktop\bin;D:\users\Microsoft VS Code\bin;C:\Users\fitra\AppData\Local\Programs\mongosh\;C:\Users\fitra\AppData\Local\Android\Sdk\platform-tools;C:\Users\fitra\AppData\Roaming\npm;
@@ -14,17 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/express-ejs-layout: Not found
-      at params.callback [as _callback] (C:\Users\fitra\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66145:18)
-      at self.callback (C:\Users\fitra\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
-      at Request.emit (node:events:517:28)
-      at Request.<anonymous> (C:\Users\fitra\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141862:10)
-      at Request.emit (node:events:517:28)
-      at IncomingMessage.<anonymous> (C:\Users\fitra\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141784:12)
-      at Object.onceWrapper (node:events:631:28)
-      at IncomingMessage.emit (node:events:529:35)
-      at endReadableNT (node:internal/streams/readable:1368:12)
-      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+  Error: read ECONNRESET
+      at TLSWrap.onStreamRead (node:internal/stream_base_commons:217:20)
 
 npm manifest: 
   {
@@ -39,6 +30,7 @@ npm manifest:
       "debug": "~2.6.9",
       "ejs": "^3.1.9",
       "express": "^4.18.2",
+      "express-ejs-layouts": "^2.5.1",
       "http-errors": "~1.6.3",
       "mongoose": "^7.6.3",
       "morgan": "~1.9.1"
@@ -293,6 +285,11 @@ Lockfile:
     version "1.8.1"
     resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
     integrity sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==
+  
+  express-ejs-layouts@^2.5.1:
+    version "2.5.1"
+    resolved "https://registry.yarnpkg.com/express-ejs-layouts/-/express-ejs-layouts-2.5.1.tgz#d204d9065ee2825fcbd718d820289fc81e691ccb"
+    integrity sha512-IXROv9n3xKga7FowT06n1Qn927JR8ZWDn5Dc9CJQoiiaaDqbhW5PDmWShzbpAa2wjWT1vJqaIM1S6vJwwX11gA==
   
   express@^4.18.2:
     version "4.18.2"
