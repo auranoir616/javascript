@@ -16,6 +16,10 @@ const listProductSchema = new mongoose.Schema({
 })
 const BuyListSchema = new mongoose.Schema({
     items: [listProductSchema],
+    username:{
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now,

@@ -1,5 +1,6 @@
 <h1>Check Out</h1>
 <h4>Date: <%= fruitsTempSaveGlobal.date %></h4>
+<h4 >User: <span id="username"><%= username %></span></h4>
 <div style="width: 30%; display: flex; flex-direction: column; align-items: end;justify-content: center;">
   <table class="ui compact celled table" id="table">
   <thead>
@@ -53,12 +54,12 @@
   }
 
   function buyButton(){
-
   let productArray = [];
   let sumArray = [];
   let totalArray = [];
   let hargaArray = [];
   let totbelanjaArray = [];
+  let usernameArray;
   const rowProduct = document.querySelectorAll("#table tbody td:nth-child(1)");
   for (x = 0; x < rowProduct.length; x++) {
     productArray.push(rowProduct[x].textContent);
@@ -89,6 +90,10 @@
   totbelanjaArray.push(parseInt(totalBelanja.textContent));
   console.log(totbelanjaArray);
 
+  const usernameValue = document.getElementById("username").textContent
+  usernameArray=usernameValue
+  console.log(usernameArray);
+
   //fetch here
   const dataPOST = {
     product: productArray,
@@ -96,6 +101,7 @@
     harga: hargaArray,
     total: totalArray,
     totalBelanja: totbelanjaArray,
+    username: usernameArray
   };
   console.log(dataPOST);
     fetch("/items/buy", {

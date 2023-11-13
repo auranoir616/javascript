@@ -1,0 +1,28 @@
+
+<% if( error != ''){ %>
+  <div class="ui negative message">
+    <i class="close icon"></i>
+    <div class="header">
+      error
+    </div>
+    <p><%= error %></p></div>
+  <% } %>
+
+  <script>
+// Mendapatkan semua elemen dengan kelas 'message close' dan menambahkan event listener
+document.querySelectorAll('.message .close').forEach(function(closeButton) {
+  // Menambahkan event listener untuk 'click'
+  closeButton.addEventListener('click', function() {
+    // Mendapatkan elemen terdekat dengan kelas 'message' dan menerapkan efek fade
+    let closestMessage = this.closest('.message');
+    if (closestMessage) {
+      closestMessage.style.transition = 'opacity 0.5s'; // Menambahkan efek transisi
+      closestMessage.style.opacity = '0'; // Mengatur opasitas ke 0
+      setTimeout(function() {
+        closestMessage.style.display = 'none'; // Menyembunyikan elemen setelah efek fade selesai
+      }, 500); // Menunggu 500 milidetik (sesuai dengan durasi transisi)
+    }
+  });
+});
+
+  </script>

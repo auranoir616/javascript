@@ -5,18 +5,29 @@ var router = express.Router();
 var Items = require("../schema/ItemSchema");
 const Buy = require("../schema/buySchema");
 const app = express()
+const {cekuser} = require('../config/auth');
+const userSchema = require("../schema/userSchema");
 
+//!Menyimpan data user di app.locals.userInfo
+router.use((req, res, next) => {
+  res.locals.userInfo = req.app.locals.userInfo || null;
+  next();
+});
 //!variable global menggunakan app.locals
 app.locals.fruitsData=[]; //?array untuk menyimpan data tabel/keranjang sementara
 app.locals.fruitsTempSaveGlobal =[]
 app.locals.info=[]
 
+
+
 //menampilkan router / dengan merender file itemPost
-router.get("/", function (req, res, next) {
-  res.render("itemPost", { title: "POST" });
+router.get("/",cekuser, function (req, res, next) {
+  res.render("itemPost", {info : app.locals.info, username:res.locals.userInfo.username});
+  console.log(res.locals.userInfo)
 });
 //metode post item baru
-router.post("/itemPost", function (req, res, next) {
+router.post("/itemPost",cekuser, function (req, res, next) {
+  const username = res.locals.userInfo
   const { name, price, image, desc, total, shop } = req.body;
   let info = []; //?array untuk menyimpan data info
   if (!name || !price || !image || !desc || !total || !shop) {
@@ -24,7 +35,7 @@ router.post("/itemPost", function (req, res, next) {
     console.log(info);
   }
   if (info.length > 0) {
-    res.render("itemPost", { info });
+    res.render("itemPost", { info,username });
     console.log(info);
   } else {
     const newItem = Items({
@@ -40,7 +51,7 @@ router.post("/itemPost", function (req, res, next) {
       .then((newItems) => {
         console.log(newItems);
         info.push({ msg: "data berhasil diinput" });
-        res.render("itemPost", { info });
+        res.render("itemPost", { info, fruitsData: app.locals.fruitsData });
         console.log(info);
       })
       .catch((err) => {
@@ -51,7 +62,9 @@ router.post("/itemPost", function (req, res, next) {
   }
 });
 // metode menampilkan data dari database
-router.get("/itemGet", function (req, res, next) {
+router.get("/itemGet",cekuser, function (req, res, next) {
+  const username = res.locals.userInfo.username
+  console.log(username)
   let ItemsArray = [];
   Items.find({})
     .then((items) => {
@@ -67,7 +80,7 @@ router.get("/itemGet", function (req, res, next) {
             id: item.id,
           });
         }
-        res.render("itemGet", { ItemsArray,fruitsData: app.locals.fruitsData, info : app.locals.info});
+        res.render("itemGet", { username,ItemsArray,fruitsData: app.locals.fruitsData, info : app.locals.info});
       } else {
         res.send("data kosong");
       }
@@ -78,7 +91,7 @@ router.get("/itemGet", function (req, res, next) {
     });
 });
 // metode untuk menambahkan data kedalam keranjang/tabel
-router.get("/Add/:fruitID", async function (req, res, next) {
+router.get("/Add/:fruitID",cekuser, async function (req, res, next) {
 let info =[]
 app.locals.info = info
   try {
@@ -92,6 +105,7 @@ app.locals.info = info
         product: fruitName.name,
         harga: fruitName.price,
         id: fruitName.id,
+        link: fruitName.image
       });
       info.push({ msg: "buah berhasil ditambahkan" });
       console.log(app.locals.fruitsData)
@@ -101,8 +115,8 @@ app.locals.info = info
     console.log(err);
   }
 });
-router.get("/Keranjang", function (req, res) {
-  res.render("keranjang", {fruitsData : app.locals.fruitsData});
+router.get("/Keranjang",cekuser, function (req, res) {
+  res.render("keranjang", {fruitsData : app.locals.fruitsData, username: res.locals.userInfo.username});
 });
 
 //metode untuk delete data dalam keranjang
@@ -117,14 +131,14 @@ router.get("/delete/:fruitID", async function (req, res, next) {
     console.log(err);
   }
 });
-//metode untuk melakukan pembelian
-
-router.post("/buy", function (req, res, next) {
-  const { product, sum, harga, total, totalBelanja } =  req.body;
+//!metode untuk melakukan pembelian/POST
+router.post("/buy",cekuser, function (req, res, next) {
+  const { product, sum, harga, total, totalBelanja,username } =  req.body;
   console.log(req.query.data);
 
   const fruitsItem = {
     items: [],
+    username: username,
     date: new Date(),
     total_belanja: parseFloat(totalBelanja),
   };
@@ -158,7 +172,7 @@ router.post("/buy", function (req, res, next) {
   }
 });
 //!menyimpan sementara data
-router.post("/CheckOut", function (req, res, next) {
+router.post("/CheckOut",cekuser, function (req, res, next) {
   try {
     const { product, sum, harga, total, totalBelanja } = req.body;
     const newDate = moment().format("DD MMMM YYYY, h:mm:ss a");
@@ -184,8 +198,8 @@ router.post("/CheckOut", function (req, res, next) {
     res.status(500).send("Internal Server Erroraasdas" + error.message);
   }
 });
-router.get("/CheckOut", function (req, res) {
-  res.render("CheckOut", { fruitsTempSaveGlobal : app.locals.fruitsTempSaveGlobal});
+router.get("/CheckOut",cekuser, function (req, res) {
+  res.render("CheckOut", { fruitsTempSaveGlobal : app.locals.fruitsTempSaveGlobal, username: res.app.locals.userInfo.username});
 });
 
 //! update stock

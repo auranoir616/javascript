@@ -1,21 +1,20 @@
 <div class="ui inverted menu">
-    <a class="active item " href="/">
-      Home
-    </a>
+  <a class="item" href="#" >
+    <i class="user icon"></i><%= username %>
+  </a>
     <a class="item" href="/items">
-      POST
+      Add Stocks
     </a>
     <a class="item" href="/items/itemGet" >
-      GET
+      Dashboard
     </a>
-    <!-- <a class="item" href="/items/Keranjang" >
-      keranjang
-    </a> -->
-
       <a class="item" href="/items/Keranjang" >
-      <i class="cart arrow down icon"></i> keranjang
+      <i class="cart arrow down icon"></i> Cart
   
       <div class="floating ui teal label"><%= fruitsData.length %></div>
     </a>
-  
+    <a class="item" href="/users/logOut" >
+      Log Out
+    </a>
+
   </div>
