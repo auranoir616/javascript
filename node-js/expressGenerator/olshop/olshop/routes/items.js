@@ -16,13 +16,13 @@ router.use((req, res, next) => {
 //!variable global menggunakan app.locals
 app.locals.fruitsData=[]; //?array untuk menyimpan data tabel/keranjang sementara
 app.locals.fruitsTempSaveGlobal =[]
-app.locals.info=[]
+app.locals.info;
 
 
 
 //menampilkan router / dengan merender file itemPost
 router.get("/",cekuser, function (req, res, next) {
-  res.render("itemPost", {info : app.locals.info, username:res.locals.userInfo.username});
+  res.render("itemPost", { username:res.locals.userInfo.username, fruitsData: app.locals.fruitsData});
   console.log(res.locals.userInfo)
 });
 //metode post item baru
@@ -51,7 +51,7 @@ router.post("/itemPost",cekuser, function (req, res, next) {
       .then((newItems) => {
         console.log(newItems);
         info.push({ msg: "data berhasil diinput" });
-        res.render("itemPost", { info, fruitsData: app.locals.fruitsData });
+        res.render("itemPost", { info, fruitsData: app.locals.fruitsData,username:res.locals.userInfo.username });
         console.log(info);
       })
       .catch((err) => {
@@ -80,7 +80,7 @@ router.get("/itemGet",cekuser, function (req, res, next) {
             id: item.id,
           });
         }
-        res.render("itemGet", { username,ItemsArray,fruitsData: app.locals.fruitsData, info : app.locals.info});
+        res.render("itemGet", { username,ItemsArray,fruitsData: app.locals.fruitsData,info : app.locals.info});
       } else {
         res.send("data kosong");
       }
@@ -201,7 +201,37 @@ router.post("/CheckOut",cekuser, function (req, res, next) {
 router.get("/CheckOut",cekuser, function (req, res) {
   res.render("CheckOut", { fruitsTempSaveGlobal : app.locals.fruitsTempSaveGlobal, username: res.app.locals.userInfo.username});
 });
-
+//!menampilkan histori transaksi user
+router.get('/userData',cekuser,function(req, res, next){
+  const username = res.locals.userInfo.username
+  let userData = []
+  Buy.find({username : username})
+  .then((itemdata)=>{
+    if(itemdata && itemdata.length > 0){
+      itemdata.forEach((data)=>{
+        const newDate = moment(data.date).format("DD MMMM YYYY, h:mm:ss a");
+        const items = data.items 
+        userData.push({
+          items:[...items],
+          date: newDate,
+          total : data.total_belanja,
+          id : data.id
+      })
+    
+      })
+      console.log(userData)
+      res.render('userData', {userData,fruitsData : app.locals.fruitsData, username: res.locals.userInfo.username})
+      // res.send(userData)
+    }else{
+      res.send("error")
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).send("Terjadi kesalahan server");
+  });
+  })
+  
 //! update stock
 async function updateTotalBarang() {
   try {

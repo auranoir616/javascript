@@ -31,13 +31,3 @@ const BuyListSchema = new mongoose.Schema({
 
 const BuySchema = mongoose.model('Buy', BuyListSchema)
 module.exports = BuySchema
-// const mongoose = require('mongoose');
-
-// const BuySchema = new mongoose.Schema({
-//   items: {
-//     type: Object,
-//     required: true,
-//   },
-// });
-
-// module.exports = mongoose.model('Buy', BuySchema);

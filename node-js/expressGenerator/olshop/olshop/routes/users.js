@@ -3,6 +3,9 @@ var router = express.Router();
 const passport = require("passport")
 const {forwarduser} = require('../config/auth')
 const User = require('../schema/userSchema')
+var Items = require("../schema/ItemSchema");
+const Buy =require("../schema/buySchema")
+
 const app = express()
 
 //! Menyimpan data user di app.locals.userInfo

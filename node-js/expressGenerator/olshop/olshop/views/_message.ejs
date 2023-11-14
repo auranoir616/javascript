@@ -1,37 +1,9 @@
 <% if(typeof info != 'undefined'){ %>
     <% info.forEach(function(err){ %>
-<div class="ui positive message">
-    <i class="close icon"></i>
-    <div class="header">
-      You are eligible for a reward
-    </div>
-    <p><%= err.msg %></p>
+
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>message</strong> <%= err.msg %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   <% }); %>
   <% } %>
-
-  <script>
-
-// Mengambil semua elemen dengan kelas "close" dalam elemen dengan kelas "message"
-var closeButtons = document.querySelectorAll('.message .close');
-// Menambahkan event listener untuk setiap tombol "close"
-closeButtons.forEach(function(button) {
-  button.addEventListener('click', function() {
-    // Mencari elemen terdekat dengan kelas "message"
-    var messageElement = this.closest('.message');
-
-    // Memeriksa apakah elemen "message" ditemukan
-    if (messageElement) {
-      // Mengubah gaya elemen "message" untuk mengimplementasikan animasi fade
-      messageElement.style.transition = 'opacity 0.5s';
-      messageElement.style.opacity = '0';
-      
-      // Menghapus elemen dari DOM setelah animasi selesai
-      setTimeout(function() {
-        messageElement.parentNode.removeChild(messageElement);
-      }, 500); // 0.5 detik (500 ms)
-    }
-  });
-});
-
-  </script>

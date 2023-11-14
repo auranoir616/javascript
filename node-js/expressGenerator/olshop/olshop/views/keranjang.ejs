@@ -1,40 +1,62 @@
 
 <%- include ('_header') %> 
-<div style="width: 25px">
+<style>
+  #link:hover{
+    color:rgb(255, 0, 0);
+  }
+</style>
+<div style="width: auto;">
   <table
-    class="ui very basic collapsing celled table small"
-    style="width: 25px"
+    class="table table-striped table-hover"
     id="table"
   >
-    <thead>
+    <thead style="height: 50px;">
       <tr>
         <th>Products</th>
         <th>Jumlah</th>
-        <th>Harga/kg</th>
+        <!-- <th>Harga/kg</th> -->
         <th>Harga</th>
-        <th>action</th>
+        <!-- <th>action</th> -->
       </tr>
     </thead>
     <tbody>
       <% for (let fruit of fruitsData){%>
       <tr id="<%=fruit.product%>">
-        <td><%=fruit.product%></td>
         <td>
+          <div style="display: flex;flex-direction: row;">
+            <div style="margin:5px 10px 5px 2px;">
+              <img src="<%=fruit.link%>" alt="<%=fruit.product%>" width="85px" height="85px">
+            </div>
+            <div>
+              <div id="product"><b><%=fruit.product%></b></div><br>
+              <div>harga/kg: Rp.<span id="hargakg"><%=fruit.harga%></span></div><br>
+                <div><a href="/items/delete/<%=fruit.id%>" id="link">
+                  <b>delete</b>
+                </a></div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="ui input focus">
           <input
             type="number"
-            style="width: 50px; height: 30px; border: none"
+            style="width: 80px; height: 50px; border: none"
             name="sum<%=fruit.product%>"
             value="1"
             id="inputjumlah<%=fruit.product%>"
           />
+          </div>
+           <br>
+          <!-- <button class="ui left attached button mini" onclick="minus('<%=fruit.product%>')" id="minus"><i class="minus icon"></i></button>
+          <button class="right attached ui button mini" onclick="plus('<%=fruit.product%>')" id="plus"><i class="plus icon"></i></button> -->
         </td>
-        <td id="harga<%=fruit.product%>"><%=fruit.harga%></td>
+        <!-- <td id="harga<%=fruit.product%>"><%=fruit.harga%></td> -->
         <td id="total<%=fruit.product%>"><%=fruit.harga%></td>
-        <td>
+        <!-- <td>
           <button class="small ui button" id="delete">
             <a href="/items/delete/<%=fruit.id%>">delete</a>
           </button>
-        </td>
+        </td> -->
       </tr>
       <%}%>
     </tbody>
@@ -47,50 +69,26 @@
       </tr>
       <tr>
         <td colspan="5">
-          <button
+          <!-- <button
             class="fluid ui button"
             onclick="checkOut()"
             disabled="true"
             id="buttonBuy"
           >
             Check Out
-          </button>
+          </button> -->
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button" onclick="checkOut()" id="buttonBuy" disabled="true"> Check Out</button>
+
+          </div>
         </td>
       </tr>
     </tfoot>
   </table>
 </div>
 </div>
-<!-- <div> 
-  <% for (let fruit of fruitsData){%>
 
-<div class="ui items" style="background-color: aquamarine;">
-  <div class="item">
-    <div class="ui small image">
-      <img src="<%=fruit.link%>" />
-    </div>
-    <div class="content">
-      <div class="header"><%=fruit.product%></div>
-      <div class="meta">
-        <span class="price">Rp.<%=fruit.harga%>/kg</span>
-      </div>
-      <div class="description" >
-        <input
-        type="number"
-        style="width: 50px; height: 30px; border: none"
-        value="1"/>
-        <span class="stay"><%=fruit.harga%></span>
 
-        <div class="ui right floated button" style="margin-right: 400px;">
-          delete
-      </div>
-      </div>
-      
-    </div>
-  </div>
-</div>
-<%}%>
-</div> -->
 
 <script>
 //mendapatkan table dan elemen input saat elemen di load
@@ -103,8 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
     inputElement.addEventListener("input", function () {
       // mendapatkan elemen tr dengan mencari elemen terdekat menggunakan closest
       const row = inputElement.closest("tr");
-      const hargaElement = row.querySelector("td:nth-child(3)");
-      const tdtotal = row.querySelector("td:nth-child(4)");
+      const hargaElement = row.querySelector("td:nth-child(1) span");
+      const tdtotal = row.querySelector("td:nth-child(3)");
 
       //melakukan operasi harga total
       if (hargaElement && tdtotal) {
@@ -124,7 +122,7 @@ function lihatTotal() {
   const button = document.getElementById("buttonBuy");
   let totalArray = [];
 
-  const rowTotal = document.querySelectorAll("#table td:nth-child(4)");
+  const rowTotal = document.querySelectorAll("#table td:nth-child(3)");
   for (x = 0; x < rowTotal.length; x++) {
     totalArray.push(parseInt(rowTotal[x].textContent));
   }
@@ -143,20 +141,17 @@ function checkOut() {
   saveItems()
   }
 }
-
 function saveItems() {
   let productArray = [];
   let sumArray = [];
   let totalArray = [];
   let hargaArray = [];
   let totbelanjaArray = [];
-  const rowProduct = document.querySelectorAll("#table td:nth-child(1)");
-  for (x = 0; x < rowProduct.length - 2; x++) {
+  const rowProduct = document.querySelectorAll("#table td:nth-child(1) #product");
+  for (x = 0; x < rowProduct.length; x++) {
     productArray.push(rowProduct[x].textContent);
   }
-  productArray = productArray
-    .map((item) => item.trim())
-    .filter((item) => item !== "");
+  productArray = productArray.map((item) => item.trim()).filter((item) => item !== "");
   console.log(productArray);
 
   const rowSum = document.querySelectorAll("#table td:nth-child(2) input");
@@ -165,13 +160,13 @@ function saveItems() {
   }
   console.log(sumArray);
 
-  const rowHarga = document.querySelectorAll("#table td:nth-child(3)");
+  const rowHarga = document.querySelectorAll("#table td:nth-child(1) #hargakg");
   for (x = 0; x < rowHarga.length; x++) {
     hargaArray.push(parseInt(rowHarga[x].textContent));
   }
   console.log(hargaArray);
 
-  const rowTotal = document.querySelectorAll("#table td:nth-child(4)");
+  const rowTotal = document.querySelectorAll("#table td:nth-child(3)");
   for (x = 0; x < rowTotal.length; x++) {
     totalArray.push(parseInt(rowTotal[x].textContent));
   }
@@ -189,8 +184,6 @@ function saveItems() {
     totalBelanja: totbelanjaArray,
   };
   console.log(dataSAVE);
-//menyimpan data dalam localstorage
-// localStorage.setItem('CheckOutData', JSON.stringify(dataPOST))
 
   fetch("/items/CheckOut", {
     method: "POST",
@@ -209,6 +202,21 @@ function saveItems() {
     });
     window.location.href='/items/CheckOut'
  }
+
+//tombol untuk mengubah value elemen input
+//  function minus(productId) {
+//   const inputElement = document.getElementById(`inputjumlah${productId}`);
+//   let currentValue = parseInt(inputElement.value);
+//   if (currentValue > 0) {
+//     inputElement.value = currentValue - 1;
+//   }
+// }
+
+// function plus(productId) {
+//   const inputElement = document.getElementById(`inputjumlah${productId}`);
+//   let currentValue = parseInt(inputElement.value);
+//   inputElement.value = currentValue + 1;
+// }
 
 // function reloadPage() {
 //   setTimeout(function () {
