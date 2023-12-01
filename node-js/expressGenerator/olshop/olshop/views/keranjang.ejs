@@ -47,16 +47,8 @@
           />
           </div>
            <br>
-          <!-- <button class="ui left attached button mini" onclick="minus('<%=fruit.product%>')" id="minus"><i class="minus icon"></i></button>
-          <button class="right attached ui button mini" onclick="plus('<%=fruit.product%>')" id="plus"><i class="plus icon"></i></button> -->
         </td>
-        <!-- <td id="harga<%=fruit.product%>"><%=fruit.harga%></td> -->
         <td id="total<%=fruit.product%>"><%=fruit.harga%></td>
-        <!-- <td>
-          <button class="small ui button" id="delete">
-            <a href="/items/delete/<%=fruit.id%>">delete</a>
-          </button>
-        </td> -->
       </tr>
       <%}%>
     </tbody>
@@ -69,14 +61,6 @@
       </tr>
       <tr>
         <td colspan="5">
-          <!-- <button
-            class="fluid ui button"
-            onclick="checkOut()"
-            disabled="true"
-            id="buttonBuy"
-          >
-            Check Out
-          </button> -->
           <div class="d-grid gap-2">
             <button class="btn btn-primary" type="button" onclick="checkOut()" id="buttonBuy" disabled="true"> Check Out</button>
 
@@ -203,24 +187,4 @@ function saveItems() {
     window.location.href='/items/CheckOut'
  }
 
-//tombol untuk mengubah value elemen input
-//  function minus(productId) {
-//   const inputElement = document.getElementById(`inputjumlah${productId}`);
-//   let currentValue = parseInt(inputElement.value);
-//   if (currentValue > 0) {
-//     inputElement.value = currentValue - 1;
-//   }
-// }
-
-// function plus(productId) {
-//   const inputElement = document.getElementById(`inputjumlah${productId}`);
-//   let currentValue = parseInt(inputElement.value);
-//   inputElement.value = currentValue + 1;
-// }
-
-// function reloadPage() {
-//   setTimeout(function () {
-//     location.reload();
-//   }, 800);
-// }
 </script>
