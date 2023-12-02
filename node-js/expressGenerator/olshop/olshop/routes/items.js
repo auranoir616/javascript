@@ -149,7 +149,6 @@ router.get("/delete/:fruitID", async function (req, res, next) {
 router.post("/buy", cekuser, function (req, res, next) {
   const { product, sum, harga, total, totalBelanja, username } = req.body;
   console.log(req.query.data);
-
   const fruitsItem = {
     items: [],
     username: username,
@@ -176,8 +175,6 @@ router.post("/buy", cekuser, function (req, res, next) {
       .then((newItems) => {
         console.log(newItems);
         updateTotalBarang();
-
-        // res.redirect('/items/CheckOut');
       })
       .catch((error) => {
         console.error(error);
