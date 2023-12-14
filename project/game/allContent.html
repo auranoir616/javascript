@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2d Game</title>
+    <style>
+        body{
+            background: black;
+        }
+        #canvas1{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border:  5px solid white;
+        }
+        #playerImage, #backgroundImage, #enemyImage{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas1"></canvas>
+    <img src="aset/player.png" id="playerImage">
+    <img src="aset/background_single.png" id="backgroundImage">
+    <img src="aset/enemy_1.png" id="enemyImage">
+    <script src="allContent.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>state management</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica', cursive;
+        }
+        body{
+            overflow: hidden;
+        }
+        canvas{
+            top: 0;
+            left: 0;
+        }
+        img{
+            display: none;
+        }
+        #loading{
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            font-size: 80px;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas1"></canvas>
+    <img id="dogImage" src="dog.png">
+    <h1 id="loading">LOADING...</h1>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>

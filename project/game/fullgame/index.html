@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Sancreek&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #canvas1{
+            border: 5px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            max-height: 100%;
+            font-family: 'Creepster', cursive;
+        }
+        #player, #layer1, #layer2, #layer3, #layer4, #layer5,#enemy_fly,#enemy_plant,#enemy_spider_big,#fire,#collision,#lives{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas1"></canvas>
+<img src="./aset/player.png" id="player">
+<img src="./aset/forest-1.png" id="layer1">
+<img src="./aset/forest-2.png" id="layer2">
+<img src="./aset/forest-3.png" id="layer3">
+<img src="./aset/forest-4.png" id="layer4">
+<img src="./aset/forest-5.png" id="layer5">
+<img src="./aset/enemy_fly.png" id="enemy_fly">
+<img src="./aset/enemy_plant.png" id="enemy_plant">
+<img src="./aset/enemy_spider_big.png" id="enemy_spider_big">
+<img src="./aset/fire.png" id="fire">
+<img src="./aset/boom (1).png" id="collision">
+<img src="./aset/lives.png" id="lives">
+
+
+
+
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
